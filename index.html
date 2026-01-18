@@ -12,323 +12,666 @@
   <meta property="og:title" content="브레스유(Breath You) | 의료 AI On‑premise 솔루션" />
   <meta property="og:description" content="데이터 기반 호흡기 악화 예측·진단 CDSS 및 병원 환경용 On‑premise 구축/연동 솔루션" />
   <meta property="og:type" content="website" />
-  <!-- og:image는 GitHub Pages URL이 생긴 뒤 아래 주석대로 바꾸면 가장 확실합니다 -->
-  <!-- <meta property="og:image" content="https://<username>.github.io/<repo>/assets/logo.png" /> -->
+
+  <!-- Google Fonts - Premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#071326;
-      --bg2:#0B1F3A;
-      --text:#EAF2FF;
-      --muted:#B8CCFF;
-      --brand:#0B5ED7;
-      --brand2:#2EA8FF;
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 1120px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      --bg:#050d1a;
+      --bg2:#0a1628;
+      --bg3:#0f1d32;
+      --text:#F0F6FF;
+      --muted:#94B8E8;
+      --brand:#1E6FE6;
+      --brand2:#38B6FF;
+      --brand-glow: rgba(56, 182, 255, 0.15);
+      --accent:#00D4AA;
+      --shadow: 0 20px 50px rgba(0,0,0,.4);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --max: 1180px;
+      --font-en: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-kr: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+      --transition: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    *{box-sizing:border-box}
+    *{box-sizing:border-box; margin:0; padding:0}
     html{scroll-behavior:smooth}
+    
     body{
-      margin:0;
-      font-family:var(--font);
+      font-family: var(--font-en);
       color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(46,168,255,.25), transparent 55%),
-        radial-gradient(1200px 700px at 90% 10%, rgba(11,94,215,.30), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg2) 60%, var(--bg));
-      line-height:1.55;
+      background: var(--bg);
+      line-height:1.6;
+      overflow-x: hidden;
+      /* Fix word breaking for Korean */
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
-    a{color:inherit; text-decoration:none}
-    a:hover{opacity:.95}
-    .container{width:100%; max-width:var(--max); margin:0 auto; padding:0 20px}
+    /* Korean text override */
+    html[data-language="ko"] body,
+    html[data-language="ko"] h1,
+    html[data-language="ko"] h2,
+    html[data-language="ko"] h3,
+    html[data-language="ko"] p,
+    html[data-language="ko"] span,
+    html[data-language="ko"] li,
+    html[data-language="ko"] label,
+    html[data-language="ko"] button,
+    html[data-language="ko"] input,
+    html[data-language="ko"] textarea,
+    html[data-language="ko"] select {
+      font-family: var(--font-kr);
+      word-break: keep-all;
+    }
+
+    a{color:inherit; text-decoration:none; transition: all 0.2s var(--transition)}
+    a:hover{opacity:.9}
+
+    .container{
+      width:100%; 
+      max-width:var(--max); 
+      margin:0 auto; 
+      padding:0 24px;
+    }
+
+    /* Background decoration */
+    .bg-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(30,111,230,.25), transparent 60%),
+        radial-gradient(ellipse 70% 40% at 85% 10%, rgba(56,182,255,.18), transparent 55%),
+        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(0,212,170,.08), transparent 50%);
+    }
 
     /* a11y: skip link */
     .skip{
       position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
     }
     .skip:focus{
-      left:16px; top:12px; width:auto; height:auto; padding:10px 12px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:12px;
-      z-index:999;
+      left:16px; top:12px; width:auto; height:auto; padding:12px 16px;
+      background:rgba(30,111,230,.95);
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:var(--radius-sm);
+      z-index:9999;
+      color: white;
+      font-weight: 600;
     }
 
     /* Top nav */
     .topbar{
       position:sticky; top:0; z-index:100;
-      backdrop-filter: blur(10px);
-      background: rgba(7, 19, 38, .72);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(5, 13, 26, .85);
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
-      gap:16px; padding:14px 0;
+      gap:20px; padding:16px 0;
     }
     .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width:240px;
+      display:flex; align-items:center; gap:14px;
+      min-width:auto;
+      flex-shrink: 0;
     }
 
-    /* 로고 이미지 (repo 내부 assets/logo.png 사용) */
     .logo-img{
-      height: 34px;
+      height: 38px;
       width: auto;
       display: block;
-      border-radius: 10px;
-      box-shadow: 0 10px 28px rgba(11,94,215,.22);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 8px 24px rgba(30,111,230,.25);
+      transition: transform 0.3s var(--transition), box-shadow 0.3s var(--transition);
+    }
+    .brand:hover .logo-img {
+      transform: scale(1.05);
+      box-shadow: 0 12px 32px rgba(56,182,255,.35);
     }
 
-    .brand .name{display:flex; flex-direction:column; line-height:1.1}
-    .brand .name strong{font-size:14px; letter-spacing:.2px}
-    .brand .name span{font-size:12px; color:var(--muted)}
+    .brand .name{
+      display:flex; flex-direction:column; line-height:1.2;
+      white-space: nowrap;
+    }
+    .brand .name strong{font-size:15px; font-weight:700; letter-spacing:-.2px}
+    .brand .name span{font-size:12px; color:var(--muted); font-weight:500}
 
     .links{
-      display:flex; gap:12px; align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+      display:flex; gap:6px; align-items:center;
+      flex-wrap:nowrap;
+    }
+    .links > span {
+      display: flex;
+      gap: 4px;
     }
     .links a{
-      font-size:13px; color:rgba(234,242,255,.9);
-      padding:8px 10px; border-radius:10px;
-      transition: background .2s ease;
+      font-size:13px; 
+      color:rgba(240,246,255,.85);
+      padding:10px 14px; 
+      border-radius:var(--radius-sm);
+      transition: all 0.2s var(--transition);
+      white-space: nowrap;
+      font-weight: 500;
     }
-    .links a:hover{background:rgba(255,255,255,.07)}
+    .links a:hover{
+      background:rgba(56,182,255,.1);
+      color: var(--brand2);
+    }
 
-    .nav-cta{display:flex; gap:10px; align-items:center}
+    .nav-cta{display:flex; gap:12px; align-items:center; flex-shrink: 0}
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
+      padding:12px 20px;
+      border-radius:var(--radius-sm);
+      border:1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
       color:var(--text);
       font-weight:600;
-      font-size:13px;
+      font-size:14px;
       cursor:pointer;
-      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+      transition: all 0.25s var(--transition);
       user-select:none;
       white-space:nowrap;
+      position: relative;
+      overflow: hidden;
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.22)}
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(255,255,255,.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.4s var(--transition);
+    }
+    .btn:hover::before {
+      transform: translateX(100%);
+    }
+    .btn:hover{
+      transform: translateY(-2px); 
+      border-color: rgba(255,255,255,.2);
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    }
     .btn.primary{
       background: linear-gradient(135deg, var(--brand), var(--brand2));
       border-color: transparent;
-      box-shadow: 0 14px 32px rgba(11,94,215,.28);
+      box-shadow: 0 8px 28px rgba(30,111,230,.35);
     }
-    .btn.primary:hover{filter:saturate(1.05)}
-    .btn.ghost{background: transparent; border-color: rgba(255,255,255,.18)}
+    .btn.primary:hover{
+      box-shadow: 0 12px 36px rgba(56,182,255,.45);
+      filter: brightness(1.1);
+    }
+    .btn.ghost{background: transparent; border-color: rgba(255,255,255,.15)}
+    .btn.ghost:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.25);
+    }
 
     /* Language toggle */
     .lang-toggle{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
+      display:inline-flex; align-items:center; gap:4px;
+      padding:4px;
+      border-radius:var(--radius-sm);
+      border:1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.03);
     }
     .lang-toggle button{
-      border:0; background:transparent; color:rgba(234,242,255,.85);
-      font-weight:700; font-size:12.5px;
-      padding:8px 10px;
-      border-radius:10px;
+      border:0; background:transparent; color:rgba(240,246,255,.7);
+      font-weight:700; font-size:12px;
+      padding:8px 12px;
+      border-radius:8px;
       cursor:pointer;
+      transition: all 0.2s var(--transition);
+    }
+    .lang-toggle button:hover {
+      color: rgba(240,246,255,.9);
     }
     .lang-toggle button[aria-pressed="true"]{
-      background: rgba(46,168,255,.16);
-      border:1px solid rgba(46,168,255,.25);
-      color:rgba(234,242,255,.95);
+      background: linear-gradient(135deg, rgba(30,111,230,.3), rgba(56,182,255,.2));
+      border:1px solid rgba(56,182,255,.3);
+      color:var(--brand2);
     }
 
     /* Hero */
-    .hero{padding:64px 0 30px}
+    .hero{
+      padding:80px 0 50px;
+      position: relative;
+      z-index: 1;
+    }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.3fr .9fr;
-      gap:26px;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap:40px;
       align-items:stretch;
     }
-    .hero h1{margin:0 0 14px; font-size:42px; line-height:1.1; letter-spacing:-.5px}
-    .hero p{margin:0 0 20px; color:rgba(234,242,255,.84); font-size:16px; max-width: 60ch}
-    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
-    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero h1{
+      margin:0 0 20px; 
+      font-size:48px; 
+      line-height:1.15; 
+      letter-spacing:-.5px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--text) 0%, var(--muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p{
+      margin:0 0 28px; 
+      color:rgba(240,246,255,.75); 
+      font-size:17px; 
+      max-width: 56ch;
+      line-height: 1.7;
+    }
+    .hero p strong {
+      color: var(--brand2);
+      font-weight: 600;
+    }
+    .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-top:8px}
+    
+    .pill-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:28px}
     .pill{
-      display:inline-flex; gap:8px; align-items:center;
-      font-size:12px;
-      color:rgba(234,242,255,.9);
-      padding:8px 10px;
+      display:inline-flex; gap:10px; align-items:center;
+      font-size:13px;
+      color:rgba(240,246,255,.9);
+      padding:10px 16px;
       border-radius:999px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      transition: all 0.2s var(--transition);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    .pill:hover {
+      background: rgba(56,182,255,.08);
+      border-color: rgba(56,182,255,.2);
     }
     .dot{
       width:8px; height:8px; border-radius:50%;
-      background: var(--brand2);
-      box-shadow: 0 0 0 3px rgba(46,168,255,.18);
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(0,212,170,.5);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
     }
 
     .hero-card{
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding:18px;
+      padding:28px;
       height:100%;
+      position: relative;
+      overflow: hidden;
     }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(56,182,255,.5), transparent);
+    }
+    
     .kpi{
       display:grid;
       grid-template-columns:1fr;
-      gap:12px;
-      margin-top:6px;
+      gap:14px;
+      margin-top:16px;
     }
     .kpi .item{
-      padding:14px 14px;
-      border-radius: 14px;
-      background: rgba(11,94,215,.10);
-      border:1px solid rgba(46,168,255,.20);
+      padding:18px;
+      border-radius: var(--radius-sm);
+      background: rgba(30,111,230,.08);
+      border:1px solid rgba(56,182,255,.15);
+      transition: all 0.2s var(--transition);
     }
-    .kpi .item strong{display:block; font-size:14px}
-    .kpi .item span{display:block; margin-top:6px; color:rgba(234,242,255,.82); font-size:13px}
+    .kpi .item:hover {
+      background: rgba(30,111,230,.12);
+      border-color: rgba(56,182,255,.25);
+      transform: translateX(4px);
+    }
+    .kpi .item strong{
+      display:block; 
+      font-size:15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .kpi .item span{
+      display:block; 
+      margin-top:8px; 
+      color:rgba(240,246,255,.7); 
+      font-size:13px;
+      line-height: 1.5;
+    }
     .kpi-note{
-      margin-top:14px;
-      padding-top:14px;
-      border-top:1px solid rgba(255,255,255,.12);
-      color:rgba(234,242,255,.78);
-      font-size:12.5px;
+      margin-top:20px;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:rgba(240,246,255,.7);
+      font-size:13px;
+    }
+    .kpi-note a {
+      color: var(--brand2);
+      transition: color 0.2s;
+    }
+    .kpi-note a:hover {
+      color: var(--accent);
     }
 
     /* Sections */
-    section{padding:54px 0}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:18px;
-      margin-bottom:18px;
+    section{
+      padding:70px 0;
+      position: relative;
+      z-index: 1;
     }
-    .section-title h2{margin:0; font-size:26px; letter-spacing:-.3px}
-    .section-title p{margin:0; color:rgba(234,242,255,.75); font-size:13px; max-width:55ch}
+    .section-title{
+      display:flex; 
+      flex-direction: column;
+      gap:12px;
+      margin-bottom:36px;
+    }
+    .section-title h2{
+      margin:0; 
+      font-size:32px; 
+      letter-spacing:-.3px;
+      font-weight: 800;
+    }
+    .section-title p{
+      margin:0; 
+      color:rgba(240,246,255,.65); 
+      font-size:15px; 
+      max-width:60ch;
+      line-height: 1.6;
+    }
 
-    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px}
-    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap:16px}
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:20px}
+    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap:20px}
 
     .card{
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
       border-radius: var(--radius);
-      padding:18px;
-      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+      padding:28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+      transition: all 0.3s var(--transition);
+      position: relative;
+      overflow: hidden;
     }
-    .card h3{margin:0 0 8px; font-size:16px}
-    .card p{margin:0; color:rgba(234,242,255,.82); font-size:13.5px}
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--brand), var(--brand2), var(--accent));
+      opacity: 0;
+      transition: opacity 0.3s var(--transition);
+    }
+    .card:hover {
+      background: rgba(255,255,255,.05);
+      border-color: rgba(56,182,255,.2);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    }
+    .card:hover::before {
+      opacity: 1;
+    }
+    .card h3{
+      margin:0 0 12px; 
+      font-size:18px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .card p{
+      margin:0; 
+      color:rgba(240,246,255,.7); 
+      font-size:14px;
+      line-height: 1.6;
+    }
 
     .bullets{
-      margin:12px 0 0;
-      padding-left:18px;
-      color:rgba(234,242,255,.80);
-      font-size:13.2px;
+      margin:16px 0 0;
+      padding-left:20px;
+      color:rgba(240,246,255,.75);
+      font-size:14px;
     }
-    .bullets li{margin:6px 0}
+    .bullets li{
+      margin:10px 0;
+      line-height: 1.5;
+    }
+    .bullets li::marker {
+      color: var(--brand2);
+    }
 
     .badge{
       display:inline-flex; align-items:center; gap:8px;
       font-size:12px;
-      padding:7px 10px;
+      padding:8px 14px;
       border-radius:999px;
-      background: rgba(46,168,255,.10);
-      border:1px solid rgba(46,168,255,.22);
-      color:rgba(234,242,255,.92);
-      margin-bottom:10px;
+      background: linear-gradient(135deg, rgba(30,111,230,.15), rgba(56,182,255,.1));
+      border:1px solid rgba(56,182,255,.2);
+      color:var(--brand2);
+      margin-bottom:16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
     }
-    .divider{border-top:1px solid rgba(255,255,255,.10); margin: 16px 0 0}
+    .divider{border-top:1px solid rgba(255,255,255,.08); margin: 20px 0 0}
 
     /* Research list */
     .research a{
-      color: rgba(234,242,255,.92);
+      color: var(--brand2);
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
     }
-    .research .paper{
-      display:flex; flex-direction:column; gap:8px;
-      padding:14px;
-      border-radius:14px;
-      background: rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
+    .research a:hover {
+      color: var(--accent);
     }
-    .paper .title{font-weight:700; font-size:13.6px}
-    .paper .meta{font-size:12.5px; color:rgba(234,242,255,.75)}
+    .research .paper{
+      display:flex; flex-direction:column; gap:10px;
+      padding:20px;
+      border-radius:var(--radius-sm);
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      transition: all 0.2s var(--transition);
+    }
+    .research .paper:hover {
+      background: rgba(56,182,255,.05);
+      border-color: rgba(56,182,255,.15);
+    }
+    .paper .title{
+      font-weight:700; 
+      font-size:14px;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .paper .meta{font-size:12px; color:rgba(240,246,255,.6)}
+    .paper .links {
+      font-size: 13px;
+    }
 
     /* Contact */
     .contact-wrap{
       display:grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap:16px;
+      grid-template-columns: 1fr 1.2fr;
+      gap:24px;
       align-items:start;
     }
     .contact-card{
-      background: linear-gradient(180deg, rgba(46,168,255,.10), rgba(255,255,255,.04));
-      border:1px solid rgba(46,168,255,.25);
+      background: linear-gradient(180deg, rgba(30,111,230,.08), rgba(255,255,255,.02));
+      border:1px solid rgba(56,182,255,.15);
       border-radius: var(--radius);
-      padding:18px;
+      padding:32px;
       box-shadow: var(--shadow);
     }
-    label{display:block; font-size:12.5px; color:rgba(234,242,255,.85); margin:10px 0 6px}
+    label{
+      display:block; 
+      font-size:13px; 
+      color:rgba(240,246,255,.8); 
+      margin:14px 0 8px;
+      font-weight: 600;
+    }
     input, select, textarea{
       width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(7,19,38,.55);
+      padding:14px 16px;
+      border-radius:var(--radius-sm);
+      border:1px solid rgba(255,255,255,.1);
+      background: rgba(5,13,26,.7);
       color:var(--text);
       outline:none;
+      font-size: 14px;
+      transition: all 0.2s var(--transition);
+    }
+    input::placeholder, textarea::placeholder {
+      color: rgba(240,246,255,.4);
     }
     input:focus, select:focus, textarea:focus{
-      border-color: rgba(46,168,255,.5);
-      box-shadow: 0 0 0 4px rgba(46,168,255,.12);
+      border-color: var(--brand2);
+      box-shadow: 0 0 0 4px rgba(56,182,255,.1);
+      background: rgba(5,13,26,.9);
     }
-    textarea{min-height:120px; resize:vertical}
-    .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
-    .form-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; align-items:center}
-    .hint{font-size:12.5px; color:rgba(234,242,255,.72); margin-top:10px}
-    .small{font-size:12px; color:rgba(234,242,255,.70); line-height:1.5}
+    textarea{min-height:140px; resize:vertical; line-height: 1.6}
+    select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394B8E8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+    }
+    .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
+    .form-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; align-items:center}
+    .hint{font-size:13px; color:rgba(240,246,255,.6); margin-top:14px; line-height: 1.6}
+    .small{font-size:12px; color:rgba(240,246,255,.55); line-height:1.6}
 
     .footer{
-      padding:26px 0 34px;
-      border-top:1px solid rgba(255,255,255,.10);
-      color:rgba(234,242,255,.70);
-      font-size:12.5px;
+      padding:40px 0 50px;
+      border-top:1px solid rgba(255,255,255,.06);
+      color:rgba(240,246,255,.6);
+      font-size:13px;
+      position: relative;
+      z-index: 1;
+    }
+    .footer a {
+      color: var(--brand2);
+    }
+    .footer a:hover {
+      color: var(--accent);
     }
 
-    /* Language visibility */
-    [data-lang]{display:none}
-    html[data-language="ko"] [data-lang="ko"]{display:block}
-    html[data-language="en"] [data-lang="en"]{display:block}
+    /* Language visibility - Hide all by default */
+    [data-lang] {
+      display: none !important;
+    }
+    
+    /* Show Korean content when Korean is selected */
+    html[data-language="ko"] [data-lang="ko"] {
+      display: inline !important;
+    }
+    
+    /* Show English content when English is selected */
+    html[data-language="en"] [data-lang="en"] {
+      display: inline !important;
+    }
+    
+    /* Block-level containers that wrap language content (like hero content divs) */
+    html[data-language="ko"] > body [data-lang="ko"].hero-content-block,
+    html[data-language="ko"] > body div[data-lang="ko"],
+    html[data-language="en"] > body [data-lang="en"].hero-content-block,
+    html[data-language="en"] > body div[data-lang="en"] {
+      display: block !important;
+    }
+    
+    /* Navigation spans need flex display */
+    html[data-language="ko"] .links > span[data-lang="ko"],
+    html[data-language="en"] .links > span[data-lang="en"] {
+      display: flex !important;
+      gap: 4px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .hero-content, .hero-card {
+      animation: fadeInUp 0.8s var(--transition) forwards;
+    }
+    .hero-card {
+      animation-delay: 0.2s;
+    }
+    
+    .card {
+      animation: fadeInUp 0.6s var(--transition) forwards;
+      opacity: 0;
+    }
+    .grid-3 .card:nth-child(1) { animation-delay: 0.1s; }
+    .grid-3 .card:nth-child(2) { animation-delay: 0.2s; }
+    .grid-3 .card:nth-child(3) { animation-delay: 0.3s; }
+    .grid-2 .card:nth-child(1) { animation-delay: 0.1s; }
+    .grid-2 .card:nth-child(2) { animation-delay: 0.2s; }
 
     /* Responsive */
-    @media (max-width: 980px){
+    @media (max-width: 1024px){
       .hero-grid{grid-template-columns:1fr}
       .contact-wrap{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .hero h1{font-size:38px}
+      .links { display: none; }
+    }
+    @media (max-width: 768px){
       .grid-3{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
-      .hero h1{font-size:34px}
-      .logo-img{height:30px}
-    }
-    @media (max-width: 520px){
-      .links{display:none}
-      .hero{padding-top:46px}
-      .hero h1{font-size:30px}
+      .hero{padding-top:50px}
+      .hero h1{font-size:32px}
       .form-row{grid-template-columns:1fr}
-      .logo-img{height:28px}
+      .logo-img{height:32px}
+      .brand .name { display: none; }
+      section { padding: 50px 0; }
+      .section-title h2 { font-size: 26px; }
+      .container { padding: 0 16px; }
+    }
+    @media (max-width: 480px){
+      .hero h1{font-size:28px}
+      .nav-cta .btn.ghost { display: none; }
+      .pill-row { gap: 8px; }
+      .pill { font-size: 12px; padding: 8px 12px; }
     }
   </style>
 </head>
 
 <body>
+  <div class="bg-glow" aria-hidden="true"></div>
+  
   <a class="skip" href="#main">본문으로 바로가기</a>
 
   <header class="topbar" aria-label="상단 내비게이션">
@@ -347,7 +690,7 @@
             <a href="#about">회사소개</a>
             <a href="#solutions">솔루션</a>
             <a href="#capabilities">연구/역량</a>
-            <a href="#integration">On‑premise & 연동</a>
+            <a href="#integration">On‑premise</a>
             <a href="#regulatory">인허가</a>
             <a href="#contact">문의하기</a>
           </span>
@@ -355,7 +698,7 @@
             <a href="#about">About</a>
             <a href="#solutions">Solutions</a>
             <a href="#capabilities">Research</a>
-            <a href="#integration">On‑prem & Integration</a>
+            <a href="#integration">On‑prem</a>
             <a href="#regulatory">Regulatory</a>
             <a href="#contact">Contact</a>
           </span>
@@ -367,8 +710,8 @@
             <button id="btnEn" type="button" aria-pressed="false">EN</button>
           </div>
 
-          <a class="btn ghost" href="#solutions"><span data-lang="ko">솔루션 보기</span><span data-lang="en">View solutions</span></a>
-          <a class="btn primary" href="#contact"><span data-lang="ko">도입 문의</span><span data-lang="en">Get in touch</span></a>
+          <a class="btn ghost" href="#solutions"><span data-lang="ko">솔루션 보기</span><span data-lang="en">Solutions</span></a>
+          <a class="btn primary" href="#contact"><span data-lang="ko">도입 문의</span><span data-lang="en">Contact</span></a>
         </div>
       </div>
     </div>
@@ -378,7 +721,7 @@
     <section class="hero" id="top">
       <div class="container">
         <div class="hero-grid">
-          <div>
+          <div class="hero-content">
             <div data-lang="ko">
               <h1>호흡기 악화를 예측해,<br/>치료의 타이밍을 앞당깁니다</h1>
               <p>
@@ -410,9 +753,9 @@
 
             <div class="pill-row" aria-label="핵심 키워드">
               <span class="pill"><span class="dot"></span><span data-lang="ko">호흡기 악화 예측</span><span data-lang="en">Respiratory risk prediction</span></span>
-              <span class="pill"><span class="dot"></span><span data-lang="ko">진단/악화 CDSS</span><span data-lang="en">Diagnostic & deterioration CDSS</span></span>
-              <span class="pill"><span class="dot"></span><span data-lang="ko">On‑premise 구축</span><span data-lang="en">On‑premise deployment</span></span>
-              <span class="pill"><span class="dot"></span><span data-lang="ko">EMR 연동/데이터 정제</span><span data-lang="en">EMR integration & data cleansing</span></span>
+              <span class="pill"><span class="dot"></span><span data-lang="ko">진단/악화 CDSS</span><span data-lang="en">Diagnostic CDSS</span></span>
+              <span class="pill"><span class="dot"></span><span data-lang="ko">On‑premise 구축</span><span data-lang="en">On‑premise</span></span>
+              <span class="pill"><span class="dot"></span><span data-lang="ko">EMR 연동</span><span data-lang="en">EMR integration</span></span>
             </div>
           </div>
 
@@ -421,26 +764,24 @@
 
             <div class="kpi">
               <div class="item">
-                <strong><span data-lang="ko">의료 데이터 사이언스 실행력</span><span data-lang="en">Execution-ready medical data science</span></strong>
+                <strong><span data-lang="ko">의료 데이터 사이언스 실행력</span><span data-lang="en">Medical data science expertise</span></strong>
                 <span><span data-lang="ko">CEO Medical Data Science 경력 8년 + 의료인/AI 전공 석사 인력</span><span data-lang="en">CEO with 8 years in Medical Data Science + clinician reviewers + AI M.S. talents</span></span>
               </div>
 
               <div class="item">
                 <strong><span data-lang="ko">연구 기반 신뢰</span><span data-lang="en">Research-backed credibility</span></strong>
-                <span><span data-lang="ko">Medical Informatics 분야 SCIE 논문 다수(공개 논문 링크 제공)</span><span data-lang="en">Multiple SCIE publications in Medical Informatics (public DOI links below)</span></span>
+                <span><span data-lang="ko">Medical Informatics 분야 SCIE 논문 다수 보유</span><span data-lang="en">Multiple SCIE publications in Medical Informatics</span></span>
               </div>
 
               <div class="item">
                 <strong><span data-lang="ko">고객 Needs 기반 제품 설계</span><span data-lang="en">Needs-driven product design</span></strong>
-                <span><span data-lang="ko">현장 워크플로우 중심으로 CDSS/연동/정제를 설계·개선</span><span data-lang="en">Designed and refined around real-world clinical workflow</span></span>
+                <span><span data-lang="ko">현장 워크플로우 중심으로 CDSS/연동/정제를 설계·개선</span><span data-lang="en">Designed around real-world clinical workflow</span></span>
               </div>
             </div>
 
             <div class="kpi-note">
-              <span data-lang="ko">문의:</span><span data-lang="en">Email:</span>
+              <span data-lang="ko">문의: </span><span data-lang="en">Email: </span>
               <a href="mailto:lkh256@breathyou.care"><strong>lkh256@breathyou.care</strong></a>
-              <span data-lang="ko">(연락처를 남기시면 먼저 연락드릴 수 있습니다)</span>
-              <span data-lang="en">(Leave your contact and we’ll reach out)</span>
             </div>
           </aside>
         </div>
@@ -450,13 +791,11 @@
     <section id="about">
       <div class="container">
         <div class="section-title">
-          <div>
-            <h2><span data-lang="ko">회사소개</span><span data-lang="en">About</span></h2>
-            <p>
-              <span data-lang="ko">병원 환경의 보안·운영 조건을 전제로, 의료진이 실제로 사용할 수 있는 형태로 제품을 제공합니다.</span>
-              <span data-lang="en">We build deployable medical AI—designed for security, operations, and real clinical use.</span>
-            </p>
-          </div>
+          <h2><span data-lang="ko">회사소개</span><span data-lang="en">About</span></h2>
+          <p>
+            <span data-lang="ko">병원 환경의 보안·운영 조건을 전제로, 의료진이 실제로 사용할 수 있는 형태로 제품을 제공합니다.</span>
+            <span data-lang="en">We build deployable medical AI—designed for security, operations, and real clinical use.</span>
+          </p>
         </div>
 
         <div class="grid-3">
@@ -484,13 +823,11 @@
     <section id="solutions">
       <div class="container">
         <div class="section-title">
-          <div>
-            <h2><span data-lang="ko">솔루션</span><span data-lang="en">Solutions</span></h2>
-            <p>
-              <span data-lang="ko">진단·악화 예측 CDSS부터 비정형 데이터 정제까지, 병원 도입 관점에서 설계합니다.</span>
-              <span data-lang="en">From CDSS to unstructured data cleansing—designed for hospital adoption.</span>
-            </p>
-          </div>
+          <h2><span data-lang="ko">솔루션</span><span data-lang="en">Solutions</span></h2>
+          <p>
+            <span data-lang="ko">진단·악화 예측 CDSS부터 비정형 데이터 정제까지, 병원 도입 관점에서 설계합니다.</span>
+            <span data-lang="en">From CDSS to unstructured data cleansing—designed for hospital adoption.</span>
+          </p>
         </div>
 
         <div class="grid-3">
@@ -513,8 +850,8 @@
           <article class="card">
             <div class="badge"><span data-lang="ko">예측</span><span data-lang="en">Prediction</span></div>
             <h3>
-              <span data-lang="ko">폐기능 시계열 분석·예측 기반 악화 예측 CDSS</span>
-              <span data-lang="en">Deterioration prediction CDSS using longitudinal lung function</span>
+              <span data-lang="ko">폐기능 시계열 기반 악화 예측 CDSS</span>
+              <span data-lang="en">Deterioration prediction CDSS</span>
             </h3>
             <p>
               <span data-lang="ko">폐기능 시계열 데이터를 분석·예측하여 환자 악화 가능성을 조기에 감지하는 CDSS입니다.</span>
@@ -529,16 +866,16 @@
           <article class="card">
             <div class="badge"><span data-lang="ko">데이터 정제</span><span data-lang="en">Data</span></div>
             <h3>
-              <span data-lang="ko">멀티 에이전트 기반 데이터 정제 (OCR → DB, End‑to‑End)</span>
-              <span data-lang="en">Multi‑agent data cleansing (OCR → DB, end‑to‑end)</span>
+              <span data-lang="ko">멀티 에이전트 기반 데이터 정제</span>
+              <span data-lang="en">Multi‑agent data cleansing</span>
             </h3>
             <p>
               <span data-lang="ko">비정형 의료 데이터를 OCR부터 DB 적재까지 End‑to‑End로 정제/정합하는 솔루션입니다.</span>
-              <span data-lang="en">An end‑to‑end pipeline that cleans and reconciles unstructured clinical data from OCR to database ingestion.</span>
+              <span data-lang="en">An end‑to‑end pipeline that cleans and reconciles unstructured clinical data from OCR to database.</span>
             </p>
             <ul class="bullets">
               <li><span data-lang="ko">비정형 데이터 정제 자동화</span><span data-lang="en">Automation for unstructured data</span></li>
-              <li><span data-lang="ko">연동 보조를 위한 멀티 에이전트 기반 클리닝</span><span data-lang="en">Multi‑agent cleansing to support integrations</span></li>
+              <li><span data-lang="ko">연동 보조를 위한 멀티 에이전트 클리닝</span><span data-lang="en">Multi‑agent cleansing for integrations</span></li>
             </ul>
           </article>
         </div>
@@ -548,18 +885,16 @@
     <section id="capabilities">
       <div class="container">
         <div class="section-title">
-          <div>
-            <h2><span data-lang="ko">연구/역량</span><span data-lang="en">Research & Capability</span></h2>
-            <p>
-              <span data-lang="ko">연구 기반과 제품 실행력을 함께 갖춘 팀으로, 병원 Needs 중심 제품화를 지향합니다.</span>
-              <span data-lang="en">A research-backed team focused on deployable, needs-driven products for hospitals.</span>
-            </p>
-          </div>
+          <h2><span data-lang="ko">연구/역량</span><span data-lang="en">Research & Capability</span></h2>
+          <p>
+            <span data-lang="ko">연구 기반과 제품 실행력을 함께 갖춘 팀으로, 병원 Needs 중심 제품화를 지향합니다.</span>
+            <span data-lang="en">A research-backed team focused on deployable, needs-driven products for hospitals.</span>
+          </p>
         </div>
 
         <div class="grid-2">
           <div class="card">
-            <div class="badge"><span data-lang="ko">Why Breath You</span><span data-lang="en">Why Breath You</span></div>
+            <div class="badge">Why Breath You</div>
             <h3><span data-lang="ko">신뢰를 만드는 3가지 기반</span><span data-lang="en">Three pillars of trust</span></h3>
             <ul class="bullets">
               <li><strong><span data-lang="ko">의료 데이터 사이언스 실행력</span><span data-lang="en">Execution-ready medical data science</span></strong>:
@@ -571,12 +906,12 @@
                 <span data-lang="en">Multiple SCIE papers</span>
               </li>
               <li><strong><span data-lang="ko">고객 Needs 기반 제품 설계</span><span data-lang="en">Needs-driven product design</span></strong>:
-                <span data-lang="ko">현장에서 “쓰이는 형태”로 설계·개선</span>
+                <span data-lang="ko">현장에서 "쓰이는 형태"로 설계·개선</span>
                 <span data-lang="en">Designed and refined for real clinical workflows</span>
               </li>
             </ul>
             <div class="divider"></div>
-            <p class="small" style="margin-top:12px">
+            <p class="small" style="margin-top:16px">
               <span data-lang="ko">* 본 페이지는 B2B(병원) 중심으로 구성되어 있으며, 추후 B2C 안내 섹션을 확장할 수 있습니다.</span>
               <span data-lang="en">* This page is B2B-first (hospitals). A B2C section can be added later.</span>
             </p>
@@ -590,30 +925,25 @@
               <div class="title">Novel Artificial Intelligence-Based Technology to Diagnose Asthma Using Methacholine Challenge Tests</div>
               <div class="meta">DOI: 10.4168/aair.2024.16.1.42</div>
               <div class="links">
-                <a href="https://doi.org/10.4168/aair.2024.16.1.42" target="_blank" rel="noopener">https://doi.org/10.4168/aair.2024.16.1.42</a>
+                <a href="https://doi.org/10.4168/aair.2024.16.1.42" target="_blank" rel="noopener">View publication →</a>
               </div>
             </div>
 
-            <div class="paper" style="margin-top:10px">
+            <div class="paper" style="margin-top:12px">
               <div class="title">Separate and Joint Associations of Cardiorespiratory Fitness and Healthy Vascular Aging With Subclinical Atherosclerosis in Men</div>
               <div class="meta">DOI: 10.1161/HYPERTENSIONAHA.122.19016</div>
               <div class="links">
-                <a href="https://doi.org/10.1161/HYPERTENSIONAHA.122.19016" target="_blank" rel="noopener">https://doi.org/10.1161/HYPERTENSIONAHA.122.19016</a>
+                <a href="https://doi.org/10.1161/HYPERTENSIONAHA.122.19016" target="_blank" rel="noopener">View publication →</a>
               </div>
             </div>
 
-            <div class="paper" style="margin-top:10px">
-              <div class="title">Age Prediction in Healthy Subjects Using RR Intervals and Heart Rate Variability: A Pilot Study Based on Deep Learning</div>
+            <div class="paper" style="margin-top:12px">
+              <div class="title">Age Prediction in Healthy Subjects Using RR Intervals and Heart Rate Variability</div>
               <div class="meta">DOI: 10.3390/app13052932</div>
               <div class="links">
-                <a href="https://doi.org/10.3390/app13052932" target="_blank" rel="noopener">https://doi.org/10.3390/app13052932</a>
+                <a href="https://doi.org/10.3390/app13052932" target="_blank" rel="noopener">View publication →</a>
               </div>
             </div>
-
-            <p class="small" style="margin-top:12px">
-              <span data-lang="ko">위 링크는 각 DOI 페이지로 연결됩니다.</span>
-              <span data-lang="en">Links go to each DOI landing page.</span>
-            </p>
           </div>
         </div>
       </div>
@@ -622,13 +952,11 @@
     <section id="integration">
       <div class="container">
         <div class="section-title">
-          <div>
-            <h2><span data-lang="ko">On‑premise & 연동</span><span data-lang="en">On‑prem & Integration</span></h2>
-            <p>
-              <span data-lang="ko">EMR 연동과 비정형 데이터 정제를 포함해, 병원 운영 흐름에 맞춘 도입을 지원합니다.</span>
-              <span data-lang="en">We support EMR integration and unstructured data cleansing for smooth hospital adoption.</span>
-            </p>
-          </div>
+          <h2><span data-lang="ko">On‑premise & 연동</span><span data-lang="en">On‑prem & Integration</span></h2>
+          <p>
+            <span data-lang="ko">EMR 연동과 비정형 데이터 정제를 포함해, 병원 운영 흐름에 맞춘 도입을 지원합니다.</span>
+            <span data-lang="en">We support EMR integration and unstructured data cleansing for smooth hospital adoption.</span>
+          </p>
         </div>
 
         <div class="grid-3">
@@ -643,14 +971,14 @@
             <p><span data-lang="ko">필요한 지점에서 데이터가 흘러가고 결과가 돌아오도록, 연동 범위를 협의하여 설계합니다.</span><span data-lang="en">We align integration scope so data flows in and results flow back where needed.</span></p>
           </div>
           <div class="card">
-            <div class="badge"><span data-lang="ko">비정형 데이터</span><span data-lang="en">Unstructured data</span></div>
+            <div class="badge"><span data-lang="ko">비정형 데이터</span><span data-lang="en">Unstructured</span></div>
             <h3><span data-lang="ko">정제/클리닝 자동화</span><span data-lang="en">Cleansing automation</span></h3>
             <p><span data-lang="ko">OCR부터 DB 적재까지 End‑to‑End 정제 파이프라인으로 연동 전/후 데이터를 안정화합니다.</span><span data-lang="en">End‑to‑end (OCR→DB) cleansing to stabilize data before/after integration.</span></p>
           </div>
         </div>
 
-        <p class="hint" style="margin-top:14px">
-          <span data-lang="ko">* 원하시면 “연동 대상(EMR/검사장비/문서)”과 “운영 조건(폐쇄망/권한/로그)”에 맞춰 도입 시나리오를 함께 정리해 드릴 수 있습니다.</span>
+        <p class="hint" style="margin-top:20px">
+          <span data-lang="ko">* 원하시면 "연동 대상(EMR/검사장비/문서)"과 "운영 조건(폐쇄망/권한/로그)"에 맞춰 도입 시나리오를 함께 정리해 드릴 수 있습니다.</span>
           <span data-lang="en">* We can also help define deployment scenarios by integration targets and operational constraints (air‑gapped networks, access control, audit logs).</span>
         </p>
       </div>
@@ -659,13 +987,11 @@
     <section id="regulatory">
       <div class="container">
         <div class="section-title">
-          <div>
-            <h2><span data-lang="ko">인허가</span><span data-lang="en">Regulatory</span></h2>
-            <p>
-              <span data-lang="ko">의료 현장 적용을 위해 신뢰성과 규제 요건을 충족하는 방향으로 준비합니다.</span>
-              <span data-lang="en">We progress toward clinical deployment with regulatory readiness in mind.</span>
-            </p>
-          </div>
+          <h2><span data-lang="ko">인허가</span><span data-lang="en">Regulatory</span></h2>
+          <p>
+            <span data-lang="ko">의료 현장 적용을 위해 신뢰성과 규제 요건을 충족하는 방향으로 준비합니다.</span>
+            <span data-lang="en">We progress toward clinical deployment with regulatory readiness in mind.</span>
+          </p>
         </div>
 
         <div class="grid-2">
@@ -693,23 +1019,21 @@
     <section id="contact">
       <div class="container">
         <div class="section-title">
-          <div>
-            <h2><span data-lang="ko">문의하기</span><span data-lang="en">Contact</span></h2>
-            <p>
-              <span data-lang="ko">도입/협업 문의를 남겨주시면 검토 후 연락드리겠습니다. (B2B 중심)</span>
-              <span data-lang="en">Tell us about your use case. We’ll review and get back to you. (B2B-first)</span>
-            </p>
-          </div>
+          <h2><span data-lang="ko">문의하기</span><span data-lang="en">Contact</span></h2>
+          <p>
+            <span data-lang="ko">도입/협업 문의를 남겨주시면 검토 후 연락드리겠습니다. (B2B 중심)</span>
+            <span data-lang="en">Tell us about your use case. We'll review and get back to you. (B2B-first)</span>
+          </p>
         </div>
 
         <div class="contact-wrap">
           <div class="card">
             <div class="badge">Contact</div>
             <h3><span data-lang="ko">이메일로 바로 문의</span><span data-lang="en">Email us directly</span></h3>
-            <p style="margin-top:8px">
+            <p style="margin-top:12px">
               <a class="btn primary" href="mailto:lkh256@breathyou.care">
-                <span data-lang="ko">lkh256@breathyou.care 로 메일 보내기</span>
-                <span data-lang="en">Email lkh256@breathyou.care</span>
+                <span data-lang="ko">lkh256@breathyou.care</span>
+                <span data-lang="en">lkh256@breathyou.care</span>
               </a>
             </p>
             <p class="hint">
@@ -717,14 +1041,14 @@
               <span data-lang="en">Subject example: <strong>[Inquiry] Hospital / Solution</strong><br/>Leave your contact and we can reach out first.</span>
             </p>
             <div class="divider"></div>
-            <p class="small" style="margin-top:12px">
-              <span data-lang="ko">* 본 폼은 서버 없이도 배포 가능하도록 <code>mailto:</code> 방식으로 구현되어 있습니다. (기본 메일 앱 설정 필요)</span>
-              <span data-lang="en">* This form uses <code>mailto:</code> so it works without a backend (requires a mail client).</span>
+            <p class="small" style="margin-top:16px">
+              <span data-lang="ko">* 본 폼은 서버 없이도 배포 가능하도록 <code>mailto:</code> 방식으로 구현되어 있습니다.</span>
+              <span data-lang="en">* This form uses <code>mailto:</code> so it works without a backend.</span>
             </p>
           </div>
 
           <div class="contact-card">
-            <div class="badge"><span data-lang="ko">간단 문의 폼</span><span data-lang="en">Quick inquiry form</span></div>
+            <div class="badge"><span data-lang="ko">간단 문의 폼</span><span data-lang="en">Quick inquiry</span></div>
 
             <form id="inquiryForm" autocomplete="on">
               <div class="form-row">
@@ -769,21 +1093,21 @@
 
     <footer class="footer">
       <div class="container">
-        <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between">
-          <div style="display:flex; gap:12px; align-items:center;">
-            <img class="logo-img" src="./assets/logo.png" alt="Breath you 로고" style="height:26px; box-shadow:none;" />
+        <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between">
+          <div style="display:flex; gap:14px; align-items:center;">
+            <img class="logo-img" src="./assets/logo.png" alt="Breath you 로고" style="height:28px; box-shadow:none;" />
             <div>
               <strong>브레스유 / Breath You</strong><br/>
-              <span>Medical AI · On‑premise · CDSS</span>
+              <span style="color: var(--muted)">Medical AI · On‑premise · CDSS</span>
             </div>
           </div>
           <div>
-            <span data-lang="ko">문의:</span><span data-lang="en">Email:</span>
+            <span data-lang="ko">문의: </span><span data-lang="en">Email: </span>
             <a href="mailto:lkh256@breathyou.care"><strong>lkh256@breathyou.care</strong></a>
           </div>
         </div>
 
-        <p class="small" style="margin-top:12px; margin-bottom:0">
+        <p class="small" style="margin-top:20px; margin-bottom:0">
           © <span id="year"></span> Breath You. All rights reserved.
         </p>
       </div>
@@ -800,19 +1124,19 @@
       const btnEn = document.getElementById("btnEn");
 
       const interestSelect = document.getElementById("interest");
-      const message = document.getElementById("message");
+      const messageEl = document.getElementById("message");
 
       const interestOptionsKO = [
         {value:"", label:"선택해주세요", disabled:true},
         {value:"메타콜린 기반 천식 진단 CDSS", label:"메타콜린 기반 천식 진단 CDSS"},
-        {value:"폐기능 시계열 분석·예측 기반 악화 예측 CDSS", label:"폐기능 시계열 분석·예측 기반 악화 예측 CDSS"},
+        {value:"폐기능 시계열 기반 악화 예측 CDSS", label:"폐기능 시계열 기반 악화 예측 CDSS"},
         {value:"멀티 에이전트 기반 데이터 정제(OCR→DB)", label:"멀티 에이전트 기반 데이터 정제(OCR→DB)"},
         {value:"기타/도입 상담", label:"기타/도입 상담"}
       ];
       const interestOptionsEN = [
         {value:"", label:"Select one", disabled:true},
         {value:"Methacholine-based asthma diagnostic CDSS", label:"Methacholine-based asthma diagnostic CDSS"},
-        {value:"Deterioration prediction CDSS (longitudinal lung function)", label:"Deterioration prediction CDSS (longitudinal lung function)"},
+        {value:"Deterioration prediction CDSS (longitudinal lung function)", label:"Deterioration prediction CDSS"},
         {value:"Multi-agent data cleansing (OCR → DB)", label:"Multi-agent data cleansing (OCR → DB)"},
         {value:"Other / Consultation", label:"Other / Consultation"}
       ];
@@ -846,14 +1170,14 @@
           if (desc) desc.setAttribute("content",
             "Breath You builds data-driven medical AI for respiratory deterioration prediction, delivering CDSS and on‑premise solutions for hospitals.");
           rebuildSelect(interestOptionsEN);
-          message.placeholder = "e.g., your goal, integration targets (EMR/devices/documents), deployment constraints (on‑prem / air‑gapped network), etc.";
+          messageEl.placeholder = "e.g., your goal, integration targets (EMR/devices/documents), deployment constraints (on‑prem / air‑gapped network), etc.";
         } else {
           document.title = "브레스유(Breath You) | 의료 AI On‑premise 솔루션";
           const desc = document.querySelector('meta[name="description"]');
           if (desc) desc.setAttribute("content",
             "브레스유(Breath You)는 데이터 기반 분석으로 호흡기 악화를 예측하여 조기 치료를 돕는 의료 AI CDSS 및 병원 환경용 On‑premise 솔루션을 제공합니다.");
           rebuildSelect(interestOptionsKO);
-          message.placeholder = "예: 도입 목적, 연동 대상(EMR/검사장비/문서), 구축 환경(On-premise/폐쇄망 여부) 등을 알려주시면 검토에 도움이 됩니다.";
+          messageEl.placeholder = "예: 도입 목적, 연동 대상(EMR/검사장비/문서), 구축 환경(On-premise/폐쇄망 여부) 등";
         }
 
         try { localStorage.setItem("by_lang", lang); } catch(e){}
@@ -895,7 +1219,7 @@
         : `[도입문의] ${org} / ${interest}`;
 
       const body = (lang === "en")
-`[Breath You Inquiry]
+? `[Breath You Inquiry]
 - Name: ${name}
 - Organization: ${org}
 - Email: ${email}
@@ -926,6 +1250,25 @@ ${message}
         : "메일 앱이 열립니다. 전송을 완료해 주세요.";
 
       window.location.href = mailto;
+    });
+
+    // Intersection Observer for card animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
     });
   </script>
 </body>
