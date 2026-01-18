@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="ko" data-language="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>브레스유(Breath You) | 의료 AI On‑premise 솔루션</title>
+
+  <!-- SEO / OG (기본: 국문) -->
+  <meta name="description" content="브레스유(Breath You)는 데이터 기반 분석으로 호흡기 악화를 예측하여 조기 치료를 돕는 의료 AI CDSS 및 병원 환경용 On‑premise 솔루션을 제공합니다." />
+  <meta name="theme-color" content="#0B5ED7" />
+  <meta property="og:title" content="브레스유(Breath You) | 의료 AI On‑premise 솔루션" />
+  <meta property="og:description" content="데이터 기반 호흡기 악화 예측·진단 CDSS 및 병원 환경용 On‑premise 구축/연동 솔루션" />
+  <meta property="og:type" content="website" />
+  <!-- og:image는 GitHub Pages URL이 생긴 뒤 아래 주석대로 바꾸면 가장 확실합니다 -->
+  <!-- <meta property="og:image" content="https://<username>.github.io/<repo>/assets/logo.png" /> -->
+
+  <style>
+    :root{
+      --bg:#071326;
+      --bg2:#0B1F3A;
+      --text:#EAF2FF;
+      --muted:#B8CCFF;
+      --brand:#0B5ED7;
+      --brand2:#2EA8FF;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(46,168,255,.25), transparent 55%),
+        radial-gradient(1200px 700px at 90% 10%, rgba(11,94,215,.30), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2) 60%, var(--bg));
+      line-height:1.55;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.95}
+    .container{width:100%; max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    /* a11y: skip link */
+    .skip{
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      left:16px; top:12px; width:auto; height:auto; padding:10px 12px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:12px;
+      z-index:999;
+    }
+
+    /* Top nav */
+    .topbar{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter: blur(10px);
+      background: rgba(7, 19, 38, .72);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width:240px;
+    }
+
+    /* 로고 이미지 (repo 내부 assets/logo.png 사용) */
+    .logo-img{
+      height: 34px;
+      width: auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(11,94,215,.22);
+    }
+
+    .brand .name{display:flex; flex-direction:column; line-height:1.1}
+    .brand .name strong{font-size:14px; letter-spacing:.2px}
+    .brand .name span{font-size:12px; color:var(--muted)}
+
+    .links{
+      display:flex; gap:12px; align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .links a{
+      font-size:13px; color:rgba(234,242,255,.9);
+      padding:8px 10px; border-radius:10px;
+      transition: background .2s ease;
+    }
+    .links a:hover{background:rgba(255,255,255,.07)}
+
+    .nav-cta{display:flex; gap:10px; align-items:center}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:600;
+      font-size:13px;
+      cursor:pointer;
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      border-color: transparent;
+      box-shadow: 0 14px 32px rgba(11,94,215,.28);
+    }
+    .btn.primary:hover{filter:saturate(1.05)}
+    .btn.ghost{background: transparent; border-color: rgba(255,255,255,.18)}
+
+    /* Language toggle */
+    .lang-toggle{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+    .lang-toggle button{
+      border:0; background:transparent; color:rgba(234,242,255,.85);
+      font-weight:700; font-size:12.5px;
+      padding:8px 10px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+    .lang-toggle button[aria-pressed="true"]{
+      background: rgba(46,168,255,.16);
+      border:1px solid rgba(46,168,255,.25);
+      color:rgba(234,242,255,.95);
+    }
+
+    /* Hero */
+    .hero{padding:64px 0 30px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.3fr .9fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .hero h1{margin:0 0 14px; font-size:42px; line-height:1.1; letter-spacing:-.5px}
+    .hero p{margin:0 0 20px; color:rgba(234,242,255,.84); font-size:16px; max-width: 60ch}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
+    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:12px;
+      color:rgba(234,242,255,.9);
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background: var(--brand2);
+      box-shadow: 0 0 0 3px rgba(46,168,255,.18);
+    }
+
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+      height:100%;
+    }
+    .kpi{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:6px;
+    }
+    .kpi .item{
+      padding:14px 14px;
+      border-radius: 14px;
+      background: rgba(11,94,215,.10);
+      border:1px solid rgba(46,168,255,.20);
+    }
+    .kpi .item strong{display:block; font-size:14px}
+    .kpi .item span{display:block; margin-top:6px; color:rgba(234,242,255,.82); font-size:13px}
+    .kpi-note{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid rgba(255,255,255,.12);
+      color:rgba(234,242,255,.78);
+      font-size:12.5px;
+    }
+
+    /* Sections */
+    section{padding:54px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .section-title h2{margin:0; font-size:26px; letter-spacing:-.3px}
+    .section-title p{margin:0; color:rgba(234,242,255,.75); font-size:13px; max-width:55ch}
+
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px}
+    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap:16px}
+
+    .card{
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:rgba(234,242,255,.82); font-size:13.5px}
+
+    .bullets{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:rgba(234,242,255,.80);
+      font-size:13.2px;
+    }
+    .bullets li{margin:6px 0}
+
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      background: rgba(46,168,255,.10);
+      border:1px solid rgba(46,168,255,.22);
+      color:rgba(234,242,255,.92);
+      margin-bottom:10px;
+    }
+    .divider{border-top:1px solid rgba(255,255,255,.10); margin: 16px 0 0}
+
+    /* Research list */
+    .research a{
+      color: rgba(234,242,255,.92);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+    .research .paper{
+      display:flex; flex-direction:column; gap:8px;
+      padding:14px;
+      border-radius:14px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .paper .title{font-weight:700; font-size:13.6px}
+    .paper .meta{font-size:12.5px; color:rgba(234,242,255,.75)}
+
+    /* Contact */
+    .contact-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap:16px;
+      align-items:start;
+    }
+    .contact-card{
+      background: linear-gradient(180deg, rgba(46,168,255,.10), rgba(255,255,255,.04));
+      border:1px solid rgba(46,168,255,.25);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    label{display:block; font-size:12.5px; color:rgba(234,242,255,.85); margin:10px 0 6px}
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(7,19,38,.55);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(46,168,255,.5);
+      box-shadow: 0 0 0 4px rgba(46,168,255,.12);
+    }
+    textarea{min-height:120px; resize:vertical}
+    .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .form-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; align-items:center}
+    .hint{font-size:12.5px; color:rgba(234,242,255,.72); margin-top:10px}
+    .small{font-size:12px; color:rgba(234,242,255,.70); line-height:1.5}
+
+    .footer{
+      padding:26px 0 34px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color:rgba(234,242,255,.70);
+      font-size:12.5px;
+    }
+
+    /* Language visibility */
+    [data-lang]{display:none}
+    html[data-language="ko"] [data-lang="ko"]{display:block}
+    html[data-language="en"] [data-lang="en"]{display:block}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .contact-wrap{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .hero h1{font-size:34px}
+      .logo-img{height:30px}
+    }
+    @media (max-width: 520px){
+      .links{display:none}
+      .hero{padding-top:46px}
+      .hero h1{font-size:30px}
+      .form-row{grid-template-columns:1fr}
+      .logo-img{height:28px}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">본문으로 바로가기</a>
+
+  <header class="topbar" aria-label="상단 내비게이션">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Breath You 홈으로">
+          <img class="logo-img" src="./assets/logo.png" alt="Breath you 로고" />
+          <div class="name">
+            <strong>브레스유 / Breath You</strong>
+            <span>Medical AI · On‑premise · CDSS</span>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="섹션 이동">
+          <span data-lang="ko">
+            <a href="#about">회사소개</a>
+            <a href="#solutions">솔루션</a>
+            <a href="#capabilities">연구/역량</a>
+            <a href="#integration">On‑premise & 연동</a>
+            <a href="#regulatory">인허가</a>
+            <a href="#contact">문의하기</a>
+          </span>
+          <span data-lang="en">
+            <a href="#about">About</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#capabilities">Research</a>
+            <a href="#integration">On‑prem & Integration</a>
+            <a href="#regulatory">Regulatory</a>
+            <a href="#contact">Contact</a>
+          </span>
+        </nav>
+
+        <div class="nav-cta">
+          <div class="lang-toggle" role="group" aria-label="Language toggle">
+            <button id="btnKo" type="button" aria-pressed="true">KO</button>
+            <button id="btnEn" type="button" aria-pressed="false">EN</button>
+          </div>
+
+          <a class="btn ghost" href="#solutions"><span data-lang="ko">솔루션 보기</span><span data-lang="en">View solutions</span></a>
+          <a class="btn primary" href="#contact"><span data-lang="ko">도입 문의</span><span data-lang="en">Get in touch</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div data-lang="ko">
+              <h1>호흡기 악화를 예측해,<br/>치료의 타이밍을 앞당깁니다</h1>
+              <p>
+                브레스유(Breath You)는 <strong>데이터 기반 분석</strong>으로 호흡기 질환의 악화 가능성을 예측하고,
+                의료진의 의사결정을 돕는 <strong>AI CDSS</strong> 및
+                병원 환경을 위한 <strong>On‑premise 솔루션</strong>을 개발합니다.
+              </p>
+            </div>
+
+            <div data-lang="en">
+              <h1>Predict respiratory deterioration,<br/>enable earlier intervention</h1>
+              <p>
+                Breath You builds <strong>data-driven medical AI</strong> to predict respiratory deterioration,
+                delivering <strong>clinical decision support (CDSS)</strong> and
+                <strong>on‑premise deployments</strong> designed for security‑critical hospital environments.
+              </p>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#contact">
+                <span data-lang="ko">도입/협업 문의하기</span>
+                <span data-lang="en">Contact us</span>
+              </a>
+              <a class="btn ghost" href="#solutions">
+                <span data-lang="ko">솔루션 보기</span>
+                <span data-lang="en">View solutions</span>
+              </a>
+            </div>
+
+            <div class="pill-row" aria-label="핵심 키워드">
+              <span class="pill"><span class="dot"></span><span data-lang="ko">호흡기 악화 예측</span><span data-lang="en">Respiratory risk prediction</span></span>
+              <span class="pill"><span class="dot"></span><span data-lang="ko">진단/악화 CDSS</span><span data-lang="en">Diagnostic & deterioration CDSS</span></span>
+              <span class="pill"><span class="dot"></span><span data-lang="ko">On‑premise 구축</span><span data-lang="en">On‑premise deployment</span></span>
+              <span class="pill"><span class="dot"></span><span data-lang="ko">EMR 연동/데이터 정제</span><span data-lang="en">EMR integration & data cleansing</span></span>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="요약 카드">
+            <div class="badge"><span data-lang="ko">B2B 중심 · 병원 도입 최적화</span><span data-lang="en">B2B-first · Built for hospitals</span></div>
+
+            <div class="kpi">
+              <div class="item">
+                <strong><span data-lang="ko">의료 데이터 사이언스 실행력</span><span data-lang="en">Execution-ready medical data science</span></strong>
+                <span><span data-lang="ko">CEO Medical Data Science 경력 8년 + 의료인/AI 전공 석사 인력</span><span data-lang="en">CEO with 8 years in Medical Data Science + clinician reviewers + AI M.S. talents</span></span>
+              </div>
+
+              <div class="item">
+                <strong><span data-lang="ko">연구 기반 신뢰</span><span data-lang="en">Research-backed credibility</span></strong>
+                <span><span data-lang="ko">Medical Informatics 분야 SCIE 논문 다수(공개 논문 링크 제공)</span><span data-lang="en">Multiple SCIE publications in Medical Informatics (public DOI links below)</span></span>
+              </div>
+
+              <div class="item">
+                <strong><span data-lang="ko">고객 Needs 기반 제품 설계</span><span data-lang="en">Needs-driven product design</span></strong>
+                <span><span data-lang="ko">현장 워크플로우 중심으로 CDSS/연동/정제를 설계·개선</span><span data-lang="en">Designed and refined around real-world clinical workflow</span></span>
+              </div>
+            </div>
+
+            <div class="kpi-note">
+              <span data-lang="ko">문의:</span><span data-lang="en">Email:</span>
+              <a href="mailto:lkh256@breathyou.care"><strong>lkh256@breathyou.care</strong></a>
+              <span data-lang="ko">(연락처를 남기시면 먼저 연락드릴 수 있습니다)</span>
+              <span data-lang="en">(Leave your contact and we’ll reach out)</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2><span data-lang="ko">회사소개</span><span data-lang="en">About</span></h2>
+            <p>
+              <span data-lang="ko">병원 환경의 보안·운영 조건을 전제로, 의료진이 실제로 사용할 수 있는 형태로 제품을 제공합니다.</span>
+              <span data-lang="en">We build deployable medical AI—designed for security, operations, and real clinical use.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="badge"><span data-lang="ko">악화 예측</span><span data-lang="en">Prediction</span></div>
+            <h3><span data-lang="ko">조기 신호 포착</span><span data-lang="en">Early signal detection</span></h3>
+            <p><span data-lang="ko">폐기능 등 시계열 데이터를 기반으로 환자 상태 변화의 신호를 조기에 포착합니다.</span><span data-lang="en">We capture early deterioration signals from longitudinal respiratory data.</span></p>
+          </div>
+
+          <div class="card">
+            <div class="badge"><span data-lang="ko">의사결정 지원</span><span data-lang="en">CDSS</span></div>
+            <h3><span data-lang="ko">CDSS로 임상 흐름에 맞게</span><span data-lang="en">Workflow-aligned decision support</span></h3>
+            <p><span data-lang="ko">의료진 워크플로우에 맞춘 화면·리포트로 해석과 판단을 빠르게 돕습니다.</span><span data-lang="en">We deliver CDSS experiences aligned with real clinical workflow and reporting.</span></p>
+          </div>
+
+          <div class="card">
+            <div class="badge"><span data-lang="ko">병원 최적화</span><span data-lang="en">On‑prem</span></div>
+            <h3><span data-lang="ko">On‑premise 중심 구축</span><span data-lang="en">Built for on‑premise deployment</span></h3>
+            <p><span data-lang="ko">개인정보 보안이 중요한 환경에 맞춰 On‑premise 구축 및 연동을 지원합니다.</span><span data-lang="en">We support on‑premise deployments and integrations for privacy‑critical environments.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2><span data-lang="ko">솔루션</span><span data-lang="en">Solutions</span></h2>
+            <p>
+              <span data-lang="ko">진단·악화 예측 CDSS부터 비정형 데이터 정제까지, 병원 도입 관점에서 설계합니다.</span>
+              <span data-lang="en">From CDSS to unstructured data cleansing—designed for hospital adoption.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="badge">CDSS</div>
+            <h3>
+              <span data-lang="ko">메타콜린 기반 천식 진단 CDSS</span>
+              <span data-lang="en">Methacholine-based asthma diagnostic CDSS</span>
+            </h3>
+            <p>
+              <span data-lang="ko">메타콜린 검사 데이터를 기반으로 천식 진단 과정의 의사결정을 지원하는 CDSS입니다.</span>
+              <span data-lang="en">A CDSS that supports asthma diagnosis using methacholine challenge test data.</span>
+            </p>
+            <ul class="bullets">
+              <li><span data-lang="ko">검사 데이터 해석을 돕는 모델 기반 판단 보조</span><span data-lang="en">Model-assisted interpretation support</span></li>
+              <li><span data-lang="ko">임상 프로세스에 맞춘 화면/리포트 구성</span><span data-lang="en">UI/reporting aligned to clinical workflow</span></li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="badge"><span data-lang="ko">예측</span><span data-lang="en">Prediction</span></div>
+            <h3>
+              <span data-lang="ko">폐기능 시계열 분석·예측 기반 악화 예측 CDSS</span>
+              <span data-lang="en">Deterioration prediction CDSS using longitudinal lung function</span>
+            </h3>
+            <p>
+              <span data-lang="ko">폐기능 시계열 데이터를 분석·예측하여 환자 악화 가능성을 조기에 감지하는 CDSS입니다.</span>
+              <span data-lang="en">A CDSS that analyzes and forecasts lung-function time series to flag early deterioration risk.</span>
+            </p>
+            <ul class="bullets">
+              <li><span data-lang="ko">추세/변곡/리스크 신호 시각화</span><span data-lang="en">Trend/inflection/risk signal visualization</span></li>
+              <li><span data-lang="ko">조기 대응을 위한 알림·리포트 설계</span><span data-lang="en">Alerts and reports for early intervention</span></li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="badge"><span data-lang="ko">데이터 정제</span><span data-lang="en">Data</span></div>
+            <h3>
+              <span data-lang="ko">멀티 에이전트 기반 데이터 정제 (OCR → DB, End‑to‑End)</span>
+              <span data-lang="en">Multi‑agent data cleansing (OCR → DB, end‑to‑end)</span>
+            </h3>
+            <p>
+              <span data-lang="ko">비정형 의료 데이터를 OCR부터 DB 적재까지 End‑to‑End로 정제/정합하는 솔루션입니다.</span>
+              <span data-lang="en">An end‑to‑end pipeline that cleans and reconciles unstructured clinical data from OCR to database ingestion.</span>
+            </p>
+            <ul class="bullets">
+              <li><span data-lang="ko">비정형 데이터 정제 자동화</span><span data-lang="en">Automation for unstructured data</span></li>
+              <li><span data-lang="ko">연동 보조를 위한 멀티 에이전트 기반 클리닝</span><span data-lang="en">Multi‑agent cleansing to support integrations</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2><span data-lang="ko">연구/역량</span><span data-lang="en">Research & Capability</span></h2>
+            <p>
+              <span data-lang="ko">연구 기반과 제품 실행력을 함께 갖춘 팀으로, 병원 Needs 중심 제품화를 지향합니다.</span>
+              <span data-lang="en">A research-backed team focused on deployable, needs-driven products for hospitals.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="badge"><span data-lang="ko">Why Breath You</span><span data-lang="en">Why Breath You</span></div>
+            <h3><span data-lang="ko">신뢰를 만드는 3가지 기반</span><span data-lang="en">Three pillars of trust</span></h3>
+            <ul class="bullets">
+              <li><strong><span data-lang="ko">의료 데이터 사이언스 실행력</span><span data-lang="en">Execution-ready medical data science</span></strong>:
+                <span data-lang="ko">CEO Medical Data Science 경력 8년 + 의료인/AI 전공 석사 인력</span>
+                <span data-lang="en">CEO with 8 years in Medical Data Science + clinician reviewers + AI M.S. talents</span>
+              </li>
+              <li><strong><span data-lang="ko">Medical Informatics 연구 기반</span><span data-lang="en">Medical Informatics publications</span></strong>:
+                <span data-lang="ko">SCIE 논문 다수</span>
+                <span data-lang="en">Multiple SCIE papers</span>
+              </li>
+              <li><strong><span data-lang="ko">고객 Needs 기반 제품 설계</span><span data-lang="en">Needs-driven product design</span></strong>:
+                <span data-lang="ko">현장에서 “쓰이는 형태”로 설계·개선</span>
+                <span data-lang="en">Designed and refined for real clinical workflows</span>
+              </li>
+            </ul>
+            <div class="divider"></div>
+            <p class="small" style="margin-top:12px">
+              <span data-lang="ko">* 본 페이지는 B2B(병원) 중심으로 구성되어 있으며, 추후 B2C 안내 섹션을 확장할 수 있습니다.</span>
+              <span data-lang="en">* This page is B2B-first (hospitals). A B2C section can be added later.</span>
+            </p>
+          </div>
+
+          <div class="card research">
+            <div class="badge">Research</div>
+            <h3><span data-lang="ko">공개 연구 근거</span><span data-lang="en">Public publications</span></h3>
+
+            <div class="paper">
+              <div class="title">Novel Artificial Intelligence-Based Technology to Diagnose Asthma Using Methacholine Challenge Tests</div>
+              <div class="meta">DOI: 10.4168/aair.2024.16.1.42</div>
+              <div class="links">
+                <a href="https://doi.org/10.4168/aair.2024.16.1.42" target="_blank" rel="noopener">https://doi.org/10.4168/aair.2024.16.1.42</a>
+              </div>
+            </div>
+
+            <div class="paper" style="margin-top:10px">
+              <div class="title">Separate and Joint Associations of Cardiorespiratory Fitness and Healthy Vascular Aging With Subclinical Atherosclerosis in Men</div>
+              <div class="meta">DOI: 10.1161/HYPERTENSIONAHA.122.19016</div>
+              <div class="links">
+                <a href="https://doi.org/10.1161/HYPERTENSIONAHA.122.19016" target="_blank" rel="noopener">https://doi.org/10.1161/HYPERTENSIONAHA.122.19016</a>
+              </div>
+            </div>
+
+            <div class="paper" style="margin-top:10px">
+              <div class="title">Age Prediction in Healthy Subjects Using RR Intervals and Heart Rate Variability: A Pilot Study Based on Deep Learning</div>
+              <div class="meta">DOI: 10.3390/app13052932</div>
+              <div class="links">
+                <a href="https://doi.org/10.3390/app13052932" target="_blank" rel="noopener">https://doi.org/10.3390/app13052932</a>
+              </div>
+            </div>
+
+            <p class="small" style="margin-top:12px">
+              <span data-lang="ko">위 링크는 각 DOI 페이지로 연결됩니다.</span>
+              <span data-lang="en">Links go to each DOI landing page.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="integration">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2><span data-lang="ko">On‑premise & 연동</span><span data-lang="en">On‑prem & Integration</span></h2>
+            <p>
+              <span data-lang="ko">EMR 연동과 비정형 데이터 정제를 포함해, 병원 운영 흐름에 맞춘 도입을 지원합니다.</span>
+              <span data-lang="en">We support EMR integration and unstructured data cleansing for smooth hospital adoption.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="badge">On‑premise</div>
+            <h3><span data-lang="ko">병원 환경 중심 구축</span><span data-lang="en">Hospital-ready deployment</span></h3>
+            <p><span data-lang="ko">개인정보 보안이 중요한 환경을 고려해 On‑premise 방식의 구축을 중심으로 제공합니다.</span><span data-lang="en">On‑premise by design for privacy- and security‑critical environments.</span></p>
+          </div>
+          <div class="card">
+            <div class="badge"><span data-lang="ko">EMR 연동</span><span data-lang="en">EMR</span></div>
+            <h3><span data-lang="ko">업무 흐름에 자연스럽게</span><span data-lang="en">Workflow-native integration</span></h3>
+            <p><span data-lang="ko">필요한 지점에서 데이터가 흘러가고 결과가 돌아오도록, 연동 범위를 협의하여 설계합니다.</span><span data-lang="en">We align integration scope so data flows in and results flow back where needed.</span></p>
+          </div>
+          <div class="card">
+            <div class="badge"><span data-lang="ko">비정형 데이터</span><span data-lang="en">Unstructured data</span></div>
+            <h3><span data-lang="ko">정제/클리닝 자동화</span><span data-lang="en">Cleansing automation</span></h3>
+            <p><span data-lang="ko">OCR부터 DB 적재까지 End‑to‑End 정제 파이프라인으로 연동 전/후 데이터를 안정화합니다.</span><span data-lang="en">End‑to‑end (OCR→DB) cleansing to stabilize data before/after integration.</span></p>
+          </div>
+        </div>
+
+        <p class="hint" style="margin-top:14px">
+          <span data-lang="ko">* 원하시면 “연동 대상(EMR/검사장비/문서)”과 “운영 조건(폐쇄망/권한/로그)”에 맞춰 도입 시나리오를 함께 정리해 드릴 수 있습니다.</span>
+          <span data-lang="en">* We can also help define deployment scenarios by integration targets and operational constraints (air‑gapped networks, access control, audit logs).</span>
+        </p>
+      </div>
+    </section>
+
+    <section id="regulatory">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2><span data-lang="ko">인허가</span><span data-lang="en">Regulatory</span></h2>
+            <p>
+              <span data-lang="ko">의료 현장 적용을 위해 신뢰성과 규제 요건을 충족하는 방향으로 준비합니다.</span>
+              <span data-lang="en">We progress toward clinical deployment with regulatory readiness in mind.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="badge"><span data-lang="ko">식약처</span><span data-lang="en">MFDS</span></div>
+            <h3><span data-lang="ko">식약처 인허가 준비 중</span><span data-lang="en">Preparing for MFDS approval</span></h3>
+            <p>
+              <span data-lang="ko">브레스유는 의료 현장 적용을 위해 식약처 인허가를 준비 중이며, 제품의 안전성과 신뢰성 확보를 위한 프로세스를 단계적으로 진행하고 있습니다.</span>
+              <span data-lang="en">Breath You is preparing for MFDS approval and advancing step-by-step processes to ensure safety and reliability for clinical deployment.</span>
+            </p>
+          </div>
+          <div class="card">
+            <div class="badge">Roadmap</div>
+            <h3><span data-lang="ko">현장 적용까지의 단계</span><span data-lang="en">Path to deployment</span></h3>
+            <ul class="bullets">
+              <li><span data-lang="ko">요구사항/워크플로우 기반 제품화</span><span data-lang="en">Workflow-driven productization</span></li>
+              <li><span data-lang="ko">데이터 품질·연동 안정성 확보</span><span data-lang="en">Data quality and integration stability</span></li>
+              <li><span data-lang="ko">인허가 요건에 맞춘 검증 체계 고도화</span><span data-lang="en">Validation aligned with regulatory requirements</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2><span data-lang="ko">문의하기</span><span data-lang="en">Contact</span></h2>
+            <p>
+              <span data-lang="ko">도입/협업 문의를 남겨주시면 검토 후 연락드리겠습니다. (B2B 중심)</span>
+              <span data-lang="en">Tell us about your use case. We’ll review and get back to you. (B2B-first)</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="card">
+            <div class="badge">Contact</div>
+            <h3><span data-lang="ko">이메일로 바로 문의</span><span data-lang="en">Email us directly</span></h3>
+            <p style="margin-top:8px">
+              <a class="btn primary" href="mailto:lkh256@breathyou.care">
+                <span data-lang="ko">lkh256@breathyou.care 로 메일 보내기</span>
+                <span data-lang="en">Email lkh256@breathyou.care</span>
+              </a>
+            </p>
+            <p class="hint">
+              <span data-lang="ko">메일 제목 예시: <strong>[도입문의] 병원명 / 솔루션명</strong><br/>연락처를 남겨주시면 브레스유가 먼저 연락드릴 수 있습니다.</span>
+              <span data-lang="en">Subject example: <strong>[Inquiry] Hospital / Solution</strong><br/>Leave your contact and we can reach out first.</span>
+            </p>
+            <div class="divider"></div>
+            <p class="small" style="margin-top:12px">
+              <span data-lang="ko">* 본 폼은 서버 없이도 배포 가능하도록 <code>mailto:</code> 방식으로 구현되어 있습니다. (기본 메일 앱 설정 필요)</span>
+              <span data-lang="en">* This form uses <code>mailto:</code> so it works without a backend (requires a mail client).</span>
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <div class="badge"><span data-lang="ko">간단 문의 폼</span><span data-lang="en">Quick inquiry form</span></div>
+
+            <form id="inquiryForm" autocomplete="on">
+              <div class="form-row">
+                <div>
+                  <label for="name"><span data-lang="ko">이름 *</span><span data-lang="en">Name *</span></label>
+                  <input id="name" name="name" type="text" placeholder="홍길동 / Jane Doe" required />
+                </div>
+                <div>
+                  <label for="org"><span data-lang="ko">소속(병원/기관) *</span><span data-lang="en">Organization *</span></label>
+                  <input id="org" name="org" type="text" placeholder="OO병원 / ABC Hospital" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <label for="email"><span data-lang="ko">이메일 *</span><span data-lang="en">Email *</span></label>
+                  <input id="email" name="email" type="email" placeholder="name@hospital.com" required />
+                </div>
+                <div>
+                  <label for="phone"><span data-lang="ko">전화번호</span><span data-lang="en">Phone</span></label>
+                  <input id="phone" name="phone" type="tel" placeholder="+82-10-1234-5678" />
+                </div>
+              </div>
+
+              <label for="interest"><span data-lang="ko">관심 솔루션 *</span><span data-lang="en">Interested in *</span></label>
+              <select id="interest" name="interest" required></select>
+
+              <label for="message"><span data-lang="ko">문의 내용 *</span><span data-lang="en">Message *</span></label>
+              <textarea id="message" name="message" required></textarea>
+
+              <div class="form-actions">
+                <button class="btn primary" type="submit"><span data-lang="ko">메일로 문의 보내기</span><span data-lang="en">Send via email</span></button>
+                <button class="btn ghost" type="reset"><span data-lang="ko">초기화</span><span data-lang="en">Reset</span></button>
+              </div>
+
+              <p class="hint" id="formHint" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <img class="logo-img" src="./assets/logo.png" alt="Breath you 로고" style="height:26px; box-shadow:none;" />
+            <div>
+              <strong>브레스유 / Breath You</strong><br/>
+              <span>Medical AI · On‑premise · CDSS</span>
+            </div>
+          </div>
+          <div>
+            <span data-lang="ko">문의:</span><span data-lang="en">Email:</span>
+            <a href="mailto:lkh256@breathyou.care"><strong>lkh256@breathyou.care</strong></a>
+          </div>
+        </div>
+
+        <p class="small" style="margin-top:12px; margin-bottom:0">
+          © <span id="year"></span> Breath You. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // ---------------------
+    // Language Toggle + init
+    // ---------------------
+    (function(){
+      const html = document.documentElement;
+      const btnKo = document.getElementById("btnKo");
+      const btnEn = document.getElementById("btnEn");
+
+      const interestSelect = document.getElementById("interest");
+      const message = document.getElementById("message");
+
+      const interestOptionsKO = [
+        {value:"", label:"선택해주세요", disabled:true},
+        {value:"메타콜린 기반 천식 진단 CDSS", label:"메타콜린 기반 천식 진단 CDSS"},
+        {value:"폐기능 시계열 분석·예측 기반 악화 예측 CDSS", label:"폐기능 시계열 분석·예측 기반 악화 예측 CDSS"},
+        {value:"멀티 에이전트 기반 데이터 정제(OCR→DB)", label:"멀티 에이전트 기반 데이터 정제(OCR→DB)"},
+        {value:"기타/도입 상담", label:"기타/도입 상담"}
+      ];
+      const interestOptionsEN = [
+        {value:"", label:"Select one", disabled:true},
+        {value:"Methacholine-based asthma diagnostic CDSS", label:"Methacholine-based asthma diagnostic CDSS"},
+        {value:"Deterioration prediction CDSS (longitudinal lung function)", label:"Deterioration prediction CDSS (longitudinal lung function)"},
+        {value:"Multi-agent data cleansing (OCR → DB)", label:"Multi-agent data cleansing (OCR → DB)"},
+        {value:"Other / Consultation", label:"Other / Consultation"}
+      ];
+
+      function rebuildSelect(options){
+        const current = interestSelect.value;
+        interestSelect.innerHTML = "";
+        options.forEach((opt) => {
+          const o = document.createElement("option");
+          o.value = opt.value;
+          o.textContent = opt.label;
+          if (opt.disabled) { o.disabled = true; o.selected = true; }
+          interestSelect.appendChild(o);
+        });
+        if (current) {
+          const exists = Array.from(interestSelect.options).some(o => o.value === current);
+          if (exists) interestSelect.value = current;
+        }
+      }
+
+      function setLang(lang){
+        html.setAttribute("data-language", lang);
+        html.setAttribute("lang", lang === "ko" ? "ko" : "en");
+
+        btnKo.setAttribute("aria-pressed", lang === "ko" ? "true" : "false");
+        btnEn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+
+        if (lang === "en") {
+          document.title = "Breath You | Medical AI On‑premise Solutions";
+          const desc = document.querySelector('meta[name="description"]');
+          if (desc) desc.setAttribute("content",
+            "Breath You builds data-driven medical AI for respiratory deterioration prediction, delivering CDSS and on‑premise solutions for hospitals.");
+          rebuildSelect(interestOptionsEN);
+          message.placeholder = "e.g., your goal, integration targets (EMR/devices/documents), deployment constraints (on‑prem / air‑gapped network), etc.";
+        } else {
+          document.title = "브레스유(Breath You) | 의료 AI On‑premise 솔루션";
+          const desc = document.querySelector('meta[name="description"]');
+          if (desc) desc.setAttribute("content",
+            "브레스유(Breath You)는 데이터 기반 분석으로 호흡기 악화를 예측하여 조기 치료를 돕는 의료 AI CDSS 및 병원 환경용 On‑premise 솔루션을 제공합니다.");
+          rebuildSelect(interestOptionsKO);
+          message.placeholder = "예: 도입 목적, 연동 대상(EMR/검사장비/문서), 구축 환경(On-premise/폐쇄망 여부) 등을 알려주시면 검토에 도움이 됩니다.";
+        }
+
+        try { localStorage.setItem("by_lang", lang); } catch(e){}
+      }
+
+      btnKo.addEventListener("click", () => setLang("ko"));
+      btnEn.addEventListener("click", () => setLang("en"));
+
+      const saved = (() => { try { return localStorage.getItem("by_lang"); } catch(e){ return null; } })();
+      setLang(saved === "en" ? "en" : "ko");
+    })();
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ---------------------
+    // Mailto form submit
+    // ---------------------
+    const form = document.getElementById("inquiryForm");
+    const hint = document.getElementById("formHint");
+    const toEmail = "lkh256@breathyou.care";
+
+    function encode(str){ return encodeURIComponent(str || ""); }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      const name = data.get("name");
+      const org = data.get("org");
+      const email = data.get("email");
+      const phone = data.get("phone");
+      const interest = data.get("interest");
+      const message = data.get("message");
+
+      const lang = document.documentElement.getAttribute("data-language") || "ko";
+      const subject = (lang === "en")
+        ? `[Inquiry] ${org} / ${interest}`
+        : `[도입문의] ${org} / ${interest}`;
+
+      const body = (lang === "en")
+`[Breath You Inquiry]
+- Name: ${name}
+- Organization: ${org}
+- Email: ${email}
+- Phone: ${phone || "-"}
+- Interest: ${interest}
+
+[Message]
+${message}
+
+(This email was generated from the website inquiry form.)`
+:
+`[브레스유 도입/협업 문의]
+- 이름: ${name}
+- 소속: ${org}
+- 이메일: ${email}
+- 전화: ${phone || "-"}
+- 관심 솔루션: ${interest}
+
+[문의 내용]
+${message}
+
+(본 메일은 홈페이지 문의 폼을 통해 작성되었습니다.)`;
+
+      const mailto = `mailto:${toEmail}?subject=${encode(subject)}&body=${encode(body)}`;
+
+      hint.textContent = (lang === "en")
+        ? "Your email app will open. Please complete sending."
+        : "메일 앱이 열립니다. 전송을 완료해 주세요.";
+
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
