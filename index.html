@@ -1387,6 +1387,7 @@
     const mobileMenuClose = document.getElementById('mobileMenuClose');
 
     function openMobileMenu() {
+      if (!mobileMenuBtn || !mobileMenu || !mobileMenuOverlay) return;
       mobileMenuBtn.classList.add('active');
       mobileMenu.classList.add('active');
       mobileMenuOverlay.classList.add('active');
@@ -1395,6 +1396,7 @@
     }
 
     function closeMobileMenu() {
+      if (!mobileMenuBtn || !mobileMenu || !mobileMenuOverlay) return;
       mobileMenuBtn.classList.remove('active');
       mobileMenu.classList.remove('active');
       mobileMenuOverlay.classList.remove('active');
@@ -1402,20 +1404,27 @@
       mobileMenuBtn.setAttribute('aria-expanded', 'false');
     }
 
-    mobileMenuBtn.addEventListener('click', () => {
-      if (mobileMenu.classList.contains('active')) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
-    });
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      });
+    }
 
-    mobileMenuClose.addEventListener('click', closeMobileMenu);
-    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+    if (mobileMenuClose) {
+      mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+    
+    if (mobileMenuOverlay) {
+      mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+    }
 
     // Close menu on escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+      if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
         closeMobileMenu();
       }
     });
@@ -1469,39 +1478,39 @@
         html.setAttribute("lang", lang === "ko" ? "ko" : "en");
 
         // Update desktop toggle
-        btnKo.setAttribute("aria-pressed", lang === "ko" ? "true" : "false");
-        btnEn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+        if (btnKo) btnKo.setAttribute("aria-pressed", lang === "ko" ? "true" : "false");
+        if (btnEn) btnEn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
         
         // Update mobile toggle
-        btnKoMobile.setAttribute("aria-pressed", lang === "ko" ? "true" : "false");
-        btnEnMobile.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+        if (btnKoMobile) btnKoMobile.setAttribute("aria-pressed", lang === "ko" ? "true" : "false");
+        if (btnEnMobile) btnEnMobile.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
 
         if (lang === "en") {
           document.title = "Breath You | Medical AI On‑premise Solutions";
           const desc = document.querySelector('meta[name="description"]');
           if (desc) desc.setAttribute("content",
             "Breath You builds data-driven medical AI for respiratory deterioration prediction, delivering CDSS and on‑premise solutions for hospitals.");
-          rebuildSelect(interestOptionsEN);
-          messageEl.placeholder = "e.g., your goal, integration targets (EMR/devices/documents), deployment constraints (on‑prem / air‑gapped network), etc.";
+          if (interestSelect) rebuildSelect(interestOptionsEN);
+          if (messageEl) messageEl.placeholder = "e.g., your goal, integration targets (EMR/devices/documents), deployment constraints (on‑prem / air‑gapped network), etc.";
         } else {
           document.title = "브레스유(Breath You) | 의료 AI On‑premise 솔루션";
           const desc = document.querySelector('meta[name="description"]');
           if (desc) desc.setAttribute("content",
             "브레스유(Breath You)는 데이터 기반 분석으로 호흡기 악화를 예측하여 조기 치료를 돕는 의료 AI CDSS 및 병원 환경용 On‑premise 솔루션을 제공합니다.");
-          rebuildSelect(interestOptionsKO);
-          messageEl.placeholder = "예: 도입 목적, 연동 대상(EMR/검사장비/문서), 구축 환경(On-premise/폐쇄망 여부) 등";
+          if (interestSelect) rebuildSelect(interestOptionsKO);
+          if (messageEl) messageEl.placeholder = "예: 도입 목적, 연동 대상(EMR/검사장비/문서), 구축 환경(On-premise/폐쇄망 여부) 등";
         }
 
         try { localStorage.setItem("by_lang", lang); } catch(e){}
       }
 
       // Desktop toggle
-      btnKo.addEventListener("click", () => setLang("ko"));
-      btnEn.addEventListener("click", () => setLang("en"));
+      if (btnKo) btnKo.addEventListener("click", () => setLang("ko"));
+      if (btnEn) btnEn.addEventListener("click", () => setLang("en"));
       
       // Mobile toggle
-      btnKoMobile.addEventListener("click", () => setLang("ko"));
-      btnEnMobile.addEventListener("click", () => setLang("en"));
+      if (btnKoMobile) btnKoMobile.addEventListener("click", () => setLang("ko"));
+      if (btnEnMobile) btnEnMobile.addEventListener("click", () => setLang("en"));
 
       const saved = (() => { try { return localStorage.getItem("by_lang"); } catch(e){ return null; } })();
       setLang(saved === "en" ? "en" : "ko");
@@ -1519,7 +1528,7 @@
 
     function encode(str){ return encodeURIComponent(str || ""); }
 
-    form.addEventListener("submit", (e) => {
+    if (form) form.addEventListener("submit", (e) => {
       e.preventDefault();
 
       const data = new FormData(form);
