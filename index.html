@@ -264,7 +264,7 @@
       border-color: rgba(255,255,255,.2);
     }
     .mobile-menu-btn span {
-      display: block;
+      display: block !important;
       width: 20px;
       height: 2px;
       background: var(--text);
@@ -809,15 +809,18 @@
       .contact-wrap{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr 1fr}
       .hero h1{font-size:38px}
-      .links { display: none; }
-      .mobile-menu-btn { display: flex; }
+      .links { display: none !important; }
+      .mobile-menu-btn { display: flex !important; }
       .mobile-menu, .mobile-menu-overlay { display: block; }
-      .nav-cta .btn { display: none; }
+      .nav-cta .btn.ghost, .nav-cta .btn.primary { display: none !important; }
+      .nav-cta .lang-toggle { display: inline-flex !important; }
+      /* 모바일에서 topbar sticky 해제 */
+      .topbar { position: relative; }
     }
     @media (max-width: 768px){
       .grid-3{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
-      .hero{padding-top:50px}
+      .hero{padding-top:30px}
       .hero h1{font-size:32px}
       .form-row{grid-template-columns:1fr}
       .logo-img{height:32px}
@@ -825,6 +828,7 @@
       section { padding: 50px 0; }
       .section-title h2 { font-size: 26px; }
       .container { padding: 0 16px; }
+      .nav-cta .lang-toggle { display: none !important; }
     }
     @media (max-width: 480px){
       .hero h1{font-size:28px}
