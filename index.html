@@ -115,6 +115,10 @@
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       background: rgba(5, 13, 26, .85);
       border-bottom:1px solid rgba(255,255,255,.06);
+      transition: transform 0.3s var(--transition);
+    }
+    .topbar.nav-hidden {
+      transform: translateY(-100%);
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
@@ -815,8 +819,10 @@
       .mobile-menu-btn { display: flex !important; }
       .nav-cta .btn.ghost, .nav-cta .btn.primary { display: none !important; }
       .nav-cta .lang-toggle { display: inline-flex !important; }
-      /* 모바일에서 topbar sticky 해제 */
-      .topbar { position: relative; }
+      /* 모바일에서 스마트 sticky - 스크롤 업 시 나타남 */
+      .topbar { position: fixed; left: 0; right: 0; }
+      /* fixed navbar를 위한 상단 여백 */
+      main { padding-top: 70px; }
     }
     @media (max-width: 768px){
       .grid-3{grid-template-columns:1fr}
@@ -830,6 +836,8 @@
       .section-title h2 { font-size: 26px; }
       .container { padding: 0 16px; }
       .nav-cta .lang-toggle { display: none !important; }
+      /* fixed navbar를 위한 상단 여백 */
+      .hero { padding-top: 80px; }
     }
     @media (max-width: 480px){
       .hero h1{font-size:28px}
@@ -1426,6 +1434,54 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
         closeMobileMenu();
+      }
+    });
+
+    // ---------------------
+    // Smart Sticky Navbar (모바일)
+    // 스크롤 다운: 숨김, 스크롤 업: 나타남
+    // ---------------------
+    const topbar = document.querySelector('.topbar');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateNavbar() {
+      const currentScrollY = window.scrollY;
+      const isMobile = window.innerWidth <= 1024;
+      
+      if (isMobile && topbar) {
+        // 맨 위에서는 항상 보이기
+        if (currentScrollY < 10) {
+          topbar.classList.remove('nav-hidden');
+        }
+        // 스크롤 다운 (20px 이상 내렸을 때)
+        else if (currentScrollY > lastScrollY && currentScrollY > 60) {
+          topbar.classList.add('nav-hidden');
+        }
+        // 스크롤 업
+        else if (currentScrollY < lastScrollY) {
+          topbar.classList.remove('nav-hidden');
+        }
+      } else if (topbar) {
+        // 데스크톱에서는 항상 보이기
+        topbar.classList.remove('nav-hidden');
+      }
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateNavbar);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // 화면 크기 변경 시 네비게이션 리셋
+    window.addEventListener('resize', () => {
+      if (topbar && window.innerWidth > 1024) {
+        topbar.classList.remove('nav-hidden');
       }
     });
 
