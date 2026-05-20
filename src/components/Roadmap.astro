@@ -1,0 +1,41 @@
+---
+import type { Content } from '../data/content';
+
+interface Props {
+  t: Content;
+}
+const { t } = Astro.props;
+const { roadmap } = t;
+---
+
+<section class="section section--soft" id="roadmap">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">{roadmap.eyebrow}</span>
+      <h2 class="section-title">{roadmap.title}</h2>
+    </div>
+
+    <div class="roadmap-grid">
+      {
+        roadmap.phases.map((p) => (
+          <article class="phase reveal">
+            <div class="phase__head">
+              <span class="phase__period">{p.period}</span>
+              <span class="phase__name">{p.name}</span>
+            </div>
+            <ul>
+              {p.items.map((it) => (
+                <li>{it}</li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="roadmap-global reveal">
+      <span class="roadmap-global__label">{roadmap.global.label}</span>
+      <p class="roadmap-global__text">{roadmap.global.text}</p>
+    </div>
+  </div>
+</section>

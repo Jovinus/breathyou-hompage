@@ -1,0 +1,47 @@
+---
+import type { Content } from '../data/content';
+
+interface Props {
+  t: Content;
+}
+const { t } = Astro.props;
+const { team } = t;
+---
+
+<section class="section" id="team">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">{team.eyebrow}</span>
+      <h2 class="section-title">{team.title}</h2>
+    </div>
+
+    <div class="team-grid">
+      {
+        team.members.map((m) => (
+          <article class="member reveal">
+            <div class="member__head">
+              {m.photo ? (
+                <img class="member__photo" src={m.photo} alt={m.name} width="80" height="80" />
+              ) : (
+                <div class="member__photo member__photo--initial" aria-hidden="true">
+                  {m.name.trim().charAt(0)}
+                </div>
+              )}
+              <div>
+                <div class="member__name">{m.name}</div>
+                <div class="member__sub">{m.sub}</div>
+                <span class="member__role">{m.role}</span>
+              </div>
+            </div>
+            <p class="member__bio">{m.bio}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="partners reveal">
+      <span class="partners__label">{team.partners.label}</span>
+      <p class="partners__text">{team.partners.text}</p>
+    </div>
+  </div>
+</section>

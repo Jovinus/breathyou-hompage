@@ -1,0 +1,15 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# 사업계획서 — 민감 정보, 절대 배포/커밋 금지
+*.pdf
+
+# system
+.DS_Store
+*.log
+.env
+.env.*

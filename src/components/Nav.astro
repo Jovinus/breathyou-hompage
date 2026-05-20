@@ -1,0 +1,32 @@
+---
+import type { Content } from '../data/content';
+
+interface Props {
+  t: Content;
+}
+const { t } = Astro.props;
+const { nav, altLang } = t;
+const home = altLang.href === '/' ? '/en/' : '/';
+---
+
+<nav class="nav" aria-label="주 메뉴">
+  <div class="container nav__inner">
+    <a class="nav__logo" href={home} aria-label="Breath You">
+      <img src="/logo.png" alt="Breath You" />
+    </a>
+
+    <div class="nav__links">
+      {nav.links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </div>
+
+    <div class="nav__right">
+      <a class="nav__lang" href={altLang.href} aria-label={`Switch language to ${altLang.code}`}>
+        {altLang.code}
+      </a>
+      <a class="btn btn--primary btn--sm nav__cta-desktop" href="#contact">{nav.cta}</a>
+      <button class="nav__burger" type="button" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>

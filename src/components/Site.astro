@@ -1,0 +1,36 @@
+---
+import type { Content } from '../data/content';
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import Problem from './Problem.astro';
+import Solution from './Solution.astro';
+import Research from './Research.astro';
+import Advantage from './Advantage.astro';
+import Market from './Market.astro';
+import Roadmap from './Roadmap.astro';
+import Team from './Team.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+
+interface Props {
+  t: Content;
+}
+const { t } = Astro.props;
+---
+
+<Base t={t}>
+  <Nav t={t} />
+  <main id="main">
+    <Hero t={t} />
+    <Problem t={t} />
+    <Solution t={t} />
+    <Research t={t} />
+    <Advantage t={t} />
+    <Market t={t} />
+    <Roadmap t={t} />
+    <Team t={t} />
+    <Contact t={t} />
+  </main>
+  <Footer t={t} />
+</Base>

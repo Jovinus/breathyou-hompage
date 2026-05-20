@@ -1,0 +1,32 @@
+---
+import type { Content } from '../data/content';
+
+interface Props {
+  t: Content;
+}
+const { t } = Astro.props;
+const { market } = t;
+---
+
+<section class="section" id="market">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">{market.eyebrow}</span>
+      <h2 class="section-title">{market.title}</h2>
+      <p class="section-lead">{market.lead}</p>
+    </div>
+
+    <div class="market-grid">
+      {
+        market.items.map((m) => (
+          <article class="market-card reveal">
+            <div class="market-card__tier">{m.tier}</div>
+            <div class="market-card__value">{m.value}</div>
+            <div class="market-card__label">{m.label}</div>
+            <p class="market-card__desc">{m.desc}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

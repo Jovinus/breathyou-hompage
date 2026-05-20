@@ -1,0 +1,56 @@
+---
+import type { Content } from '../data/content';
+
+interface Props {
+  t: Content;
+}
+const { t } = Astro.props;
+const { advantage } = t;
+const { table } = advantage;
+---
+
+<section class="section section--soft" id="advantage">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">{advantage.eyebrow}</span>
+      <h2 class="section-title">{advantage.title}</h2>
+    </div>
+
+    <div class="moat-grid">
+      {
+        advantage.moats.map((m) => (
+          <article class="moat reveal">
+            <div class="moat__no">{m.no}</div>
+            <h3>{m.title}</h3>
+            <p>{m.text}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="compare reveal">
+      <div class="compare__scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">{table.title}</th>
+              {table.cols.map((c) => <th scope="col">{c}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {
+              table.rows.map((row) => (
+                <tr>
+                  <th scope="row">{row.label}</th>
+                  {row.values.map((v) => (
+                    <td>{v}</td>
+                  ))}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

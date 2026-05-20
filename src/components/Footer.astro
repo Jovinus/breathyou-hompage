@@ -1,0 +1,26 @@
+---
+import type { Content } from '../data/content';
+import { EMAIL } from '../data/content';
+
+interface Props {
+  t: Content;
+}
+const { t } = Astro.props;
+const { footer } = t;
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="/logo.png" alt="Breath You" />
+        <p class="footer__tagline">{footer.tagline}</p>
+      </div>
+      <div class="footer__contact">
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      </div>
+    </div>
+    <p class="footer__disclaimer">{footer.disclaimer}</p>
+    <p class="footer__rights">{footer.rights}</p>
+  </div>
+</footer>
