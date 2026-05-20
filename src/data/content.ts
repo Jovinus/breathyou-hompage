@@ -77,7 +77,7 @@ export const content = {
             'OCR + NLP 정확도 99%',
             '1장당 3분 → 2초 (98.9% 단축)',
             'EMR 자동 연동',
-            '특허 보유 (KR 10-2025-0166208)',
+            '특허 출원 (출원번호 10-2025-0166208)',
           ],
         },
         {
@@ -345,7 +345,7 @@ export const content = {
             'OCR + NLP accuracy of 99%',
             '3 min → 2 sec per page (98.9% faster)',
             'Automatic EMR integration',
-            'Patented (KR 10-2025-0166208)',
+            'Patent pending (App. No. 10-2025-0166208)',
           ],
         },
         {
