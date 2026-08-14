@@ -15,14 +15,25 @@ export const company = {
     brand: '브레스유',
     legalName: '브레스유 (주)',
     ceo: '이경현',
-    address: '', // TODO: 본점 주소 (도로명 + 상세)
-    bizRegNo: '', // TODO: 사업자등록번호
+    // 본점 = 사무실. 등기부 표기 그대로.
+    address: '경기도 수원시 팔달구 매산로 41, 5층 비503호',
+    addressParts: {
+      street: '매산로 41, 5층 비503호',
+      locality: '수원시 팔달구',
+      region: '경기도',
+    },
+    bizRegNo: '', // TODO: 사업자등록번호 (발급 대기)
   },
   en: {
     brand: 'Breath You',
     legalName: 'BreathYou Co., Ltd.',
     ceo: 'Kyung Hyun Lee',
-    address: '', // TODO: registered office address
+    address: 'Unit B503, 5F, 41 Maesan-ro, Paldal-gu, Suwon-si, Gyeonggi-do, Republic of Korea',
+    addressParts: {
+      street: 'Unit B503, 5F, 41 Maesan-ro',
+      locality: 'Suwon-si, Paldal-gu',
+      region: 'Gyeonggi-do',
+    },
     bizRegNo: '',
   },
   foundedISO: '2026-08-05',

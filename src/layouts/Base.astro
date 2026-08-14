@@ -28,7 +28,9 @@ const organization = {
     ? {
         address: {
           '@type': 'PostalAddress',
-          streetAddress: c.address,
+          streetAddress: c.addressParts.street,
+          addressLocality: c.addressParts.locality,
+          addressRegion: c.addressParts.region,
           addressCountry: 'KR',
         },
       }
