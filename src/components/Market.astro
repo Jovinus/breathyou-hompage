@@ -1,32 +1,23 @@
 ---
-import type { Content } from '../data/content';
+import Section from './Section.astro';
+import type { SectionProps } from '../types';
 
-interface Props {
-  t: Content;
-}
+interface Props extends SectionProps {}
 const { t } = Astro.props;
 const { market } = t;
 ---
 
-<section class="section" id="market">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">{market.eyebrow}</span>
-      <h2 class="section-title">{market.title}</h2>
-      <p class="section-lead">{market.lead}</p>
-    </div>
-
-    <div class="market-grid">
-      {
-        market.items.map((m) => (
-          <article class="market-card reveal">
-            <div class="market-card__tier">{m.tier}</div>
-            <div class="market-card__value">{m.value}</div>
-            <div class="market-card__label">{m.label}</div>
-            <p class="market-card__desc">{m.desc}</p>
-          </article>
-        ))
-      }
-    </div>
+<Section id="market" eyebrow={market.eyebrow} title={market.title} lead={market.lead}>
+  <div class="market-grid">
+    {
+      market.items.map((m) => (
+        <article class="market-card reveal">
+          <div class="market-card__tier">{m.tier}</div>
+          <div class="market-card__value">{m.value}</div>
+          <div class="market-card__label">{m.label}</div>
+          <p class="market-card__desc">{m.desc}</p>
+        </article>
+      ))
+    }
   </div>
-</section>
+</Section>

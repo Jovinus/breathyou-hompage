@@ -1,51 +1,42 @@
 ---
-import type { Content } from '../data/content';
+import Section from './Section.astro';
+import type { SectionProps } from '../types';
 
-interface Props {
-  t: Content;
-}
+interface Props extends SectionProps {}
 const { t } = Astro.props;
 const { research } = t;
 ---
 
-<section class="section" id="research">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">{research.eyebrow}</span>
-      <h2 class="section-title">{research.title}</h2>
-      <p class="section-lead">{research.lead}</p>
+<Section id="research" eyebrow={research.eyebrow} title={research.title} lead={research.lead}>
+  <div class="research-grid">
+    <div class="metric-list reveal">
+      {
+        research.metrics.map((m) => (
+          <div class="metric">
+            <span class="v">{m.value}</span>
+            <span class="l">{m.label}</span>
+          </div>
+        ))
+      }
     </div>
 
-    <div class="research-grid">
-      <div class="metric-list reveal">
-        {
-          research.metrics.map((m) => (
-            <div class="metric">
-              <span class="v">{m.value}</span>
-              <span class="l">{m.label}</span>
+    <div class="papers reveal">
+      <p class="papers__cred">{research.credText}</p>
+      <p class="papers__title">{research.papersTitle}</p>
+      {
+        research.papers.map((p) => (
+          <div class="paper">
+            <p class="paper__title">{p.title}</p>
+            <div class="paper__meta">
+              <span class="paper__venue">{p.venue}</span>
+              <span class="paper__year">{p.year}</span>
             </div>
-          ))
-        }
-      </div>
-
-      <div class="papers reveal">
-        <p class="papers__cred">{research.credText}</p>
-        <p class="papers__title">{research.papersTitle}</p>
-        {
-          research.papers.map((p) => (
-            <div class="paper">
-              <p class="paper__title">{p.title}</p>
-              <div class="paper__meta">
-                <span class="paper__venue">{p.venue}</span>
-                <span class="paper__year">{p.year}</span>
-              </div>
-            </div>
-          ))
-        }
-        <a class="papers__link" href={research.papersLink.href} target="_blank" rel="noopener">
-          {research.papersLink.label} →
-        </a>
-      </div>
+          </div>
+        ))
+      }
+      <a class="papers__link" href={research.papersLink.href} target="_blank" rel="noopener">
+        {research.papersLink.label} →
+      </a>
     </div>
   </div>
-</section>
+</Section>

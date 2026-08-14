@@ -1,0 +1,24 @@
+---
+// 섹션 공통 스캐폴드. 마크업·클래스명은 global.css 와 1:1 대응이므로 변경 시 주의.
+interface Props {
+  id: string;
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  /** 배경 교차용 (--soft 톤) */
+  soft?: boolean;
+}
+const { id, eyebrow, title, lead, soft = false } = Astro.props;
+---
+
+<section class:list={['section', { 'section--soft': soft }]} id={id}>
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 class="section-title">{title}</h2>
+      {lead && <p class="section-lead">{lead}</p>}
+    </div>
+
+    <slot />
+  </div>
+</section>

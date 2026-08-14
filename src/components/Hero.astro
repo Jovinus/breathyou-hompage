@@ -1,11 +1,9 @@
 ---
-import type { Content } from '../data/content';
+import type { SectionProps } from '../types';
 
-interface Props {
-  t: Content;
-}
+interface Props extends SectionProps {}
 const { t } = Astro.props;
-const { hero } = t;
+const { hero, ui } = t;
 ---
 
 <section class="hero" id="top">
@@ -20,7 +18,7 @@ const { hero } = t;
       </div>
     </div>
 
-    <aside class="hero__card reveal" aria-label="핵심 지표">
+    <aside class="hero__card reveal" aria-label={ui.keyMetrics}>
       {
         hero.stats.map((s) => (
           <div class="hero__stat">

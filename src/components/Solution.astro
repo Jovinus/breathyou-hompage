@@ -1,39 +1,30 @@
 ---
-import type { Content } from '../data/content';
+import Section from './Section.astro';
+import type { SectionProps } from '../types';
 
-interface Props {
-  t: Content;
-}
+interface Props extends SectionProps {}
 const { t } = Astro.props;
 const { solution } = t;
 ---
 
-<section class="section section--soft" id="solution">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">{solution.eyebrow}</span>
-      <h2 class="section-title">{solution.title}</h2>
-      <p class="section-lead">{solution.lead}</p>
-    </div>
-
-    <div class="solution-grid">
-      {
-        solution.products.map((p) => (
-          <article class="card product reveal">
-            <div class="product__head">
-              <span class="product__tag">{p.tag}</span>
-              <span class="product__status">{p.status}</span>
-            </div>
-            <h3>{p.name}</h3>
-            <p class="product__desc">{p.desc}</p>
-            <ul class="product__points">
-              {p.points.map((pt) => (
-                <li>{pt}</li>
-              ))}
-            </ul>
-          </article>
-        ))
-      }
-    </div>
+<Section id="solution" eyebrow={solution.eyebrow} title={solution.title} lead={solution.lead} soft>
+  <div class="solution-grid">
+    {
+      solution.products.map((p) => (
+        <article class="card product reveal">
+          <div class="product__head">
+            <span class="product__tag">{p.tag}</span>
+            <span class="product__status">{p.status}</span>
+          </div>
+          <h3>{p.name}</h3>
+          <p class="product__desc">{p.desc}</p>
+          <ul class="product__points">
+            {p.points.map((pt) => (
+              <li>{pt}</li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
   </div>
-</section>
+</Section>

@@ -1,5 +1,4 @@
 ---
-import type { Content } from '../data/content';
 import Base from '../layouts/Base.astro';
 import Nav from './Nav.astro';
 import Hero from './Hero.astro';
@@ -12,10 +11,9 @@ import Roadmap from './Roadmap.astro';
 import Team from './Team.astro';
 import Contact from './Contact.astro';
 import Footer from './Footer.astro';
+import type { SectionProps } from '../types';
 
-interface Props {
-  t: Content;
-}
+interface Props extends SectionProps {}
 const { t } = Astro.props;
 ---
 

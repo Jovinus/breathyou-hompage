@@ -1,13 +1,20 @@
 // 브레스유 홈페이지 콘텐츠 (한국어 / 영어)
 // 사업계획서 기반. 매출 목표·자금조달·Exit 등 민감 수치는 의도적으로 제외했습니다.
+// 법인 정보·브랜드명·이메일 등 데이터 상수는 site.ts 에 있습니다.
 
-export const EMAIL = 'lkh256@breathyou.care';
-export const PUBLICATIONS_URL = 'https://jovinus.github.io/publications/';
+import { PUBLICATIONS_URL } from './site';
 
 export const content = {
   ko: {
     htmlLang: 'ko',
     altLang: { code: 'EN', href: '/en/' },
+    ui: {
+      skipToContent: '본문 바로가기',
+      mainMenu: '주 메뉴',
+      openMenu: '메뉴 열기',
+      switchLang: '영어 페이지로 이동',
+      keyMetrics: '핵심 지표',
+    },
     meta: {
       title: '브레스유 (Breath You) | 폐기능 예측 의료 AI',
       description:
@@ -199,6 +206,7 @@ export const content = {
           period: '2026',
           name: '진입기',
           items: [
+            '법인 설립 (2026.08)',
             'MediPipe 정식 출시',
             'DeepBreath GMP·제조소 허가',
             'IEC 62366 사용적합성 평가',
@@ -267,15 +275,28 @@ export const content = {
     },
     footer: {
       tagline: '폐기능 예측 의료 AI',
-      rights: '© 2026 브레스유 (Breath You). All rights reserved.',
+      legalLabels: {
+        ceo: '대표',
+        founded: '설립',
+        address: '주소',
+        bizRegNo: '사업자등록번호',
+      },
+      rights: '© 2026 브레스유 (주). All rights reserved.',
       disclaimer:
-        '브레스유는 창업중심대학 성균관대학교의 2026년 실험실 창업 동아리로 선정되어 활동하고 있습니다. 대표 이경현은 ㈜AITRICS에 재직 중이며, 브레스유의 모든 사업 활동은 AITRICS의 업무와 무관하게 독립적으로 수행됩니다.',
+        '브레스유 (주)는 창업중심대학 성균관대학교의 2026년 실험실 창업 동아리로 선정된 법인입니다. 대표 이경현은 ㈜AITRICS에 재직 중이며, 브레스유의 모든 사업 활동은 AITRICS의 업무와 무관하게 독립적으로 수행됩니다.',
     },
   },
 
   en: {
     htmlLang: 'en',
     altLang: { code: 'KO', href: '/' },
+    ui: {
+      skipToContent: 'Skip to content',
+      mainMenu: 'Main menu',
+      openMenu: 'Open menu',
+      switchLang: 'View the Korean page',
+      keyMetrics: 'Key metrics',
+    },
     meta: {
       title: 'Breath You | Predictive Pulmonary AI',
       description:
@@ -467,6 +488,7 @@ export const content = {
           period: '2026',
           name: 'Entry',
           items: [
+            'Incorporation (Aug 2026)',
             'MediPipe official launch',
             'DeepBreath GMP & manufacturing license',
             'IEC 62366 usability evaluation',
@@ -535,9 +557,15 @@ export const content = {
     },
     footer: {
       tagline: 'Predictive pulmonary AI',
-      rights: '© 2026 Breath You. All rights reserved.',
+      legalLabels: {
+        ceo: 'CEO',
+        founded: 'Founded',
+        address: 'Address',
+        bizRegNo: 'Business reg. no.',
+      },
+      rights: '© 2026 BreathYou Co., Ltd. All rights reserved.',
       disclaimer:
-        'Breath You has been selected as a 2026 lab-based startup club at Sungkyunkwan University under Korea’s Startup-Centered University program. CEO Kyung Hyun Lee is currently employed at AITRICS; all of Breath You’s business activities are conducted independently of, and unrelated to, his work at AITRICS.',
+        'BreathYou Co., Ltd. is an incorporated company selected as a 2026 lab-based startup club at Sungkyunkwan University under Korea’s Startup-Centered University program. CEO Kyung Hyun Lee is currently employed at AITRICS; all of Breath You’s business activities are conducted independently of, and unrelated to, his work at AITRICS.',
     },
   },
 } as const;

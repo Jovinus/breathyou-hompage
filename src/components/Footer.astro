@@ -1,25 +1,38 @@
 ---
-import type { Content } from '../data/content';
-import { EMAIL } from '../data/content';
+import { EMAIL, LOGO, company } from '../data/site';
+import type { SectionProps } from '../types';
 
-interface Props {
-  t: Content;
-}
+interface Props extends SectionProps {}
 const { t } = Astro.props;
 const { footer } = t;
+
+const c = company[t.htmlLang];
+const labels = footer.legalLabels;
+
+// 값이 비어 있는 항목(주소·사업자등록번호 미확정)은 렌더링하지 않습니다.
+const legalItems = [
+  c.legalName,
+  `${labels.ceo} ${c.ceo}`,
+  `${labels.founded} ${company.foundedLabel[t.htmlLang]}`,
+  c.address && `${labels.address} ${c.address}`,
+  c.bizRegNo && `${labels.bizRegNo} ${c.bizRegNo}`,
+].filter(Boolean);
 ---
 
 <footer class="footer">
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
-        <img src="/logo.png" alt="Breath You" />
+        <img src={LOGO} alt={c.brand} />
         <p class="footer__tagline">{footer.tagline}</p>
       </div>
       <div class="footer__contact">
         <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
       </div>
     </div>
+    <p class="footer__legal">
+      {legalItems.map((item) => <span>{item}</span>)}
+    </p>
     <p class="footer__disclaimer">{footer.disclaimer}</p>
     <p class="footer__rights">{footer.rights}</p>
   </div>

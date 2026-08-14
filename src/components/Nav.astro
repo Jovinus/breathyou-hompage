@@ -1,32 +1,54 @@
 ---
-import type { Content } from '../data/content';
+import { LOGO, company } from '../data/site';
+import type { SectionProps } from '../types';
 
-interface Props {
-  t: Content;
-}
+interface Props extends SectionProps {}
 const { t } = Astro.props;
-const { nav, altLang } = t;
+const { nav, altLang, ui } = t;
+const c = company[t.htmlLang];
 const home = altLang.href === '/' ? '/en/' : '/';
 ---
 
-<nav class="nav" aria-label="주 메뉴">
+<nav class="nav" aria-label={ui.mainMenu}>
   <div class="container nav__inner">
-    <a class="nav__logo" href={home} aria-label="Breath You">
-      <img src="/logo.png" alt="Breath You" />
+    <a class="nav__logo" href={home} aria-label={c.brand}>
+      <img src={LOGO} alt={c.brand} />
     </a>
 
-    <div class="nav__links">
+    <div class="nav__links" id="nav-links">
       {nav.links.map((l) => <a href={l.href}>{l.label}</a>)}
     </div>
 
     <div class="nav__right">
-      <a class="nav__lang" href={altLang.href} aria-label={`Switch language to ${altLang.code}`}>
+      <a class="nav__lang" href={altLang.href} aria-label={ui.switchLang}>
         {altLang.code}
       </a>
       <a class="btn btn--primary btn--sm nav__cta-desktop" href="#contact">{nav.cta}</a>
-      <button class="nav__burger" type="button" aria-label="메뉴 열기" aria-expanded="false">
+      <button
+        class="nav__burger"
+        type="button"
+        aria-label={ui.openMenu}
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >
         <span></span>
       </button>
     </div>
   </div>
 </nav>
+
+<script>
+  // 모바일 메뉴 토글 (aria-expanded 동기화)
+  const nav = document.querySelector('.nav');
+  const burger = document.querySelector<HTMLButtonElement>('.nav__burger');
+
+  const setOpen = (open: boolean) => {
+    nav?.classList.toggle('is-open', open);
+    burger?.setAttribute('aria-expanded', String(open));
+  };
+
+  burger?.addEventListener('click', () => setOpen(!nav?.classList.contains('is-open')));
+  document
+    .querySelectorAll('.nav__links a')
+    .forEach((a) => a.addEventListener('click', () => setOpen(false)));
+</script>

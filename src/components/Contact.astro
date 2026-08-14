@@ -1,56 +1,47 @@
 ---
-import type { Content } from '../data/content';
-import { EMAIL } from '../data/content';
+import Section from './Section.astro';
+import { EMAIL } from '../data/site';
+import type { SectionProps } from '../types';
 
-interface Props {
-  t: Content;
-}
+interface Props extends SectionProps {}
 const { t } = Astro.props;
 const { contact } = t;
 const { form } = contact;
 ---
 
-<section class="section section--soft" id="contact">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">{contact.eyebrow}</span>
-      <h2 class="section-title">{contact.title}</h2>
-      <p class="section-lead">{contact.lead}</p>
+<Section id="contact" eyebrow={contact.eyebrow} title={contact.title} lead={contact.lead} soft>
+  <div class="contact-grid">
+    <div class="contact-direct reveal">
+      <span class="contact-direct__label">{contact.directLabel}</span>
+      <a class="contact-direct__email" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      <p class="contact-direct__note">{contact.lead}</p>
     </div>
 
-    <div class="contact-grid">
-      <div class="contact-direct reveal">
-        <span class="contact-direct__label">{contact.directLabel}</span>
-        <a class="contact-direct__email" href={`mailto:${EMAIL}`}>{EMAIL}</a>
-        <p class="contact-direct__note">{contact.lead}</p>
+    <form class="contact-form reveal" id="inquiry" data-email={EMAIL}>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-name">{form.name}</label>
+          <input id="f-name" name="name" type="text" placeholder={form.namePlaceholder} required />
+        </div>
+        <div class="field">
+          <label for="f-org">{form.org}</label>
+          <input id="f-org" name="org" type="text" placeholder={form.orgPlaceholder} required />
+        </div>
       </div>
-
-      <form class="contact-form reveal" id="inquiry" data-email={EMAIL}>
-        <div class="field-row">
-          <div class="field">
-            <label for="f-name">{form.name}</label>
-            <input id="f-name" name="name" type="text" placeholder={form.namePlaceholder} required />
-          </div>
-          <div class="field">
-            <label for="f-org">{form.org}</label>
-            <input id="f-org" name="org" type="text" placeholder={form.orgPlaceholder} required />
-          </div>
-        </div>
-        <div class="field">
-          <label for="f-type">{form.type}</label>
-          <select id="f-type" name="type">
-            {form.types.map((ty) => <option value={ty}>{ty}</option>)}
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-msg">{form.message}</label>
-          <textarea id="f-msg" name="message" placeholder={form.messagePlaceholder} required></textarea>
-        </div>
-        <button class="btn btn--primary" type="submit">{form.submit}</button>
-      </form>
-    </div>
+      <div class="field">
+        <label for="f-type">{form.type}</label>
+        <select id="f-type" name="type">
+          {form.types.map((ty) => <option value={ty}>{ty}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-msg">{form.message}</label>
+        <textarea id="f-msg" name="message" placeholder={form.messagePlaceholder} required></textarea>
+      </div>
+      <button class="btn btn--primary" type="submit">{form.submit}</button>
+    </form>
   </div>
-</section>
+</Section>
 
 <script>
   const formEl = document.getElementById('inquiry') as HTMLFormElement | null;
