@@ -16,9 +16,9 @@ export const company = {
     legalName: '브레스유 (주)',
     ceo: '이경현',
     // 본점 = 사무실. 등기부 표기 그대로.
-    address: '경기도 수원시 팔달구 매산로 41, 5층 비503호',
+    address: '경기도 수원시 팔달구 매산로 41, 5층 B503호',
     addressParts: {
-      street: '매산로 41, 5층 비503호',
+      street: '매산로 41, 5층 B503호',
       locality: '수원시 팔달구',
       region: '경기도',
     },
