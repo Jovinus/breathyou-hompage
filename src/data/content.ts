@@ -19,7 +19,7 @@ export const content = {
     meta: {
       title: '브레스유 | MediPipe 병원 의료데이터 AX',
       description:
-        'MediPipe는 병원의 종이·PDF 의료문서를 2초 만에 구조화해 EMR·연구·AI에 연결하는 의료데이터 AX 솔루션입니다. 건양대학교병원과 공동 검증 연구를 수행하며 초기 매출을 만들었습니다.',
+        'MediPipe는 병원의 종이·PDF 의료문서를 2초 만에 구조화합니다. 건양대학교병원 유상 검증 연구에서 첫 매출을 만들었습니다.',
     },
     nav: {
       links: [
@@ -33,10 +33,10 @@ export const content = {
     hero: {
       badge: 'LAB-TO-MARKET · 병원 의료데이터 AX',
       title: '병원 문서를\n데이터 자산으로',
-      lead: 'MediPipe는 병원의 종이·PDF 의료문서를 2초 만에 구조화합니다. 건양대학교병원 공동 검증 연구에서 첫 유상 매출을 만들었습니다.',
+      lead: 'MediPipe는 병원 문서를 2초 만에 구조화합니다. 건양대학교병원 유상 검증에서 첫 매출을 만들었습니다.',
       primaryCta: 'MediPipe 도입 상담',
       secondaryCta: '작동 방식 보기',
-      note: '현재 주력은 MediPipe입니다. DeepBreath는 임상·인허가에 필요한 시간을 존중하며 병행 개발합니다.',
+      note: '현재 MediPipe에 집중합니다. DeepBreath 개발과 인허가 준비도 병행합니다.',
       stats: [
         { value: '3분 → 2초', label: '폐기능 결과지 1장 처리 시간' },
         { value: '99%', label: 'MediPipe OCR·NLP 정제 정확도' },
@@ -53,7 +53,7 @@ export const content = {
         output: '구조화 PFT 데이터',
         outputMeta: 'EMR·연구·AI 활용 준비',
         outputValue: '99% 검증',
-        explain: 'DeepBreath를 포함한 의료 AI의 데이터 기반',
+        explain: 'DeepBreath를 위한 데이터 기반',
       },
     },
     problem: {
@@ -61,30 +61,30 @@ export const content = {
       title: 'AI 이전에,\n데이터부터 막혀 있습니다',
       trigger: {
         label: '현장의 병목',
-        text: '폐기능검사 결과는 여전히 종이와 PDF로 쌓이고, 의료진은 한 장씩 직접 입력합니다. 문자를 읽는 것만으로는 부족합니다. 수치와 임상 맥락을 정확히 구조화해야 EMR과 연구, 의료 AI가 실제로 작동합니다.',
+        text: '폐기능검사 결과는 종이와 PDF로 쌓입니다. 의료진은 이를 직접 입력합니다. EMR·연구·AI에 쓰려면 정확한 구조화가 필요합니다.',
       },
       items: [
         {
           no: '01',
           title: '반복되는 수작업',
-          text: '결과지 한 장을 옮기는 데 약 3분이 걸립니다. 검사량이 늘수록 의료진의 단순 입력 업무와 오류 가능성도 함께 증가합니다.',
+          text: '결과지 한 장을 옮기는 데 약 3분이 걸립니다. 검사량이 늘면 입력 업무와 오류 위험도 커집니다.',
         },
         {
           no: '02',
           title: '일반 OCR의 한계',
-          text: '의료 약어, 표 구조, 단위와 참조값까지 이해해야 합니다. 범용 OCR만으로는 병원이 신뢰할 수 있는 데이터 품질을 만들기 어렵습니다.',
+          text: '의료 약어·표·단위·참조값에는 맥락이 필요합니다. 범용 OCR만으로는 병원 수준의 품질을 확보하기 어렵습니다.',
         },
         {
           no: '03',
           title: '활용되지 못하는 데이터',
-          text: '문서에 갇힌 결과는 EMR 연동, 임상 연구, 경영 분석과 의료 AI 학습으로 이어지지 못합니다. AX는 데이터 전환에서 시작해야 합니다.',
+          text: '문서에 갇힌 결과는 EMR·연구·분석에 쓰이지 못합니다. 병원 AX는 데이터 전환에서 시작합니다.',
         },
       ],
     },
     solution: {
       eyebrow: 'MediPipe',
       title: '의료문서를 바꾸는\n현장형 AX',
-      lead: '연구실의 데이터 정제 기술을 병원 업무에 적용해 첫 유상 매출까지 연결했습니다. 현재는 MediPipe 사업화에 집중합니다.',
+      lead: '연구실 기술을 병원 업무에 적용했습니다. 유상 검증을 거쳐 사업화하고 있습니다.',
       workflowLabel: '폐기능 데이터 처리 과정',
       workflow: [
         { no: '01', title: '문서 수집', text: '병원에 쌓인 종이·PDF 폐기능검사 결과를 불러옵니다.' },
@@ -96,7 +96,7 @@ export const content = {
           name: 'MediPipe',
           status: '주력 제품 · 초기 매출 발생',
           tag: '병원 의료문서 AX',
-          desc: '멀티에이전트 OCR과 의료 NLP로 폐기능 결과지를 구조화 데이터로 전환합니다. 건양대학교병원 공동 검증 연구에서 기술과 지불 의사를 함께 확인했습니다.',
+          desc: 'OCR과 의료 NLP로 폐기능 결과지를 구조화합니다. 건양대학교병원 유상 검증 연구에서 현장 가치를 확인했습니다.',
           points: [
             'OCR + NLP 정확도 99%',
             '1장당 3분 → 2초 (98.9% 단축)',
@@ -109,11 +109,10 @@ export const content = {
           name: 'DeepBreath CDSS',
           status: '중장기 파이프라인 · 개발·인허가 준비',
           tag: 'MediPipe 데이터 기반 SaMD',
-          desc: 'MediPipe가 만드는 고품질 폐기능 데이터를 기반으로 5년 후 악화 궤적을 예측하는 의료 AI입니다. 의료기기 인허가에 필요한 시간을 고려해 MediPipe 사업과 병행 개발하며, 임상·규제 검증을 단계적으로 준비합니다.',
+          desc: 'MediPipe가 정제한 데이터로 5년 후 악화 궤적을 예측합니다. 임상·인허가 검증을 단계적으로 준비합니다.',
           points: [
             '5년 후 악화 궤적 예측',
             'Red·Orange·Green 신호등 자동 분류',
-            'SHAP 기반 설명 리포트 — 판단 근거 시각화',
             '판독 속도 4배 향상',
           ],
         },
@@ -122,14 +121,14 @@ export const content = {
     research: {
       eyebrow: '사업·기술 검증',
       title: '연구로 증명하고,\n매출로 확인했습니다',
-      lead: '논문과 성능 지표만으로 끝내지 않았습니다. 병원 현장에서 기술이 실제 비용을 줄이고 구매로 이어지는지 확인했습니다.',
+      lead: '논문으로 기술을 검증했습니다. 병원에서는 비용 절감과 지불 의사를 확인했습니다.',
       metrics: [
         { value: '정확도 99%', label: 'MediPipe OCR·의료 NLP 정제 성능' },
         { value: '98.9% 단축', label: '결과지 1장 처리 시간 · 3분에서 2초' },
         { value: 'AUROC 0.890–0.950', label: 'DeepBreath 기반 예측 모델 연구 성능' },
       ],
       credLabel: 'Research × Business',
-      credText: '연구의 엄밀함과 사업의 실행 속도를 함께 가져갑니다.',
+      credText: '연구는 엄밀하게, 사업은 빠르게 실행합니다.',
       credPoints: [
         '건양대학교병원 유상 공동 검증 연구',
         '삼성서울병원 알레르기내과 지도교수 연구 네트워크',
@@ -140,21 +139,21 @@ export const content = {
       papers: [
         {
           title:
-            'Deep learning models for acute kidney injury prediction: multi-center external validation',
-          venue: 'npj Digital Medicine (IF 15.1)',
+            'Deep learning models for acute kidney injury prediction: multi-center external validation and evaluation under simulated continuous monitoring conditions',
+          venue: 'npj Digital Medicine (IF 18)',
           year: '2026',
         },
         {
           title:
-            'Separate and Joint Associations of Cardiorespiratory Fitness and Healthy Vascular Aging with Subclinical Atherosclerosis',
+            'Separate and joint associations of cardiorespiratory fitness and healthy vascular aging with subclinical atherosclerosis in men',
           venue: 'Hypertension (IF 10.5)',
           year: '2022',
         },
         {
           title:
-            'Novel AI-Based Technology to Diagnose Asthma Using Methacholine Challenge Tests',
+            'Novel artificial intelligence-based technology to diagnose asthma using methacholine challenge tests',
           venue: 'Allergy, Asthma & Immunology Research (IF 4.7)',
-          year: '2024',
+          year: '2023',
         },
       ],
       papersLink: { label: '전체 논문 목록 보기', href: PUBLICATIONS_URL },
@@ -166,17 +165,17 @@ export const content = {
         {
           no: '01',
           title: '의료 도메인 정제',
-          text: '단순 문자 인식을 넘어 폐기능 수치, 단위, 표 구조와 임상 맥락을 함께 구조화합니다. 30년·100만 건 코호트 정제 경험이 제품에 반영되어 있습니다.',
+          text: '폐기능 수치·단위·표·임상 맥락을 함께 구조화합니다. 30년·100만 건 코호트 정제 경험을 제품에 반영했습니다.',
         },
         {
           no: '02',
           title: '현장 사업화',
-          text: 'PoC에 머물지 않고 건양대학교병원과 공동 검증 연구를 수행하며 첫 유상 매출을 만들었습니다. 연구와 사업 검증이 같은 현장에서 이어집니다.',
+          text: '건양대학교병원 공동 검증에서 첫 유상 매출을 만들었습니다. 연구와 사업성을 한 현장에서 검증했습니다.',
         },
         {
           no: '03',
           title: 'AI로 이어지는 확장성',
-          text: 'MediPipe로 문서를 데이터 자산으로 전환한 뒤 EMR, 연구 분석과 DeepBreath 예측 의료 AI까지 하나의 데이터 흐름으로 확장합니다.',
+          text: '문서를 데이터 자산으로 바꿉니다. 이후 EMR·연구·DeepBreath로 확장합니다.',
         },
       ],
       table: {
@@ -194,7 +193,7 @@ export const content = {
     market: {
       eyebrow: '성장 전략',
       title: 'MediPipe로 진입해\nDeepBreath로 확장합니다',
-      lead: '빠르게 도입 가능한 병원 AX로 현장과 매출을 확보하고, 축적되는 고품질 데이터를 기반으로 예측 의료 AI와 글로벌 시장으로 확장합니다.',
+      lead: 'MediPipe로 병원 현장과 매출을 확보합니다. 축적된 데이터로 예측 AI와 글로벌 시장에 확장합니다.',
       panelLabel: '사업 진행 현황',
       panelTitle: '매출 검증에서 의료 AI 플랫폼까지',
       items: [
@@ -202,7 +201,7 @@ export const content = {
           tier: 'NOW',
           value: '건양대병원',
           label: '초기 매출',
-          desc: '공동 검증 연구를 수행하며 MediPipe의 첫 유상 매출과 현장 가치를 확인했습니다.',
+          desc: '공동 검증 연구에서 첫 유상 매출과 현장 가치를 확인했습니다.',
         },
         {
           tier: 'COLLAB',
@@ -256,20 +255,20 @@ export const content = {
       ],
       global: {
         label: '글로벌 진출',
-        text: 'MediPipe의 병원 AX 레퍼런스를 기반으로 해외 의료기관 진출을 준비하고, DeepBreath의 국내 인허가와 CE·FDA 준비를 단계적으로 병행합니다.',
+        text: 'MediPipe 레퍼런스로 해외 진출을 준비합니다. DeepBreath의 국내외 인허가도 단계적으로 추진합니다.',
       },
     },
     team: {
       eyebrow: '팀',
       title: '실험실에서 시작해\n현장으로',
-      lead: '브레스유는 성균관대학교 실험실 기반 창업팀입니다. 학술적 근거는 엄격하게, 제품과 사업은 빠르게 검증합니다. 아직 작은 팀이지만 필요한 역량을 직접 연결하고 있습니다.',
+      lead: '브레스유는 성균관대학교 실험실 기반 창업팀입니다. 연구는 엄격하게, 제품과 사업은 빠르게 검증합니다.',
       members: [
         {
           name: '이경현',
           sub: 'Kyung Hyun Lee',
           photo: '/team/kyunghyun-lee-480.jpg',
           role: '공동창업자 · 대표 (CEO)',
-          bio: '임상 문제를 연구하고, 그 결과를 제품과 사업으로 연결합니다.',
+          bio: '임상 문제를 연구합니다. 그 결과를 제품과 사업으로 연결합니다.',
           highlights: ['Medical AI 8년', 'SCI(E) 15편 · 1저자 8편', 'h-index 8', '식약처 승인 SaMD 개발 경험'],
         },
         {
@@ -296,9 +295,9 @@ export const content = {
     contact: {
       eyebrow: '문의',
       title: 'MediPipe로\n병원 AX를 시작하세요',
-      lead: '의료문서 자동화와 데이터 자산화가 필요한 병원·기관의 도입 및 PoC 문의를 기다립니다. 연구협력과 투자자·파트너용 상세 자료(IR)도 문의 후 개별 전달해 드립니다.',
+      lead: '병원·기관의 MediPipe 도입과 PoC 문의를 기다립니다. 연구협력·투자 관련 자료도 요청하실 수 있습니다.',
       directLabel: '이메일로 바로 문의',
-      directNote: '제품 도입 가능성과 임상·연구 협력 범위를 함께 검토합니다.',
+      directNote: '제품 도입과 임상·연구 협력 범위를 검토합니다.',
       form: {
         name: '이름',
         org: '소속 (병원·기관·투자사)',
@@ -322,7 +321,7 @@ export const content = {
       },
       rights: '© 2026 브레스유 (주). All rights reserved.',
       disclaimer:
-        '브레스유 (주)는 창업중심대학 성균관대학교의 2026년 실험실 창업 동아리로 선정된 법인입니다. 대표 이경현은 ㈜AITRICS에 재직 중이며, 브레스유의 모든 사업 활동은 AITRICS의 업무와 무관하게 독립적으로 수행됩니다.',
+        '브레스유 (주)는 2026년 성균관대학교 실험실 창업 동아리에 선정됐습니다. 대표 이경현은 ㈜AITRICS에 재직 중입니다. 브레스유의 사업은 AITRICS와 무관하게 독립적으로 운영됩니다.',
     },
   },
 
@@ -340,7 +339,7 @@ export const content = {
     meta: {
       title: 'Breath You | MediPipe Healthcare Data AX',
       description:
-        'MediPipe transforms hospital paper and PDF records into structured data in two seconds, ready for EMR, research and AI. Breath You generated its first revenue through joint validation research with Konyang University Hospital.',
+        'MediPipe structures hospital paper and PDF records in two seconds. Paid validation research with Konyang University Hospital generated our first revenue.',
     },
     nav: {
       links: [
@@ -354,10 +353,10 @@ export const content = {
     hero: {
       badge: 'LAB-TO-MARKET · Healthcare Data AX',
       title: 'Turn hospital documents\ninto data assets',
-      lead: 'MediPipe structures hospital paper and PDF records in two seconds. Joint validation research with Konyang University Hospital generated our first paid revenue.',
+      lead: 'MediPipe structures hospital documents in two seconds. Paid validation at Konyang University Hospital generated our first revenue.',
       primaryCta: 'Discuss MediPipe adoption',
       secondaryCta: 'See how it works',
-      note: 'MediPipe is our focus today. We are developing DeepBreath in parallel at the pace required for clinical and regulatory validation.',
+      note: 'MediPipe is our focus today. DeepBreath continues in parallel with clinical and regulatory preparation.',
       stats: [
         { value: '3 min → 2 sec', label: 'Processing time per PFT record' },
         { value: '99%', label: 'MediPipe OCR + NLP accuracy' },
@@ -374,7 +373,7 @@ export const content = {
         output: 'Structured PFT data',
         outputMeta: 'Ready for EMR, research and AI',
         outputValue: '99% validated',
-        explain: 'The data foundation for medical AI, including DeepBreath',
+        explain: 'The data foundation for DeepBreath',
       },
     },
     problem: {
@@ -382,30 +381,30 @@ export const content = {
       title: 'Before AI,\ndata is the bottleneck',
       trigger: {
         label: 'The workflow bottleneck',
-        text: 'Pulmonary-test results still accumulate as paper and PDF, forcing clinical staff to re-enter each record manually. Reading characters is not enough: values and clinical context must be structured accurately before EMR, research and medical AI can work.',
+        text: 'Pulmonary-test results still accumulate as paper and PDF. Clinical staff enter them manually. EMR, research and AI need structured data.',
       },
       items: [
         {
           no: '01',
           title: 'Repeated manual work',
-          text: 'Each result takes about three minutes to enter. As testing volume grows, repetitive work and the risk of input errors grow with it.',
+          text: 'Each result takes about three minutes to enter. More tests mean more repetitive work and input risk.',
         },
         {
           no: '02',
           title: 'Generic OCR falls short',
-          text: 'Medical abbreviations, table structures, units and reference values all require context. Generic OCR cannot reliably produce hospital-grade data.',
+          text: 'Medical abbreviations, tables, units and reference values require context. Generic OCR falls short of hospital-grade quality.',
         },
         {
           no: '03',
           title: 'Data that cannot be used',
-          text: 'Results trapped in documents cannot flow into EMR, clinical research, operational analytics or medical-AI training. AX must begin with data transformation.',
+          text: 'Results trapped in documents cannot support EMR, research or analytics. Hospital AX begins with data transformation.',
         },
       ],
     },
     solution: {
       eyebrow: 'MediPipe',
       title: 'Practical AX for\nmedical documents',
-      lead: 'We turned lab-grown data-cleansing technology into paid clinical work. Our near-term focus is MediPipe commercialization.',
+      lead: 'We applied lab technology to hospital work. Paid validation led to commercialization.',
       workflowLabel: 'Pulmonary data workflow',
       workflow: [
         { no: '01', title: 'Collect documents', text: 'Bring in pulmonary-test results stored as paper or PDF.' },
@@ -417,7 +416,7 @@ export const content = {
           name: 'MediPipe',
           status: 'Flagship · initial revenue generated',
           tag: 'Healthcare document AX',
-          desc: 'Multi-agent OCR and medical NLP convert pulmonary records into structured data. Joint validation research with Konyang University Hospital confirmed both technical value and willingness to pay.',
+          desc: 'OCR and medical NLP structure pulmonary records. Paid validation at Konyang University Hospital confirmed field value.',
           points: [
             'OCR + NLP accuracy of 99%',
             '3 min → 2 sec per page (98.9% faster)',
@@ -430,11 +429,10 @@ export const content = {
           name: 'DeepBreath CDSS',
           status: 'Long-term pipeline · development and regulatory prep',
           tag: 'MediPipe data-powered SaMD',
-          desc: 'A medical AI that predicts five-year deterioration trajectories on top of the high-quality pulmonary data created by MediPipe. Given the time required for medical-device approval, we are developing it alongside the MediPipe business and preparing clinical and regulatory validation step by step.',
+          desc: 'MediPipe data powers five-year deterioration prediction. Clinical and regulatory validation will proceed in stages.',
           points: [
             'Predicts a 5-year deterioration trajectory',
             'Automatic Red / Orange / Green triage',
-            'SHAP-based explainable reports',
             '4× faster reading',
           ],
         },
@@ -443,14 +441,14 @@ export const content = {
     research: {
       eyebrow: 'Business and technical validation',
       title: 'Proven in research,\nvalidated in revenue',
-      lead: 'We did not stop at papers and performance metrics. We tested whether the technology reduces real clinical work and earns a purchasing decision.',
+      lead: 'Publications validated the technology. Hospital work confirmed cost savings and willingness to pay.',
       metrics: [
         { value: '99% accuracy', label: 'MediPipe OCR and medical-NLP cleansing performance' },
         { value: '98.9% faster', label: 'Per-record processing time · 3 minutes to 2 seconds' },
         { value: 'AUROC 0.890–0.950', label: 'Research performance of DeepBreath-related prediction models' },
       ],
       credLabel: 'Research × Business',
-      credText: 'We combine academic rigor with commercial execution.',
+      credText: 'Rigorous in research. Fast in execution.',
       credPoints: [
         'Paid joint validation research with Konyang University Hospital',
         'Advisor network in Samsung Medical Center’s Division of Allergy',
@@ -461,21 +459,21 @@ export const content = {
       papers: [
         {
           title:
-            'Deep learning models for acute kidney injury prediction: multi-center external validation',
-          venue: 'npj Digital Medicine (IF 15.1)',
+            'Deep learning models for acute kidney injury prediction: multi-center external validation and evaluation under simulated continuous monitoring conditions',
+          venue: 'npj Digital Medicine (IF 18)',
           year: '2026',
         },
         {
           title:
-            'Separate and Joint Associations of Cardiorespiratory Fitness and Healthy Vascular Aging with Subclinical Atherosclerosis',
+            'Separate and joint associations of cardiorespiratory fitness and healthy vascular aging with subclinical atherosclerosis in men',
           venue: 'Hypertension (IF 10.5)',
           year: '2022',
         },
         {
           title:
-            'Novel AI-Based Technology to Diagnose Asthma Using Methacholine Challenge Tests',
+            'Novel artificial intelligence-based technology to diagnose asthma using methacholine challenge tests',
           venue: 'Allergy, Asthma & Immunology Research (IF 4.7)',
-          year: '2024',
+          year: '2023',
         },
       ],
       papersLink: { label: 'View full publication list', href: PUBLICATIONS_URL },
@@ -487,17 +485,17 @@ export const content = {
         {
           no: '01',
           title: 'Medical-domain cleansing',
-          text: 'Beyond character recognition, MediPipe structures pulmonary values, units, table layouts and clinical context. Experience cleansing a 30-year, 1M-record cohort is embedded in the product.',
+          text: 'MediPipe structures pulmonary values, units, tables and clinical context. The product reflects experience cleansing a 30-year, 1M-record cohort.',
         },
         {
           no: '02',
           title: 'Field commercialization',
-          text: 'MediPipe moved beyond PoC by generating its first paid revenue through joint validation research with Konyang University Hospital. Research and commercial validation happen in the same clinical setting.',
+          text: 'Konyang University Hospital validation generated our first paid revenue. Research and commercial value were tested in one setting.',
         },
         {
           no: '03',
           title: 'An expansion path to AI',
-          text: 'After MediPipe turns documents into data assets, the same flow extends into EMR, research analytics and the DeepBreath predictive medical-AI pipeline.',
+          text: 'MediPipe turns documents into data assets. The same flow extends to EMR, research and DeepBreath.',
         },
       ],
       table: {
@@ -515,7 +513,7 @@ export const content = {
     market: {
       eyebrow: 'Growth strategy',
       title: 'Enter with MediPipe,\nexpand with DeepBreath',
-      lead: 'We secure clinical workflows and revenue with rapidly deployable hospital AX, then expand into predictive medical AI and global markets on the high-quality data we accumulate.',
+      lead: 'MediPipe secures hospital workflows and early revenue. Its data foundation supports predictive AI and global expansion.',
       panelLabel: 'Business progress',
       panelTitle: 'From revenue validation to a medical-AI platform',
       items: [
@@ -523,7 +521,7 @@ export const content = {
           tier: 'NOW',
           value: 'Konyang Univ.',
           label: 'Initial revenue',
-          desc: 'Joint validation research generated MediPipe’s first paid revenue and validated field value.',
+          desc: 'Joint validation generated MediPipe’s first paid revenue and confirmed field value.',
         },
         {
           tier: 'COLLAB',
@@ -577,20 +575,20 @@ export const content = {
       ],
       global: {
         label: 'Going global',
-        text: 'We will use MediPipe’s hospital-AX references to prepare for overseas clinical adoption while advancing DeepBreath’s Korean approval and global CE and FDA pathways step by step.',
+        text: 'MediPipe references support overseas expansion. We will pursue DeepBreath approval in Korea and abroad.',
       },
     },
     team: {
       eyebrow: 'Team',
       title: 'From the lab\nto the field',
-      lead: 'Breath You is a lab-based startup from Sungkyunkwan University. We hold academic evidence to a high standard and test products and business quickly. We are still a small team, but we connect the required capabilities directly.',
+      lead: 'Breath You is a lab-based startup from Sungkyunkwan University. We keep research rigorous and test products and business quickly.',
       members: [
         {
           name: 'Kyung Hyun Lee',
           sub: '이경현',
           photo: '/team/kyunghyun-lee-480.jpg',
           role: 'Co-founder & CEO',
-          bio: 'He studies clinical problems and turns the results into products and business.',
+          bio: 'He studies clinical problems. He turns the findings into products and business.',
           highlights: ['8 years in Medical AI', '15 SCI(E) papers · 8 first-author', 'h-index 8', 'MFDS-approved SaMD experience'],
         },
         {
@@ -617,9 +615,9 @@ export const content = {
     contact: {
       eyebrow: 'Contact',
       title: 'Start hospital AX\nwith MediPipe',
-      lead: 'We welcome adoption and PoC inquiries from hospitals and institutions that need medical-document automation and data assetization. Research collaboration and detailed investor or partner materials are also available upon request.',
+      lead: 'We welcome MediPipe adoption and PoC inquiries. Research and investment materials are available upon request.',
       directLabel: 'Email us directly',
-      directNote: 'We review product adoption opportunities and clinical or research collaborations together.',
+      directNote: 'We review product adoption and clinical or research collaboration.',
       form: {
         name: 'Name',
         org: 'Organization (hospital, institution, investor)',
@@ -643,7 +641,7 @@ export const content = {
       },
       rights: '© 2026 BreathYou Co., Ltd. All rights reserved.',
       disclaimer:
-        'BreathYou Co., Ltd. is an incorporated company selected as a 2026 lab-based startup club at Sungkyunkwan University under Korea’s Startup-Centered University program. CEO Kyung Hyun Lee is currently employed at AITRICS; all of Breath You’s business activities are conducted independently of, and unrelated to, his work at AITRICS.',
+        'BreathYou Co., Ltd. was selected for Sungkyunkwan University’s 2026 lab-based startup program. CEO Kyung Hyun Lee is employed at AITRICS. Breath You operates independently from AITRICS.',
     },
   },
 } as const;
