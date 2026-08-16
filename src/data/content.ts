@@ -19,7 +19,7 @@ export const content = {
     meta: {
       title: '브레스유 | MediPipe 병원 의료데이터 AX',
       description:
-        'MediPipe는 병원의 종이·PDF 의료문서를 2초 만에 구조화합니다. 건양대학교병원 유상 검증 연구에서 첫 매출을 만들었습니다.',
+        '다기관 연구에서 출발한 MediPipe는 병원 문서를 2초 만에 구조화합니다. 최근 건양대학교병원 유상 검증에서 첫 매출을 만들었습니다.',
     },
     nav: {
       links: [
@@ -33,15 +33,15 @@ export const content = {
     hero: {
       badge: 'LAB-TO-MARKET · 병원 의료데이터 AX',
       title: '병원 문서를\n데이터 자산으로',
-      lead: 'MediPipe는 병원 문서를 2초 만에 구조화합니다. 건양대학교병원 유상 검증에서 첫 매출을 만들었습니다.',
+      lead: '다기관 연구에서 출발한 MediPipe는 병원 문서를 2초 만에 구조화합니다. 최근 건양대학교병원 유상 검증에서 첫 매출을 만들었습니다.',
       primaryCta: 'MediPipe 도입 상담',
       secondaryCta: '작동 방식 보기',
       note: '현재 MediPipe에 집중합니다. DeepBreath 개발과 인허가 준비도 병행합니다.',
       stats: [
         { value: '3분 → 2초', label: '폐기능 결과지 1장 처리 시간' },
         { value: '99%', label: 'MediPipe OCR·NLP 정제 정확도' },
-        { value: '초기 매출', label: '건양대학교병원 유상 검증 연구' },
-        { value: '다기관 협력', label: '병원·대학 교수진 연구 네트워크' },
+        { value: '4개 기관', label: '다기관 연구에서 출발' },
+        { value: '초기 매출', label: '최근 건양대학교병원 유상 검증' },
       ],
       visual: {
         label: 'MediPipe 의료데이터 AX',
@@ -84,7 +84,7 @@ export const content = {
     solution: {
       eyebrow: 'MediPipe',
       title: '의료문서를 바꾸는\n현장형 AX',
-      lead: '연구실 기술을 병원 업무에 적용했습니다. 유상 검증을 거쳐 사업화하고 있습니다.',
+      lead: '다기관 연구로 기술을 검증했습니다. 최근 유상 검증을 거쳐 사업화하고 있습니다.',
       workflowLabel: '폐기능 데이터 처리 과정',
       workflow: [
         { no: '01', title: '문서 수집', text: '병원에 쌓인 종이·PDF 폐기능검사 결과를 불러옵니다.' },
@@ -96,7 +96,7 @@ export const content = {
           name: 'MediPipe',
           status: '주력 제품 · 초기 매출 발생',
           tag: '병원 의료문서 AX',
-          desc: 'OCR과 의료 NLP로 폐기능 결과지를 구조화합니다. 건양대학교병원 유상 검증 연구에서 현장 가치를 확인했습니다.',
+          desc: '다기관 연구의 데이터 정제 기술을 제품화했습니다. 최근 건양대학교병원 유상 검증에서 현장 가치를 확인했습니다.',
           points: [
             'OCR + NLP 정확도 99%',
             '1장당 3분 → 2초 (98.9% 단축)',
@@ -130,8 +130,8 @@ export const content = {
       credLabel: 'Research × Business',
       credText: '연구는 엄밀하게, 사업은 빠르게 실행합니다.',
       credPoints: [
-        '건양대학교병원 유상 공동 검증 연구',
-        '삼성서울병원 알레르기내과 지도교수 연구 네트워크',
+        '삼성서울병원·인천대학교·이대목동병원·춘천성심병원 다기관 연구',
+        '최근 건양대학교병원 유상 공동 검증 · 초기 매출',
         'SCI(E) 논문 15편 · 1저자 8편 · h-index 8',
         '식약처 승인 SaMD 개발·검증 경험',
       ],
@@ -170,7 +170,7 @@ export const content = {
         {
           no: '02',
           title: '현장 사업화',
-          text: '건양대학교병원 공동 검증에서 첫 유상 매출을 만들었습니다. 연구와 사업성을 한 현장에서 검증했습니다.',
+          text: '다기관 연구로 기술을 검증했습니다. 최근 건양대학교병원 공동 검증에서 첫 매출을 만들었습니다.',
         },
         {
           no: '03',
@@ -195,19 +195,19 @@ export const content = {
       title: 'MediPipe로 진입해\nDeepBreath로 확장합니다',
       lead: 'MediPipe로 병원 현장과 매출을 확보합니다. 축적된 데이터로 예측 AI와 글로벌 시장에 확장합니다.',
       panelLabel: '사업 진행 현황',
-      panelTitle: '매출 검증에서 의료 AI 플랫폼까지',
+      panelTitle: '다기관 연구에서 매출과 의료 AI까지',
       items: [
+        {
+          tier: 'RESEARCH',
+          value: '4개 기관',
+          label: '다기관 연구',
+          desc: '삼성서울병원·인천대학교·이대목동병원·춘천성심병원에서 출발했습니다.',
+        },
         {
           tier: 'NOW',
           value: '건양대병원',
-          label: '초기 매출',
-          desc: '공동 검증 연구에서 첫 유상 매출과 현장 가치를 확인했습니다.',
-        },
-        {
-          tier: 'COLLAB',
-          value: '다기관 네트워크',
-          label: '연구 협력',
-          desc: '삼성서울병원·인천대학교·이대목동병원·춘천성심병원 교수진과 협력합니다.',
+          label: '첫 매출',
+          desc: '최근 공동 검증 연구에서 첫 유상 매출과 현장 가치를 확인했습니다.',
         },
         {
           tier: 'SCALE',
@@ -231,9 +231,9 @@ export const content = {
           period: '2026',
           name: 'AX 사업화',
           items: [
+            '다기관 공동 연구 수행',
             '법인 설립 (2026.08)',
-            '건양대학교병원 유상 공동 검증 연구',
-            '다기관 교수진 연구 네트워크 구축',
+            '건양대학교병원 유상 검증 · 초기 매출',
             'MediPipe 정식 출시',
           ],
         },
@@ -282,13 +282,13 @@ export const content = {
       ],
       partners: {
         label: '협력 네트워크',
-        text: '첫 유상 검증에서 다기관 교수진 연구 네트워크로 확장하고 있습니다.',
+        text: '다기관 연구에서 출발했습니다. 최근 건양대학교병원 유상 검증을 통해 매출 단계로 나아갔습니다.',
         items: [
-          { name: '건양대학교병원', note: '유상 공동 검증 연구 · 초기 매출' },
-          { name: '삼성서울병원 알레르기내과', note: '지도교수 연구 네트워크 기반 협력' },
-          { name: '인천대학교', note: '교수진 연구 협력' },
-          { name: '이대목동병원', note: '교수진 연구 협력' },
-          { name: '한림대학교 춘천성심병원', note: '교수진 연구 협력' },
+          { name: '삼성서울병원 알레르기내과', note: '지도교수 기반 다기관 연구', featured: false },
+          { name: '인천대학교', note: '다기관 연구 협력', featured: false },
+          { name: '이대목동병원', note: '다기관 연구 협력', featured: false },
+          { name: '한림대학교 춘천성심병원', note: '다기관 연구 협력', featured: false },
+          { name: '건양대학교병원', note: '최근 유상 공동 검증 · 초기 매출', featured: true },
         ],
       },
     },
@@ -339,7 +339,7 @@ export const content = {
     meta: {
       title: 'Breath You | MediPipe Healthcare Data AX',
       description:
-        'MediPipe structures hospital paper and PDF records in two seconds. Paid validation research with Konyang University Hospital generated our first revenue.',
+        'Born from multi-institution research, MediPipe structures hospital documents in two seconds. Recent paid validation at Konyang University Hospital generated our first revenue.',
     },
     nav: {
       links: [
@@ -353,15 +353,15 @@ export const content = {
     hero: {
       badge: 'LAB-TO-MARKET · Healthcare Data AX',
       title: 'Turn hospital documents\ninto data assets',
-      lead: 'MediPipe structures hospital documents in two seconds. Paid validation at Konyang University Hospital generated our first revenue.',
+      lead: 'Born from multi-institution research, MediPipe structures hospital documents in two seconds. Recent paid validation at Konyang University Hospital generated our first revenue.',
       primaryCta: 'Discuss MediPipe adoption',
       secondaryCta: 'See how it works',
       note: 'MediPipe is our focus today. DeepBreath continues in parallel with clinical and regulatory preparation.',
       stats: [
         { value: '3 min → 2 sec', label: 'Processing time per PFT record' },
         { value: '99%', label: 'MediPipe OCR + NLP accuracy' },
-        { value: 'Initial revenue', label: 'Paid validation research with Konyang University Hospital' },
-        { value: 'Multi-institution', label: 'Hospital and university faculty network' },
+        { value: '4 institutions', label: 'Started with multi-institution research' },
+        { value: 'Initial revenue', label: 'Recent paid validation at Konyang University Hospital' },
       ],
       visual: {
         label: 'MediPipe healthcare data AX',
@@ -404,7 +404,7 @@ export const content = {
     solution: {
       eyebrow: 'MediPipe',
       title: 'Practical AX for\nmedical documents',
-      lead: 'We applied lab technology to hospital work. Paid validation led to commercialization.',
+      lead: 'Multi-institution research validated the technology. Recent paid validation moved it into commercialization.',
       workflowLabel: 'Pulmonary data workflow',
       workflow: [
         { no: '01', title: 'Collect documents', text: 'Bring in pulmonary-test results stored as paper or PDF.' },
@@ -416,7 +416,7 @@ export const content = {
           name: 'MediPipe',
           status: 'Flagship · initial revenue generated',
           tag: 'Healthcare document AX',
-          desc: 'OCR and medical NLP structure pulmonary records. Paid validation at Konyang University Hospital confirmed field value.',
+          desc: 'We productized data-cleansing technology from multi-institution research. Recent paid validation at Konyang University Hospital confirmed field value.',
           points: [
             'OCR + NLP accuracy of 99%',
             '3 min → 2 sec per page (98.9% faster)',
@@ -450,8 +450,8 @@ export const content = {
       credLabel: 'Research × Business',
       credText: 'Rigorous in research. Fast in execution.',
       credPoints: [
-        'Paid joint validation research with Konyang University Hospital',
-        'Advisor network in Samsung Medical Center’s Division of Allergy',
+        'Multi-institution research across Samsung Medical Center, Incheon National University, Ewha Mokdong and Hallym Chuncheon',
+        'Recent paid validation at Konyang University Hospital · initial revenue',
         '15 SCI(E) papers · 8 first-author papers · h-index 8',
         'Hands-on development of an MFDS-approved SaMD',
       ],
@@ -490,7 +490,7 @@ export const content = {
         {
           no: '02',
           title: 'Field commercialization',
-          text: 'Konyang University Hospital validation generated our first paid revenue. Research and commercial value were tested in one setting.',
+          text: 'Multi-institution research validated the technology. Recent Konyang University Hospital validation generated our first revenue.',
         },
         {
           no: '03',
@@ -515,19 +515,19 @@ export const content = {
       title: 'Enter with MediPipe,\nexpand with DeepBreath',
       lead: 'MediPipe secures hospital workflows and early revenue. Its data foundation supports predictive AI and global expansion.',
       panelLabel: 'Business progress',
-      panelTitle: 'From revenue validation to a medical-AI platform',
+      panelTitle: 'From multi-institution research to revenue and medical AI',
       items: [
+        {
+          tier: 'RESEARCH',
+          value: '4 institutions',
+          label: 'Multi-institution study',
+          desc: 'The work began across Samsung Medical Center, Incheon National University, Ewha Mokdong and Hallym Chuncheon.',
+        },
         {
           tier: 'NOW',
           value: 'Konyang Univ.',
-          label: 'Initial revenue',
-          desc: 'Joint validation generated MediPipe’s first paid revenue and confirmed field value.',
-        },
-        {
-          tier: 'COLLAB',
-          value: 'Multi-institution',
-          label: 'Research network',
-          desc: 'Faculty collaboration spans Samsung Medical Center, Incheon National University, Ewha Mokdong and Hallym Chuncheon.',
+          label: 'First revenue',
+          desc: 'Recent joint validation generated our first paid revenue and confirmed field value.',
         },
         {
           tier: 'SCALE',
@@ -551,9 +551,9 @@ export const content = {
           period: '2026',
           name: 'AX commercialization',
           items: [
+            'Conduct multi-institution research',
             'Incorporation (Aug 2026)',
-            'Paid joint validation research with Konyang University Hospital',
-            'Build a multi-institution faculty network',
+            'Paid Konyang University Hospital validation · initial revenue',
             'MediPipe official launch',
           ],
         },
@@ -602,13 +602,13 @@ export const content = {
       ],
       partners: {
         label: 'Collaboration network',
-        text: 'We are expanding from our first paid validation project into a multi-institution faculty research network.',
+        text: 'We began with multi-institution research. Recent paid validation at Konyang University Hospital moved the work into revenue.',
         items: [
-          { name: 'Konyang University Hospital', note: 'Paid joint validation research · initial revenue' },
-          { name: 'Samsung Medical Center · Allergy', note: 'Advisor-led research network collaboration' },
-          { name: 'Incheon National University', note: 'Faculty research collaboration' },
-          { name: 'Ewha Womans University Mokdong Hospital', note: 'Faculty research collaboration' },
-          { name: 'Hallym University Chuncheon Sacred Heart Hospital', note: 'Faculty research collaboration' },
+          { name: 'Samsung Medical Center · Allergy', note: 'Advisor-led multi-institution research', featured: false },
+          { name: 'Incheon National University', note: 'Multi-institution research', featured: false },
+          { name: 'Ewha Womans University Mokdong Hospital', note: 'Multi-institution research', featured: false },
+          { name: 'Hallym University Chuncheon Sacred Heart Hospital', note: 'Multi-institution research', featured: false },
+          { name: 'Konyang University Hospital', note: 'Recent paid joint validation · initial revenue', featured: true },
         ],
       },
     },

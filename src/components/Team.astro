@@ -50,8 +50,8 @@ const { team } = t;
     </div>
     <div class="partners__grid">
       {
-        team.partners.items.map((partner, index) => (
-          <article class:list={['partner-card', { 'partner-card--featured': index === 0 }]}>
+        team.partners.items.map((partner) => (
+          <article class:list={['partner-card', { 'partner-card--featured': partner.featured }]}>
             <strong>{partner.name}</strong>
             <span>{partner.note}</span>
           </article>
