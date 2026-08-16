@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { EMAIL, LOGO, SITE_URL, company } from '../data/site';
+import { EMAIL, FAVICON, LOGO, OG_IMAGE, SITE_URL, company } from '../data/site';
 import type { SectionProps } from '../types';
 
 interface Props extends SectionProps {}
@@ -13,6 +13,7 @@ const canonical = new URL(Astro.url.pathname, origin).href;
 const koHref = new URL('/', origin).href;
 const enHref = new URL('/en/', origin).href;
 const logoUrl = new URL(LOGO, origin).href;
+const ogImageUrl = new URL(OG_IMAGE, origin).href;
 
 const organization = {
   '@context': 'https://schema.org',
@@ -43,7 +44,8 @@ const organization = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href={LOGO} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <link rel="icon" type="image/png" href={FAVICON} />
 
     <title>{meta.title}</title>
     <meta name="description" content={meta.description} />
@@ -59,11 +61,13 @@ const organization = {
     <meta property="og:title" content={meta.title} />
     <meta property="og:description" content={meta.description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={logoUrl} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={meta.title} />
     <meta name="twitter:description" content={meta.description} />
-    <meta name="twitter:image" content={logoUrl} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <meta name="theme-color" content="#2f5bf5" />
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(organization)} />
@@ -86,18 +90,23 @@ const organization = {
       window.addEventListener('scroll', onScroll, { passive: true });
 
       // 스크롤 진입 시 페이드인
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add('is-visible');
-              io.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.12 },
-      );
-      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      const revealElements = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+        revealElements.forEach((el) => io.observe(el));
+      } else {
+        revealElements.forEach((el) => el.classList.add('is-visible'));
+      }
     </script>
   </body>
 </html>

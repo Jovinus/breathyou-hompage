@@ -1,0 +1,55 @@
+---
+import Section from './Section.astro';
+import type { SectionProps } from '../types';
+
+interface Props extends SectionProps {}
+const { t } = Astro.props;
+const { market, roadmap } = t;
+---
+
+<Section id="company" eyebrow={market.eyebrow} title={market.title} lead={market.lead} soft>
+  <div class="growth-grid">
+    <div class="market-panel reveal" id="market">
+      <div class="growth-panel__head">
+        <span>{market.panelLabel}</span>
+        <strong>{market.panelTitle}</strong>
+      </div>
+      <div class="market-steps">
+        {
+          market.items.map((m, index) => (
+            <article class:list={['market-step', { 'market-step--focus': index === market.items.length - 1 }]}>
+              <div class="market-step__top"><span>{m.tier}</span><small>{m.label}</small></div>
+              <strong>{m.value}</strong>
+              <p>{m.desc}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="roadmap-panel reveal" id="roadmap">
+      <div class="growth-panel__head">
+        <span>{roadmap.eyebrow}</span>
+        <strong>{roadmap.title}</strong>
+      </div>
+      <ol class="timeline">
+        {
+          roadmap.phases.map((p) => (
+            <li class="timeline__phase">
+              <div class="timeline__marker" aria-hidden="true"></div>
+              <div class="timeline__content">
+                <div class="timeline__head"><strong>{p.period}</strong><span>{p.name}</span></div>
+                <ul>{p.items.map((it) => <li>{it}</li>)}</ul>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+
+  <div class="roadmap-global reveal">
+    <span class="roadmap-global__label">{roadmap.global.label}</span>
+    <p class="roadmap-global__text">{roadmap.global.text}</p>
+  </div>
+</Section>

@@ -8,20 +8,28 @@ const { research } = t;
 ---
 
 <Section id="research" eyebrow={research.eyebrow} title={research.title} lead={research.lead}>
+  <div class="metric-list reveal">
+    {
+      research.metrics.map((m, index) => (
+        <div class="metric">
+          <span class="metric__no">0{index + 1}</span>
+          <span class="v">{m.value}</span>
+          <span class="l">{m.label}</span>
+        </div>
+      ))
+    }
+  </div>
+
   <div class="research-grid">
-    <div class="metric-list reveal">
-      {
-        research.metrics.map((m) => (
-          <div class="metric">
-            <span class="v">{m.value}</span>
-            <span class="l">{m.label}</span>
-          </div>
-        ))
-      }
+    <div class="research-story reveal">
+      <span class="research-story__label">{research.credLabel}</span>
+      <p>{research.credText}</p>
+      <div class="research-story__signal" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
     </div>
 
     <div class="papers reveal">
-      <p class="papers__cred">{research.credText}</p>
       <p class="papers__title">{research.papersTitle}</p>
       {
         research.papers.map((p) => (

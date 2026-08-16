@@ -3,6 +3,8 @@
 
 export const SITE_URL = 'https://breathyou.care';
 export const LOGO = '/logo.png';
+export const FAVICON = '/favicon.png';
+export const OG_IMAGE = '/og.png';
 export const EMAIL = 'lkh256@breathyou.care';
 export const PUBLICATIONS_URL = 'https://jovinus.github.io/publications/';
 

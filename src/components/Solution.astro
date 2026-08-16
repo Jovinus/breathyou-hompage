@@ -8,10 +8,24 @@ const { solution } = t;
 ---
 
 <Section id="solution" eyebrow={solution.eyebrow} title={solution.title} lead={solution.lead} soft>
+  <ol class="workflow reveal" aria-label={solution.workflowLabel}>
+    {
+      solution.workflow.map((step) => (
+        <li class="workflow__step">
+          <span class="workflow__no">{step.no}</span>
+          <div>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+
   <div class="solution-grid">
     {
-      solution.products.map((p) => (
-        <article class="card product reveal">
+      solution.products.map((p, index) => (
+        <article class:list={['card', 'product', 'reveal', { 'product--featured': index === 0 }]}>
           <div class="product__head">
             <span class="product__tag">{p.tag}</span>
             <span class="product__status">{p.status}</span>

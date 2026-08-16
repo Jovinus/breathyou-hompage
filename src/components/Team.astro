@@ -14,7 +14,15 @@ const { team } = t;
         <article class="member reveal">
           <div class="member__head">
             {m.photo ? (
-              <img class="member__photo" src={m.photo} alt={m.name} width="80" height="80" />
+              <img
+                class="member__photo"
+                src={m.photo}
+                alt={m.name}
+                width="80"
+                height="80"
+                loading="lazy"
+                decoding="async"
+              />
             ) : (
               <div class="member__photo member__photo--initial" aria-hidden="true">
                 {m.name.trim().charAt(0)}

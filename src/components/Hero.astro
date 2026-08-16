@@ -3,7 +3,7 @@ import type { SectionProps } from '../types';
 
 interface Props extends SectionProps {}
 const { t } = Astro.props;
-const { hero, ui } = t;
+const { hero } = t;
 ---
 
 <section class="hero" id="top">
@@ -18,15 +18,49 @@ const { hero, ui } = t;
       </div>
     </div>
 
-    <aside class="hero__card reveal" aria-label={ui.keyMetrics}>
-      {
-        hero.stats.map((s) => (
-          <div class="hero__stat">
-            <div class="v">{s.value}</div>
-            <div class="l">{s.label}</div>
+    <figure class="hero-product reveal" aria-labelledby="hero-product-title">
+      <div class="hero-product__bar">
+        <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <figcaption id="hero-product-title">{hero.visual.label}</figcaption>
+        <span class="hero-product__live">{hero.visual.live}</span>
+      </div>
+
+      <div class="hero-product__body">
+        <div class="pft-document" aria-hidden="true">
+          <span class="pft-document__tag">PFT</span>
+          <span class="pft-document__line pft-document__line--long"></span>
+          <span class="pft-document__line"></span>
+          <div class="pft-document__chart">
+            <i style="--h: 38%"></i><i style="--h: 54%"></i><i style="--h: 46%"></i>
+            <i style="--h: 72%"></i><i style="--h: 84%"></i><i style="--h: 68%"></i>
           </div>
-        ))
-      }
-    </aside>
+        </div>
+
+        <div class="hero-product__flow">
+          <div class="product-step product-step--active">
+            <span class="product-step__icon" aria-hidden="true">01</span>
+            <span><strong>{hero.visual.input}</strong><small>{hero.visual.inputMeta}</small></span>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">↓</span>
+          <div class="product-step product-step--brand">
+            <span class="product-step__icon" aria-hidden="true">02</span>
+            <span><strong>{hero.visual.processing}</strong><small>{hero.visual.processingMeta}</small></span>
+          </div>
+        </div>
+
+        <div class="risk-card">
+          <div class="risk-card__head">
+            <span><strong>{hero.visual.output}</strong><small>{hero.visual.risk}</small></span>
+            <span class="risk-card__value">{hero.visual.riskValue}</span>
+          </div>
+          <div class="risk-trajectory" aria-hidden="true">
+            <span style="--x: 0%; --y: 72%"></span><span style="--x: 24%; --y: 61%"></span>
+            <span style="--x: 49%; --y: 48%"></span><span style="--x: 74%; --y: 32%"></span>
+            <span style="--x: 100%; --y: 18%"></span>
+          </div>
+          <div class="risk-card__foot"><span class="explain-dot"></span>{hero.visual.explain}</div>
+        </div>
+      </div>
+    </figure>
   </div>
 </section>

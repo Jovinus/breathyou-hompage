@@ -14,7 +14,10 @@ const { form } = contact;
     <div class="contact-direct reveal">
       <span class="contact-direct__label">{contact.directLabel}</span>
       <a class="contact-direct__email" href={`mailto:${EMAIL}`}>{EMAIL}</a>
-      <p class="contact-direct__note">{contact.lead}</p>
+      <ul class="contact-direct__types">
+        {form.types.map((type) => <li>{type}</li>)}
+      </ul>
+      <p class="contact-direct__note">{contact.directNote}</p>
     </div>
 
     <form class="contact-form reveal" id="inquiry" data-email={EMAIL}>
@@ -36,9 +39,10 @@ const { form } = contact;
       </div>
       <div class="field">
         <label for="f-msg">{form.message}</label>
-        <textarea id="f-msg" name="message" placeholder={form.messagePlaceholder} required></textarea>
+        <textarea id="f-msg" name="message" placeholder={form.messagePlaceholder} aria-describedby="f-helper" required></textarea>
       </div>
       <button class="btn btn--primary" type="submit">{form.submit}</button>
+      <p class="contact-form__helper" id="f-helper">{form.helper}</p>
     </form>
   </div>
 </Section>
