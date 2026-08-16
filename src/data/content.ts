@@ -19,7 +19,7 @@ export const content = {
     meta: {
       title: '브레스유 | MediPipe 병원 의료데이터 AX',
       description:
-        'MediPipe는 병원의 종이·PDF 의료문서를 2초 만에 구조화해 EMR·연구·AI에 연결하는 의료데이터 AX 솔루션입니다. 건양대학교병원과 협업하며 초기 매출을 만들었습니다.',
+        'MediPipe는 병원의 종이·PDF 의료문서를 2초 만에 구조화해 EMR·연구·AI에 연결하는 의료데이터 AX 솔루션입니다. 건양대학교병원과 공동 검증 연구를 수행하며 초기 매출을 만들었습니다.',
     },
     nav: {
       links: [
@@ -31,16 +31,17 @@ export const content = {
       cta: 'PoC 상담',
     },
     hero: {
-      badge: '병원 의료데이터 AX · MediPipe',
+      badge: 'LAB-TO-MARKET · 병원 의료데이터 AX',
       title: '병원 문서를\n데이터 자산으로',
-      lead: 'MediPipe는 병원의 종이·PDF 의료문서를 2초 만에 구조화해 EMR·연구·AI에 연결합니다. 초기 매출을 만들고 건양대학교병원과 현장 협업을 진행하고 있으며, 그 데이터 기반 위에서 DeepBreath 개발과 인허가 준비를 병행합니다.',
+      lead: 'MediPipe는 병원의 종이·PDF 의료문서를 2초 만에 구조화합니다. 건양대학교병원 공동 검증 연구에서 첫 유상 매출을 만들었습니다.',
       primaryCta: 'MediPipe 도입 상담',
       secondaryCta: '작동 방식 보기',
+      note: '현재 주력은 MediPipe입니다. DeepBreath는 임상·인허가에 필요한 시간을 존중하며 병행 개발합니다.',
       stats: [
         { value: '3분 → 2초', label: '폐기능 결과지 1장 처리 시간' },
         { value: '99%', label: 'MediPipe OCR·NLP 정제 정확도' },
-        { value: '초기 매출', label: 'MediPipe 사업화 검증' },
-        { value: '건양대병원', label: '공식 연구협력 진행' },
+        { value: '초기 매출', label: '건양대학교병원 유상 검증 연구' },
+        { value: '다기관 협력', label: '병원·대학 교수진 연구 네트워크' },
       ],
       visual: {
         label: 'MediPipe 의료데이터 AX',
@@ -83,7 +84,7 @@ export const content = {
     solution: {
       eyebrow: 'MediPipe',
       title: '의료문서를 바꾸는\n현장형 AX',
-      lead: 'MediPipe는 브레스유의 현재 주력 사업입니다. 의료문서 정제 자동화로 초기 매출을 만들었고 건양대학교병원과 현장 검증을 진행하고 있습니다. DeepBreath는 MediPipe가 축적하는 고품질 데이터 위에서 개발과 인허가를 병행합니다.',
+      lead: '연구실의 데이터 정제 기술을 병원 업무에 적용해 첫 유상 매출까지 연결했습니다. 현재는 MediPipe 사업화에 집중합니다.',
       workflowLabel: '폐기능 데이터 처리 과정',
       workflow: [
         { no: '01', title: '문서 수집', text: '병원에 쌓인 종이·PDF 폐기능검사 결과를 불러옵니다.' },
@@ -95,11 +96,11 @@ export const content = {
           name: 'MediPipe',
           status: '주력 제품 · 초기 매출 발생',
           tag: '병원 의료문서 AX',
-          desc: '멀티에이전트 OCR과 의료 NLP로 종이·PDF 폐기능 결과지를 구조화 데이터로 전환합니다. 1장당 3분 걸리던 수작업을 2초로 줄이고, 흩어진 문서를 EMR·연구·AI에 활용할 수 있는 데이터 자산으로 바꿉니다. 초기 매출을 만들었으며 건양대학교병원과 협업 검증을 진행 중입니다.',
+          desc: '멀티에이전트 OCR과 의료 NLP로 폐기능 결과지를 구조화 데이터로 전환합니다. 건양대학교병원 공동 검증 연구에서 기술과 지불 의사를 함께 확인했습니다.',
           points: [
             'OCR + NLP 정확도 99%',
             '1장당 3분 → 2초 (98.9% 단축)',
-            '건양대학교병원 협업 검증',
+            '건양대학교병원 유상 공동 검증 연구',
             'EMR 자동 연동',
             '특허 출원 (출원번호 10-2025-0166208)',
           ],
@@ -120,16 +121,21 @@ export const content = {
     },
     research: {
       eyebrow: '사업·기술 검증',
-      title: '현장에서 시작된\n검증',
-      lead: 'MediPipe는 초기 매출과 병원 협업으로 사업성을 확인했고, 브레스유의 의료 AI 기술은 논문과 학회 발표로 검증을 이어가고 있습니다.',
+      title: '연구로 증명하고,\n매출로 확인했습니다',
+      lead: '논문과 성능 지표만으로 끝내지 않았습니다. 병원 현장에서 기술이 실제 비용을 줄이고 구매로 이어지는지 확인했습니다.',
       metrics: [
         { value: '정확도 99%', label: 'MediPipe OCR·의료 NLP 정제 성능' },
         { value: '98.9% 단축', label: '결과지 1장 처리 시간 · 3분에서 2초' },
         { value: 'AUROC 0.890–0.950', label: 'DeepBreath 기반 예측 모델 연구 성능' },
       ],
-      credLabel: '실행력',
-      credText:
-        'MediPipe는 1차 PoC를 넘어 초기 매출을 만들었으며, 건양대학교병원과 정식 연구협력 아래 현장 검증을 진행하고 있습니다. 대표 이경현은 Medical AI 8년차 연구자로 SCI(E) 논문 15편과 SaMD 개발·검증 경험을 보유하고 있습니다.',
+      credLabel: 'Research × Business',
+      credText: '연구의 엄밀함과 사업의 실행 속도를 함께 가져갑니다.',
+      credPoints: [
+        '건양대학교병원 유상 공동 검증 연구',
+        '삼성서울병원 알레르기내과 지도교수 연구 네트워크',
+        'SCI(E) 논문 15편 · 1저자 8편 · h-index 8',
+        '식약처 승인 SaMD 개발·검증 경험',
+      ],
       papersTitle: '대표 논문',
       papers: [
         {
@@ -155,7 +161,7 @@ export const content = {
     },
     advantage: {
       eyebrow: '왜 MediPipe인가',
-      title: '병원 AX에 필요한\n세 가지 실행력',
+      title: '연구가 제품이 되는\n세 가지 이유',
       moats: [
         {
           no: '01',
@@ -165,7 +171,7 @@ export const content = {
         {
           no: '02',
           title: '현장 사업화',
-          text: 'PoC에 머물지 않고 초기 매출을 만들었으며, 건양대학교병원과 실제 의료데이터를 기반으로 협업 검증을 진행하고 있습니다.',
+          text: 'PoC에 머물지 않고 건양대학교병원과 공동 검증 연구를 수행하며 첫 유상 매출을 만들었습니다. 연구와 사업 검증이 같은 현장에서 이어집니다.',
         },
         {
           no: '03',
@@ -194,15 +200,15 @@ export const content = {
       items: [
         {
           tier: 'NOW',
-          value: '초기 매출 발생',
-          label: '사업화',
-          desc: 'MediPipe PoC를 넘어 실제 고객 가치와 지불 의사를 검증했습니다.',
+          value: '건양대병원',
+          label: '초기 매출',
+          desc: '공동 검증 연구를 수행하며 MediPipe의 첫 유상 매출과 현장 가치를 확인했습니다.',
         },
         {
           tier: 'COLLAB',
-          value: '건양대병원',
-          label: '현장 검증',
-          desc: '정식 연구협력을 기반으로 MediPipe와 폐기능 데이터 기술을 검증합니다.',
+          value: '다기관 네트워크',
+          label: '연구 협력',
+          desc: '삼성서울병원·인천대학교·이대목동병원·춘천성심병원 교수진과 협력합니다.',
         },
         {
           tier: 'SCALE',
@@ -227,8 +233,8 @@ export const content = {
           name: 'AX 사업화',
           items: [
             '법인 설립 (2026.08)',
-            'MediPipe 초기 매출 발생',
-            '건양대학교병원 협업 검증',
+            '건양대학교병원 유상 공동 검증 연구',
+            '다기관 교수진 연구 네트워크 구축',
             'MediPipe 정식 출시',
           ],
         },
@@ -255,26 +261,36 @@ export const content = {
     },
     team: {
       eyebrow: '팀',
-      title: '임상·AI·규제를\n직접 잇는 팀',
+      title: '실험실에서 시작해\n현장으로',
+      lead: '브레스유는 성균관대학교 실험실 기반 창업팀입니다. 학술적 근거는 엄격하게, 제품과 사업은 빠르게 검증합니다. 아직 작은 팀이지만 필요한 역량을 직접 연결하고 있습니다.',
       members: [
         {
           name: '이경현',
           sub: 'Kyung Hyun Lee',
           photo: '/team/kyunghyun-lee-480.jpg',
           role: '공동창업자 · 대표 (CEO)',
-          bio: '성균관대학교 SAIHST 디지털헬스학과 박사과정. Medical AI 8년차 연구자로, AITRICS에서 식약처 승인 심정지 예측 AI 의료기기를 비롯한 SaMD 개발·검증을 수행했습니다. SCI(E) 논문 15편(1저자 8편), h-index 8. 임상 문제 발견부터 AI 솔루션 설계, 규제 진입까지 전 과정을 직접 수행하는 풀스택 창업자입니다.',
+          bio: '임상 문제를 연구하고, 그 결과를 제품과 사업으로 연결합니다.',
+          highlights: ['Medical AI 8년', 'SCI(E) 15편 · 1저자 8편', 'h-index 8', '식약처 승인 SaMD 개발 경험'],
         },
         {
           name: '이다윤',
           sub: 'Dayoon Lee',
           photo: '',
           role: '공동창업자 · 최고품질책임자 (CQO)',
-          bio: '간호학 배경의 최고품질책임자(CQO). 의료기기 품질보증(QA)과 품질경영시스템(QMS), 인허가 프로세스를 담당하며, 임상 현장의 관점에서 제품의 안전성과 신뢰성을 책임집니다.',
+          bio: '임상 현장의 언어를 품질과 규제 체계로 연결합니다.',
+          highlights: ['간호학 기반 임상 이해', '의료기기 QA', 'QMS 체계 구축', '인허가 프로세스'],
         },
       ],
       partners: {
         label: '협력 네트워크',
-        text: '브레스유는 건양대학교병원(Konyang University Hospital)과 정식 연구협력 계약을 체결하고, MediPipe와 폐기능 궤적 예측 모델을 건양대학교병원 자료로 검증하고 있습니다. 또한 삼성서울병원, 한림대학교 춘천성심병원, 이대목동병원 등 의료기관과 협력하고 있습니다.',
+        text: '첫 유상 검증에서 다기관 교수진 연구 네트워크로 확장하고 있습니다.',
+        items: [
+          { name: '건양대학교병원', note: '유상 공동 검증 연구 · 초기 매출' },
+          { name: '삼성서울병원 알레르기내과', note: '지도교수 연구 네트워크 기반 협력' },
+          { name: '인천대학교', note: '교수진 연구 협력' },
+          { name: '이대목동병원', note: '교수진 연구 협력' },
+          { name: '한림대학교 춘천성심병원', note: '교수진 연구 협력' },
+        ],
       },
     },
     contact: {
@@ -324,7 +340,7 @@ export const content = {
     meta: {
       title: 'Breath You | MediPipe Healthcare Data AX',
       description:
-        'MediPipe transforms hospital paper and PDF records into structured data in two seconds, ready for EMR, research and AI. Breath You has generated initial revenue and is collaborating with Konyang University Hospital.',
+        'MediPipe transforms hospital paper and PDF records into structured data in two seconds, ready for EMR, research and AI. Breath You generated its first revenue through joint validation research with Konyang University Hospital.',
     },
     nav: {
       links: [
@@ -336,16 +352,17 @@ export const content = {
       cta: 'Request a PoC',
     },
     hero: {
-      badge: 'Healthcare Data AX · MediPipe',
+      badge: 'LAB-TO-MARKET · Healthcare Data AX',
       title: 'Turn hospital documents\ninto data assets',
-      lead: 'MediPipe structures hospital paper and PDF records in two seconds and connects them to EMR, research and AI. We have generated initial revenue and are collaborating with Konyang University Hospital, while developing DeepBreath and preparing its regulatory pathway in parallel.',
+      lead: 'MediPipe structures hospital paper and PDF records in two seconds. Joint validation research with Konyang University Hospital generated our first paid revenue.',
       primaryCta: 'Discuss MediPipe adoption',
       secondaryCta: 'See how it works',
+      note: 'MediPipe is our focus today. We are developing DeepBreath in parallel at the pace required for clinical and regulatory validation.',
       stats: [
         { value: '3 min → 2 sec', label: 'Processing time per PFT record' },
         { value: '99%', label: 'MediPipe OCR + NLP accuracy' },
-        { value: 'Revenue', label: 'Initial commercialization validated' },
-        { value: 'Konyang Univ.', label: 'Formal hospital collaboration' },
+        { value: 'Initial revenue', label: 'Paid validation research with Konyang University Hospital' },
+        { value: 'Multi-institution', label: 'Hospital and university faculty network' },
       ],
       visual: {
         label: 'MediPipe healthcare data AX',
@@ -388,7 +405,7 @@ export const content = {
     solution: {
       eyebrow: 'MediPipe',
       title: 'Practical AX for\nmedical documents',
-      lead: 'MediPipe is Breath You’s flagship business today. It has generated initial revenue from medical-document automation and is undergoing field validation with Konyang University Hospital. DeepBreath development and regulatory preparation continue in parallel on the high-quality data foundation MediPipe creates.',
+      lead: 'We turned lab-grown data-cleansing technology into paid clinical work. Our near-term focus is MediPipe commercialization.',
       workflowLabel: 'Pulmonary data workflow',
       workflow: [
         { no: '01', title: 'Collect documents', text: 'Bring in pulmonary-test results stored as paper or PDF.' },
@@ -400,11 +417,11 @@ export const content = {
           name: 'MediPipe',
           status: 'Flagship · initial revenue generated',
           tag: 'Healthcare document AX',
-          desc: 'Multi-agent OCR and medical NLP convert paper and PDF pulmonary results into structured data, cutting a three-minute manual task to two seconds. It turns scattered documents into assets ready for EMR, research and AI. MediPipe has generated initial revenue and is being validated in collaboration with Konyang University Hospital.',
+          desc: 'Multi-agent OCR and medical NLP convert pulmonary records into structured data. Joint validation research with Konyang University Hospital confirmed both technical value and willingness to pay.',
           points: [
             'OCR + NLP accuracy of 99%',
             '3 min → 2 sec per page (98.9% faster)',
-            'Validation with Konyang University Hospital',
+            'Paid joint validation research with Konyang University Hospital',
             'Automatic EMR integration',
             'Patent pending (App. No. 10-2025-0166208)',
           ],
@@ -425,16 +442,21 @@ export const content = {
     },
     research: {
       eyebrow: 'Business and technical validation',
-      title: 'Validation that started\nin the field',
-      lead: 'MediPipe has demonstrated commercial value through initial revenue and hospital collaboration, while Breath You’s medical-AI capabilities continue to be validated through publications and conferences.',
+      title: 'Proven in research,\nvalidated in revenue',
+      lead: 'We did not stop at papers and performance metrics. We tested whether the technology reduces real clinical work and earns a purchasing decision.',
       metrics: [
         { value: '99% accuracy', label: 'MediPipe OCR and medical-NLP cleansing performance' },
         { value: '98.9% faster', label: 'Per-record processing time · 3 minutes to 2 seconds' },
         { value: 'AUROC 0.890–0.950', label: 'Research performance of DeepBreath-related prediction models' },
       ],
-      credLabel: 'Execution',
-      credText:
-        'MediPipe has progressed beyond its first PoC to generate initial revenue and is being validated under a formal research collaboration with Konyang University Hospital. CEO Kyung Hyun Lee brings eight years of medical-AI experience, 15 SCI(E) papers, and hands-on SaMD development and validation experience.',
+      credLabel: 'Research × Business',
+      credText: 'We combine academic rigor with commercial execution.',
+      credPoints: [
+        'Paid joint validation research with Konyang University Hospital',
+        'Advisor network in Samsung Medical Center’s Division of Allergy',
+        '15 SCI(E) papers · 8 first-author papers · h-index 8',
+        'Hands-on development of an MFDS-approved SaMD',
+      ],
       papersTitle: 'Selected publications',
       papers: [
         {
@@ -460,7 +482,7 @@ export const content = {
     },
     advantage: {
       eyebrow: 'Why MediPipe',
-      title: 'Three capabilities\nhospital AX requires',
+      title: 'Three reasons\nresearch becomes product',
       moats: [
         {
           no: '01',
@@ -470,7 +492,7 @@ export const content = {
         {
           no: '02',
           title: 'Field commercialization',
-          text: 'MediPipe has moved beyond PoC to initial revenue and is undergoing collaborative validation with Konyang University Hospital using real clinical data.',
+          text: 'MediPipe moved beyond PoC by generating its first paid revenue through joint validation research with Konyang University Hospital. Research and commercial validation happen in the same clinical setting.',
         },
         {
           no: '03',
@@ -499,15 +521,15 @@ export const content = {
       items: [
         {
           tier: 'NOW',
-          value: 'Initial revenue',
-          label: 'Commercialization',
-          desc: 'MediPipe has moved beyond PoC to validate customer value and willingness to pay.',
+          value: 'Konyang Univ.',
+          label: 'Initial revenue',
+          desc: 'Joint validation research generated MediPipe’s first paid revenue and validated field value.',
         },
         {
           tier: 'COLLAB',
-          value: 'Konyang Univ.',
-          label: 'Field validation',
-          desc: 'Formal research collaboration validates MediPipe and pulmonary-data technology.',
+          value: 'Multi-institution',
+          label: 'Research network',
+          desc: 'Faculty collaboration spans Samsung Medical Center, Incheon National University, Ewha Mokdong and Hallym Chuncheon.',
         },
         {
           tier: 'SCALE',
@@ -532,8 +554,8 @@ export const content = {
           name: 'AX commercialization',
           items: [
             'Incorporation (Aug 2026)',
-            'Initial MediPipe revenue',
-            'Validation with Konyang University Hospital',
+            'Paid joint validation research with Konyang University Hospital',
+            'Build a multi-institution faculty network',
             'MediPipe official launch',
           ],
         },
@@ -560,26 +582,36 @@ export const content = {
     },
     team: {
       eyebrow: 'Team',
-      title: 'A team bridging\nclinic, AI and regulation',
+      title: 'From the lab\nto the field',
+      lead: 'Breath You is a lab-based startup from Sungkyunkwan University. We hold academic evidence to a high standard and test products and business quickly. We are still a small team, but we connect the required capabilities directly.',
       members: [
         {
           name: 'Kyung Hyun Lee',
           sub: '이경현',
           photo: '/team/kyunghyun-lee-480.jpg',
           role: 'Co-founder & CEO',
-          bio: 'PhD student in Digital Health at SAIHST, Sungkyunkwan University. An 8-year medical-AI researcher who led SaMD development and validation at AITRICS — including an MFDS-approved cardiac-arrest prediction device. 15 SCI(E) papers (first author on 8), h-index 8. A full-stack founder who personally covers everything from clinical problem discovery to AI design and regulatory entry.',
+          bio: 'He studies clinical problems and turns the results into products and business.',
+          highlights: ['8 years in Medical AI', '15 SCI(E) papers · 8 first-author', 'h-index 8', 'MFDS-approved SaMD experience'],
         },
         {
           name: 'Dayoon Lee',
           sub: '이다윤',
           photo: '',
           role: 'Co-founder & Chief Quality Officer',
-          bio: 'Chief Quality Officer with a nursing background. She owns medical-device quality assurance (QA), the quality management system (QMS), and regulatory processes, taking responsibility for product safety and reliability from a clinical-field perspective.',
+          bio: 'She translates clinical practice into quality and regulatory systems.',
+          highlights: ['Clinical insight from nursing', 'Medical-device QA', 'QMS development', 'Regulatory process'],
         },
       ],
       partners: {
         label: 'Collaboration network',
-        text: 'Breath You has signed a formal research collaboration agreement with Konyang University Hospital and is validating both MediPipe and its pulmonary-trajectory prediction model with Konyang University Hospital data. We also collaborate with Samsung Medical Center, Hallym University Chuncheon Sacred Heart Hospital, and Ewha Womans University Mokdong Hospital.',
+        text: 'We are expanding from our first paid validation project into a multi-institution faculty research network.',
+        items: [
+          { name: 'Konyang University Hospital', note: 'Paid joint validation research · initial revenue' },
+          { name: 'Samsung Medical Center · Allergy', note: 'Advisor-led research network collaboration' },
+          { name: 'Incheon National University', note: 'Faculty research collaboration' },
+          { name: 'Ewha Womans University Mokdong Hospital', note: 'Faculty research collaboration' },
+          { name: 'Hallym University Chuncheon Sacred Heart Hospital', note: 'Faculty research collaboration' },
+        ],
       },
     },
     contact: {

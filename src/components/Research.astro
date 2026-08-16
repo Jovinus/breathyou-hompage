@@ -24,6 +24,9 @@ const { research } = t;
     <div class="research-story reveal">
       <span class="research-story__label">{research.credLabel}</span>
       <p>{research.credText}</p>
+      <ul class="research-story__points">
+        {research.credPoints.map((point) => <li>{point}</li>)}
+      </ul>
       <div class="research-story__signal" aria-hidden="true">
         <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>

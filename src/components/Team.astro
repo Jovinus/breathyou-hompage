@@ -7,7 +7,7 @@ const { t } = Astro.props;
 const { team } = t;
 ---
 
-<Section id="team" eyebrow={team.eyebrow} title={team.title}>
+<Section id="team" eyebrow={team.eyebrow} title={team.title} lead={team.lead}>
   <div class="team-grid">
     {
       team.members.map((m) => (
@@ -18,8 +18,8 @@ const { team } = t;
                 class="member__photo"
                 src={m.photo}
                 alt={m.name}
-                width="80"
-                height="80"
+                width="112"
+                height="112"
                 loading="lazy"
                 decoding="async"
               />
@@ -35,13 +35,28 @@ const { team } = t;
             </div>
           </div>
           <p class="member__bio">{m.bio}</p>
+          <ul class="member__highlights">
+            {m.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
         </article>
       ))
     }
   </div>
 
   <div class="partners reveal">
-    <span class="partners__label">{team.partners.label}</span>
-    <p class="partners__text">{team.partners.text}</p>
+    <div class="partners__head">
+      <span class="partners__label">{team.partners.label}</span>
+      <p class="partners__text">{team.partners.text}</p>
+    </div>
+    <div class="partners__grid">
+      {
+        team.partners.items.map((partner, index) => (
+          <article class:list={['partner-card', { 'partner-card--featured': index === 0 }]}>
+            <strong>{partner.name}</strong>
+            <span>{partner.note}</span>
+          </article>
+        ))
+      }
+    </div>
   </div>
 </Section>
