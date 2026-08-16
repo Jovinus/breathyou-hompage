@@ -48,17 +48,17 @@ const { hero } = t;
           </div>
         </div>
 
-        <div class="risk-card">
-          <div class="risk-card__head">
-            <span><strong>{hero.visual.output}</strong><small>{hero.visual.risk}</small></span>
-            <span class="risk-card__value">{hero.visual.riskValue}</span>
+        <div class="output-card">
+          <div class="output-card__head">
+            <span><strong>{hero.visual.output}</strong><small>{hero.visual.outputMeta}</small></span>
+            <span class="output-card__value">{hero.visual.outputValue}</span>
           </div>
-          <div class="risk-trajectory" aria-hidden="true">
+          <div class="data-trajectory" aria-hidden="true">
             <span style="--x: 0%; --y: 72%"></span><span style="--x: 24%; --y: 61%"></span>
             <span style="--x: 49%; --y: 48%"></span><span style="--x: 74%; --y: 32%"></span>
             <span style="--x: 100%; --y: 18%"></span>
           </div>
-          <div class="risk-card__foot"><span class="explain-dot"></span>{hero.visual.explain}</div>
+          <div class="output-card__foot"><span class="explain-dot"></span>{hero.visual.explain}</div>
         </div>
       </div>
     </figure>

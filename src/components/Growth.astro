@@ -17,7 +17,7 @@ const { market, roadmap } = t;
       <div class="market-steps">
         {
           market.items.map((m, index) => (
-            <article class:list={['market-step', { 'market-step--focus': index === market.items.length - 1 }]}>
+            <article class:list={['market-step', { 'market-step--focus': index === 0 }]}>
               <div class="market-step__top"><span>{m.tier}</span><small>{m.label}</small></div>
               <strong>{m.value}</strong>
               <p>{m.desc}</p>
