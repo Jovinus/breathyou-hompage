@@ -42,6 +42,7 @@ export const content = {
         { value: '99%', label: 'MediPipe OCR·NLP 정제 정확도' },
         { value: '4개 기관', label: '다기관 연구에서 출발' },
         { value: '초기 매출', label: '최근 건양대학교병원 유상 검증' },
+        { value: '최우수상', label: '2026 연합 실험실창업 캠프 IR' },
       ],
       visual: {
         label: 'MediPipe 의료데이터 AX',
@@ -122,6 +123,14 @@ export const content = {
       eyebrow: '사업·기술 검증',
       title: '연구로 증명하고,\n매출로 확인했습니다',
       lead: '논문으로 기술을 검증했습니다. 병원에서는 비용 절감과 지불 의사를 확인했습니다.',
+      award: {
+        label: '외부 검증',
+        badge: '최우수상',
+        title: '2026 연합 실험실창업 캠프 IR 발표',
+        host: '성균관대학교 창업중심대학 주관 · 2026',
+        talkLabel: '발표 주제',
+        talk: '병원이 AI를 쓸 수 있게 만드는 데이터 인프라 — MediPipe',
+      },
       metrics: [
         { value: '정확도 99%', label: 'MediPipe OCR·의료 NLP 정제 성능' },
         { value: '98.9% 단축', label: '결과지 1장 처리 시간 · 3분에서 2초' },
@@ -234,6 +243,7 @@ export const content = {
             '다기관 공동 연구 수행',
             '법인 설립 (2026.08)',
             '건양대학교병원 유상 검증 · 초기 매출',
+            '연합 실험실창업 캠프 IR 최우수상',
             'MediPipe 정식 출시',
           ],
         },
@@ -362,6 +372,7 @@ export const content = {
         { value: '99%', label: 'MediPipe OCR + NLP accuracy' },
         { value: '4 institutions', label: 'Started with multi-institution research' },
         { value: 'Initial revenue', label: 'Recent paid validation at Konyang University Hospital' },
+        { value: 'Grand Prize', label: '2026 Joint Lab-Startup Camp IR pitch' },
       ],
       visual: {
         label: 'MediPipe healthcare data AX',
@@ -442,6 +453,14 @@ export const content = {
       eyebrow: 'Business and technical validation',
       title: 'Proven in research,\nvalidated in revenue',
       lead: 'Publications validated the technology. Hospital work confirmed cost savings and willingness to pay.',
+      award: {
+        label: 'External validation',
+        badge: 'Grand Prize',
+        title: 'IR pitch at the 2026 Joint Lab-Startup Camp',
+        host: 'Hosted by Sungkyunkwan University’s Startup-Centered University program · 2026',
+        talkLabel: 'Pitch topic',
+        talk: 'The data infrastructure that lets hospitals actually use AI — MediPipe',
+      },
       metrics: [
         { value: '99% accuracy', label: 'MediPipe OCR and medical-NLP cleansing performance' },
         { value: '98.9% faster', label: 'Per-record processing time · 3 minutes to 2 seconds' },
@@ -554,6 +573,7 @@ export const content = {
             'Conduct multi-institution research',
             'Incorporation (Aug 2026)',
             'Paid Konyang University Hospital validation · initial revenue',
+            'Grand Prize at the Joint Lab-Startup Camp IR pitch',
             'MediPipe official launch',
           ],
         },
