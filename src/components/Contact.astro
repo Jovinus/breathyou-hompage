@@ -14,6 +14,16 @@ const { form } = contact;
     <div class="contact-direct reveal">
       <span class="contact-direct__label">{contact.directLabel}</span>
       <a class="contact-direct__email" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      <button
+        class="contact-direct__copy"
+        type="button"
+        data-copy-email={EMAIL}
+        data-copy-label={contact.copyEmail}
+        data-copy-done={contact.copyDone}
+        aria-live="polite"
+      >
+        {contact.copyEmail}
+      </button>
       <ul class="contact-direct__types">
         {form.types.map((type) => <li>{type}</li>)}
       </ul>
@@ -48,6 +58,20 @@ const { form } = contact;
 </Section>
 
 <script>
+  const copyButton = document.querySelector<HTMLButtonElement>('[data-copy-email]');
+  copyButton?.addEventListener('click', async () => {
+    const email = copyButton.dataset.copyEmail ?? '';
+    try {
+      await navigator.clipboard.writeText(email);
+      copyButton.textContent = copyButton.dataset.copyDone ?? '';
+      window.setTimeout(() => {
+        copyButton.textContent = copyButton.dataset.copyLabel ?? '';
+      }, 2000);
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  });
+
   const formEl = document.getElementById('inquiry') as HTMLFormElement | null;
   formEl?.addEventListener('submit', (e) => {
     e.preventDefault();

@@ -17,9 +17,9 @@ export const content = {
       keyMetrics: '핵심 지표',
     },
     meta: {
-      title: '브레스유 | MediPipe 온프레미스 의료데이터 인프라',
+      title: '브레스유 | MediPipe 병원 의료데이터 소프트웨어',
       description:
-        '병원 내 검사 결과와 진료기록을 AI 활용 데이터로 전환하는 온프레미스 의료데이터 인프라 소프트웨어입니다. 병원 밖으로 데이터를 내보내지 않고, 변환 결과는 의료인이 직접 검증합니다.',
+        '병원의 검사 결과와 진료기록을 EMR·연구·AI에 쓸 수 있는 데이터로 바꾸는 소프트웨어입니다. 데이터는 병원 내부에서 처리하고, 의료인이 결과를 확인합니다.',
     },
     nav: {
       links: [
@@ -28,21 +28,20 @@ export const content = {
         { label: '성장 전략', href: '#company' },
         { label: '팀', href: '#team' },
       ],
-      cta: 'PoC 상담',
+      cta: '도입 상담',
     },
     hero: {
-      badge: 'LAB-TO-MARKET · 온프레미스 의료데이터 인프라',
-      title: '검사 결과와 진료기록을\nAI 활용 데이터로',
-      lead: 'MediPipe는 병원 안에서 동작하는 온프레미스 데이터 인프라입니다. 검사 결과와 진료기록을 AI·EMR·연구가 요구하는 형식으로 바꾸고, 그 결과를 의료인이 직접 검증합니다.',
-      primaryCta: 'MediPipe 도입 상담',
+      badge: 'LAB-TO-MARKET · 병원 내부 설치형 의료데이터 소프트웨어',
+      title: '병원 문서를\nAI가 쓸 수 있는 데이터로',
+      lead: 'MediPipe는 검사 결과와 진료기록을 병원 밖으로 내보내지 않고, EMR·연구·AI에 맞는 형식으로 바꿉니다. 의료인이 화면에서 결과를 확인하고 수정할 수 있습니다.',
+      primaryCta: 'MediPipe 도입 문의',
       secondaryCta: '작동 방식 보기',
-      note: '지금은 MediPipe에서 첫 매출이 나옵니다. DeepBreath AI는 허가 이후 판매합니다.',
+      note: 'MediPipe 유상 위탁과 PoC에서 첫 매출이 발생했습니다. DeepBreath는 인허가 이후 판매할 계획입니다.',
       stats: [
-        { value: '94.1%', label: '동일 데이터 전수 측정 · 변환 경로 확보율' },
-        { value: 'AUROC 0.883', label: 'DeepBreath 외부 독립 검증 · n=1,106' },
-        { value: '99만 건', label: '삼성서울병원 30년 폐기능 코호트 · 연구 협력' },
+        { value: '병원 내부', label: '데이터 반출 없이 설치·처리' },
+        { value: '의료인 검증', label: '코딩 없이 결과를 확인·수정' },
         { value: '첫 매출', label: '건양대학교병원 유상 위탁과 PoC' },
-        { value: '최우수상 2회', label: '2026 실험실창업 캠프·경진대회 IR' },
+        { value: '4개 기관', label: '다기관 연구에서 출발' },
       ],
       visual: {
         label: 'MediPipe 온프레미스 데이터 인프라',
@@ -50,19 +49,19 @@ export const content = {
         input: '검사 결과 · 진료기록',
         inputMeta: '장비 출력물 · 스캔 · EMR 서술기록',
         processing: '변환 + 의료인 검증',
-        processingMeta: '목표 형식 변환 후 HITL 검토',
+        processingMeta: '목표 형식 변환 후 의료인이 확인',
         output: '병원 내 데이터 자산',
         outputMeta: 'EMR · 연구 · 후속 AI에 재사용',
         outputValue: '온프레미스',
-        explain: 'DeepBreath를 위한 데이터 기반',
+        explain: 'DeepBreath 등 후속 AI의 데이터 기반',
       },
     },
     problem: {
-      eyebrow: '병원 AX의 시작점',
+      eyebrow: '병원 데이터 활용의 시작점',
       title: 'AI 이전에,\n데이터부터 막혀 있습니다',
       trigger: {
         label: '현장의 병목',
-        text: '국내 AI 기반 의료기기 허가·인증은 2021년 37건에서 2025년 153건으로 4년 만에 4.1배 늘었습니다. 2026년에는 시장 즉시진입 의료기술과 AI 기본의료 전략이 더해지면서, 병원이 AI를 쓰고 보상받는 길이 열렸습니다. 남은 관문은 효용을 보일 병원 데이터입니다.',
+        text: '병원에서 활용할 AI는 빠르게 늘고 있습니다. 국내 AI 기반 의료기기 허가·인증은 2021년 37건에서 2025년 153건으로 증가했습니다. 하지만 실제 도입에 필요한 검사 결과와 진료기록은 여전히 문서와 자유서술 형태로 남아 있습니다.',
       },
       items: [
         {
@@ -84,11 +83,11 @@ export const content = {
     },
     solution: {
       eyebrow: 'MediPipe',
-      title: '병원 안에서 도는\n데이터 인프라',
-      lead: '다기관 연구로 기술을 검증했습니다. 최근 유상 검증을 거쳐 사업화하고 있습니다. 설치는 병원 내부 온프레미스 환경을 기준으로 설계했습니다.',
+      title: '병원 내부에서 처리하는\n데이터 전환',
+      lead: 'MediPipe는 데이터를 외부 클라우드로 보내지 않고 병원 내부 서버에서 처리하도록 설계했습니다. 현재 문서 변환과 의료인 검증 기능을 현장에서 검증하고, 외부 제품·EMR 연동은 단계적으로 확장합니다.',
       workflowLabel: 'MediPipe 처리 구조',
       workflow: [
-        { no: '01', title: '수집', text: '검사 장비 출력 파일, 스캔 결과지, EMR 서술기록, 검사실 대장을 그대로 받습니다.' },
+        { no: '01', title: '수집', text: '검사 장비 출력 파일과 스캔 결과지를 받고, EMR 서술기록과 검사실 대장으로 적용 범위를 넓혀갑니다.' },
         { no: '02', title: '변환', text: 'AI·EMR·연구가 요구하는 형식으로 바꿉니다.' },
         { no: '03', title: '검증', text: '의료인이 코딩 없이 화면에서 값과 임상 의미를 직접 확인하고 수정합니다.' },
         { no: '04', title: '자산화', text: '환자 단위로 이어 붙여 병원 내부에 축적하고, 다음 AI에 다시 씁니다.' },
@@ -96,59 +95,59 @@ export const content = {
       products: [
         {
           name: 'MediPipe',
-          status: '주력 제품 · 유상 위탁과 PoC로 첫 매출',
+          status: '주력 제품 · 유상 위탁과 PoC 진행',
           tag: '온프레미스 데이터 인프라',
           desc: '다기관 연구의 데이터 정제 기술을 제품화했습니다. 최근 건양대학교병원 유상 검증에서 현장 가치를 확인했습니다. 비개발자도 직접 추출·검증할 수 있도록 설계했습니다.',
           points: [
-            '필드 간 임상 의미 오류까지 검증',
-            'RX-Pipeline 전수 측정 변환 경로 확보율 94.1%',
+            '문자 인식을 넘어 필드 간 임상 의미까지 확인',
             '온프레미스 설치 · 망분리 환경 동작 · 데이터 반출 없음',
             '건양대학교병원 데이터 정제 유상 위탁·PoC · IRB 완료',
-            '전문의 5인 사용 의향 80% · 사내 간호사 사용 중',
+            '전문의 5인 설문에서 사용 의향 80% · 사내 간호사 검증 중',
             '특허 출원 (출원번호 10-2025-0166208)',
           ],
         },
         {
-          name: 'DeepBreath CDSS',
+          name: 'DeepBreath 폐기능 예측 AI',
           status: '중장기 파이프라인 · 개발·인허가 준비',
-          tag: 'MediPipe 데이터 기반 SaMD',
+          tag: 'MediPipe 데이터 기반 의료 AI',
           desc: 'MediPipe가 쌓은 시계열 데이터로 폐기능 악화 궤적을 예측합니다. 임상·인허가 검증을 단계적으로 준비합니다.',
           points: [
             '장기 검사 이력 기반 악화 궤적 예측',
-            '외부 독립 검증 AUROC 0.883 (n=1,106)',
-            '궤적 모델 C-index 0.907 (3년 시점)',
+            '외부 병원 데이터 1,106건에서 예측 성능 검증 (AUROC 0.883)',
+            '장기 이력 분석 모델의 3년 예측 성능 C-index 0.907',
           ],
         },
       ],
     },
     research: {
       eyebrow: '사업·기술 검증',
-      title: '연구로 증명하고,\n매출로 확인했습니다',
-      lead: '논문과 외부 독립 검증으로 기술을 확인했습니다. 병원 현장에서는 유상 계약으로 지불 의사를 확인했습니다.',
-      awardsLabel: '외부 검증',
+      title: '연구와 유상 검증으로\n확인했습니다',
+      lead: 'MediPipe는 유상 위탁과 PoC로 병원의 지불 의사를 확인했습니다. 별도 의료 AI인 DeepBreath는 외부 병원 데이터로 예측 성능을 검증했습니다.',
+      awardsLabel: '수상 이력',
       awards: [
         {
-          badge: '최우수상',
+          badge: '우수상',
           title: '2026 실험실 창업경진대회 IR 발표',
-          host: '2026.09.18 수상',
+          host: '성균관대학교 창업지원단 주관 · 2026.09.18',
           talkLabel: '발표 주제',
           talk: '병원 내 검사 결과와 진료기록을 AI 활용 데이터로 전환하는 온프레미스 의료데이터 인프라 소프트웨어 MediPipe',
         },
         {
-          badge: '최우수상',
+          badge: '우수상',
           title: '2026 연합 실험실창업 캠프 IR 발표',
-          host: '성균관대학교 창업중심대학 주관 · 2026',
+          host: '성균관대학교 창업중심대학사업단 주관 · 2026.08.26',
           talkLabel: '발표 주제',
           talk: '병원이 AI를 쓸 수 있게 만드는 데이터 인프라 — MediPipe',
         },
       ],
       metrics: [
-        { value: '94.1%', label: '변환 경로 확보율 · 대학병원 1곳 전수 측정 (21,898건 중 20,611건)' },
-        { value: '27.6% 개선', label: '기관 내 변환 불가 데이터 · 1,777건 → 1,287건' },
-        { value: 'AUROC 0.883', label: 'DeepBreath 외부 독립 검증 · 국민건강보험공단 일산병원 n=1,106' },
+        { value: '첫 매출', label: 'MediPipe · 건양대학교병원 유상 위탁과 PoC' },
+        { value: '94.1%', label: 'MediPipe 확장 사례 · 지참약 데이터 21,898건 중 20,611건의 변환 경로 확보' },
+        { value: 'AUROC 0.883', label: 'DeepBreath · 국민건강보험공단 일산병원 외부 검증 n=1,106' },
       ],
-      credLabel: 'Research × Business',
-      credText: '연구는 엄밀하게, 사업은 빠르게 실행합니다.',
+      metricsNote: '94.1%는 지참약 데이터 연결 경로를 확보한 비율이며, 문서 인식 정확도가 아닙니다. MediPipe와 DeepBreath의 지표는 서로 다른 제품·사용 사례의 결과입니다.',
+      credLabel: '연구와 사업',
+      credText: '임상 연구 경험을 병원이 실제로 사용하는 제품으로 연결합니다.',
       credPoints: [
         '삼성서울병원·인천대학교·이대목동병원·춘천성심병원 다기관 연구',
         '건양대학교병원 데이터 정제 유상 위탁과 유상 PoC · IRB 완료',
@@ -179,8 +178,8 @@ export const content = {
       papersLink: { label: '전체 논문 목록 보기', href: PUBLICATIONS_URL },
     },
     advantage: {
-      eyebrow: '왜 MediPipe인가',
-      title: '문자 인식 다음에서\n차이가 생깁니다',
+      eyebrow: 'MediPipe의 차이',
+      title: '문자를 읽는 데서\n끝나지 않습니다',
       moats: [
         {
           no: '01',
@@ -190,7 +189,7 @@ export const content = {
         {
           no: '02',
           title: '의료인이 직접 검증',
-          text: '코딩 없이 화면에서 확인하고 수정합니다. AI가 식별하고 사람이 판단하는 HITL 구조입니다.',
+          text: '코딩 없이 화면에서 확인하고 수정합니다. AI가 항목을 찾고, 최종 판단은 의료인이 합니다.',
         },
         {
           no: '03',
@@ -200,11 +199,12 @@ export const content = {
       ],
       table: {
         title: 'MediPipe 경쟁력',
+        hint: '비교표는 좌우로 넘겨서 보세요.',
         cols: ['MediPipe', '범용 문서 AI', '병원 자체 구축'],
         rows: [
           { label: '목적', values: ['검사 결과·진료기록의 AI 전환', '범용 문자·문서 인식', '기관별 데이터 플랫폼 구축'] },
           { label: '임상 의미', values: ['필드 간 의미까지 검증', '제한적', '도메인별 인력 반복 투입'] },
-          { label: '검증 방식', values: ['의료인이 코딩 없이 직접 검증 (HITL)', '자동 출력 그대로', '전문인력이 수작업 검수'] },
+          { label: '검증 방식', values: ['의료인이 코딩 없이 직접 확인·수정', '자동 출력 그대로', '전문인력이 수작업 검수'] },
           { label: '배포', values: ['온프레미스 · 망분리 환경', '폐쇄망 배포 경로 제한적', '해당 없음 (자체 구축)'] },
           { label: '축적', values: ['환자 에피소드 단위로 병원 내 축적', '문서 단위 출력', '과제 단위로 재작업'] },
         ],
@@ -212,8 +212,8 @@ export const content = {
     },
     market: {
       eyebrow: '성장 전략',
-      title: 'MediPipe로 진입해\nDeepBreath로 확장합니다',
-      lead: 'MediPipe로 병원 현장과 매출을 확보합니다. 그 위에 병원 자체 개발 AI, 외부 도입 AI, 허가 AI 의료기기가 올라갑니다.',
+      title: '먼저 데이터를 정리하고\n그 위에 AI를 확장합니다',
+      lead: 'MediPipe로 병원 현장의 반복 업무를 줄이고 데이터를 쌓습니다. 한 번 정리한 데이터는 병원 연구, 외부 AI 솔루션 연동, DeepBreath 개발에 다시 활용합니다.',
       panelLabel: '사업 진행 현황',
       panelTitle: '다기관 연구에서 매출과 의료 AI까지',
       items: [
@@ -230,10 +230,10 @@ export const content = {
           desc: '데이터 정제 유상 위탁과 유상 PoC에서 첫 매출을 만들었습니다. IRB 승인을 완료했습니다.',
         },
         {
-          tier: 'SCALE',
-          value: '394곳',
-          label: '초기 후보군',
-          desc: '중복 제거 전 상한 기준 종합병원입니다. 상위 66곳은 데이터 범위 확장으로, 하위 328곳은 낮은 비용의 첫 데이터 인프라로 접근합니다.',
+          tier: 'CUSTOMERS',
+          value: '최대 394곳*',
+          label: '두 고객군',
+          desc: '데이터 범위를 넓히려는 기관 66곳과, 첫 데이터 인프라가 필요한 종합병원 328곳입니다. 기관 수는 중복 제거 전 상한입니다.',
         },
         {
           tier: 'PIPELINE',
@@ -245,15 +245,15 @@ export const content = {
     },
     roadmap: {
       eyebrow: '로드맵',
-      title: 'MediPipe → DeepBreath\n3단계 성장',
+      title: 'MediPipe에서 DeepBreath까지',
       phases: [
         {
           period: '2026',
-          name: 'AX 사업화',
+          name: 'MediPipe 사업화',
           items: [
             '법인 설립 (2026.08)',
             '건양대학교병원 유상 위탁·PoC · IRB 완료',
-            '실험실창업 캠프·경진대회 IR 최우수상 2회',
+            '실험실창업 경진대회·연합 캠프 우수상 2회',
             '식약처 제60조 검토 신청 (2026.09)',
             '텍스트 데이터 정제 개발 완료 · 검증 단계',
             '필드 단위 정확도 벤치마크 공개 (4분기)',
@@ -272,9 +272,9 @@ export const content = {
         },
         {
           period: '2028',
-          name: 'AI 확장',
+          name: '예측 AI 확장',
           items: [
-            '병원 내 Foundation Model 배포 (로드맵 4단계)',
+            '병원 내부에서 동작하는 자체 AI 모델 배포 (로드맵 4단계)',
             'DeepBreath 품목허가 추진',
             '글로벌 인허가 준비',
           ],
@@ -295,8 +295,8 @@ export const content = {
           sub: 'Kyung Hyun Lee',
           photo: '/team/kyunghyun-lee-480.jpg',
           role: '공동창업자 · 대표 (CEO)',
-          bio: '임상 문제를 연구합니다. 그 결과를 제품과 사업으로 연결합니다.',
-          highlights: ['Medical AI 8년', 'SCI(E) 15편 · 1저자 8편', 'h-index 8', '식약처 승인 SaMD 개발 경험'],
+          bio: 'AITRICS에서 의료 AI를 연구하고 성균관대학교 SAIHST 디지털헬스 박사과정을 밟으며, 임상 연구를 제품과 사업으로 연결합니다.',
+          highlights: ['AITRICS AI 연구원', 'Medical AI 8년', 'SCI(E) 15편 · 1저자 8편', '식약처 승인 SaMD 개발 경험'],
         },
         {
           name: '이다윤',
@@ -321,15 +321,17 @@ export const content = {
     },
     contact: {
       eyebrow: '문의',
-      title: 'MediPipe로\n병원 AX를 시작하세요',
-      lead: '병원·기관의 MediPipe 도입과 PoC 문의를 기다립니다. 연구협력·투자 관련 자료도 요청하실 수 있습니다.',
+      title: '병원 데이터 활용의\n첫 단계를 함께 시작하세요',
+      lead: '병원·기관의 MediPipe 도입과 현장 검증 문의를 기다립니다. 연구 협력과 투자 관련 자료도 요청하실 수 있습니다.',
       directLabel: '이메일로 바로 문의',
       directNote: '제품 도입과 임상·연구 협력 범위를 검토합니다.',
+      copyEmail: '이메일 주소 복사',
+      copyDone: '이메일 주소를 복사했습니다',
       form: {
         name: '이름',
         org: '소속 (병원·기관·투자사)',
         type: '문의 유형',
-        types: ['MediPipe 도입·AX 협업', '연구협력 문의', '투자·기타 문의'],
+        types: ['MediPipe 도입 상담', '연구 협력 문의', '투자·기타 문의'],
         message: '문의 내용',
         submit: '메일 앱에서 보내기',
         helper: '버튼을 누르면 입력한 내용이 담긴 이메일 작성 창이 열립니다.',
@@ -339,7 +341,7 @@ export const content = {
       },
     },
     footer: {
-      tagline: '온프레미스 의료데이터 인프라 · MediPipe',
+      tagline: '병원 내부 설치형 의료데이터 소프트웨어 · MediPipe',
       legalLabels: {
         ceo: '대표',
         founded: '설립',
@@ -364,9 +366,9 @@ export const content = {
       keyMetrics: 'Key metrics',
     },
     meta: {
-      title: 'Breath You | MediPipe On-Premise Medical Data Infrastructure',
+      title: 'Breath You | MediPipe Hospital Data Software',
       description:
-        'On-premise medical-data infrastructure software that turns in-hospital test results and clinical records into AI-ready data. Nothing leaves the hospital, and clinicians verify every conversion.',
+        'MediPipe turns hospital test results and clinical records into data for EMR, research and AI. Data stays inside the hospital, and clinicians can review and correct the output.',
     },
     nav: {
       links: [
@@ -375,41 +377,40 @@ export const content = {
         { label: 'Growth', href: '#company' },
         { label: 'Team', href: '#team' },
       ],
-      cta: 'Request a PoC',
+      cta: 'Discuss adoption',
     },
     hero: {
-      badge: 'LAB-TO-MARKET · On-premise medical-data infrastructure',
-      title: 'Turn test results and records\ninto AI-ready data',
-      lead: 'MediPipe is on-premise data infrastructure that runs inside the hospital. It converts test results and clinical records into the formats AI, EMR and research require, and clinicians verify the result themselves.',
-      primaryCta: 'Discuss MediPipe adoption',
+      badge: 'LAB-TO-MARKET · Medical-data software deployed inside the hospital',
+      title: 'Turn hospital documents\ninto data AI can use',
+      lead: 'MediPipe converts test results and clinical records into the formats EMR, research and AI require without sending data outside the hospital. Clinicians can review and correct the output on screen.',
+      primaryCta: 'Discuss MediPipe',
       secondaryCta: 'See how it works',
-      note: 'MediPipe is generating our first revenue today. DeepBreath AI sells after regulatory approval.',
+      note: 'Paid MediPipe engagements and PoCs have generated our first revenue. We plan to commercialize DeepBreath after regulatory approval.',
       stats: [
-        { value: '94.1%', label: 'Conversion-path coverage · full census on identical data' },
-        { value: 'AUROC 0.883', label: 'DeepBreath independent external validation · n=1,106' },
-        { value: '990K records', label: 'Samsung Medical Center 30-year pulmonary cohort · research access' },
+        { value: 'Inside hospital', label: 'Installed and processed without data export' },
+        { value: 'Clinician review', label: 'Review and correction without coding' },
         { value: 'First revenue', label: 'Paid engagement and PoC at Konyang University Hospital' },
-        { value: '2× Grand Prize', label: '2026 Lab-Startup Camp and Competition IR pitches' },
+        { value: '4 institutions', label: 'Built on multi-institution research' },
       ],
       visual: {
-        label: 'MediPipe on-premise data infrastructure',
+        label: 'MediPipe on-premises data infrastructure',
         live: 'Flagship product',
         input: 'Test results · clinical records',
         inputMeta: 'Device output, scans and EMR free text',
         processing: 'Conversion + clinician review',
-        processingMeta: 'Target-format conversion, then HITL review',
+        processingMeta: 'Target-format conversion, then clinician review',
         output: 'Data assets inside the hospital',
         outputMeta: 'Reused by EMR, research and later AI',
         outputValue: 'On-premise',
-        explain: 'The data foundation for DeepBreath',
+        explain: 'The data foundation for DeepBreath and other AI',
       },
     },
     problem: {
-      eyebrow: 'Where hospital AX begins',
+      eyebrow: 'Where hospital data use begins',
       title: 'Before AI,\ndata is the bottleneck',
       trigger: {
         label: 'The workflow bottleneck',
-        text: 'Approvals and certifications for AI-based medical devices in Korea grew 4.1× in four years, from 37 in 2021 to 153 in 2025. In 2026, immediate-market-entry medical technology and the national AI primary-care strategy opened the path for hospitals to adopt AI and be reimbursed for it. What remains is the hospital data needed to prove the benefit.',
+        text: 'The number of AI-based medical devices approved or certified in Korea grew from 37 in 2021 to 153 in 2025. Yet the test results and clinical records needed to deploy them still remain in documents and free text.',
       },
       items: [
         {
@@ -431,11 +432,11 @@ export const content = {
     },
     solution: {
       eyebrow: 'MediPipe',
-      title: 'Data infrastructure that\nruns inside the hospital',
-      lead: 'Multi-institution research validated the technology. Recent paid validation moved it into commercialization. Deployment is designed for on-premise hospital environments.',
+      title: 'Data conversion that\nruns inside the hospital',
+      lead: 'MediPipe is designed to process data on hospital infrastructure instead of sending it to an external cloud. We are validating document conversion and clinician review in the field, then expanding external-product and EMR integrations in stages.',
       workflowLabel: 'How MediPipe works',
       workflow: [
-        { no: '01', title: 'Collect', text: 'Device output files, scanned reports, EMR free text and lab registers are accepted as they are.' },
+        { no: '01', title: 'Collect', text: 'MediPipe accepts device output and scanned reports, with coverage expanding to EMR free text and lab registers.' },
         { no: '02', title: 'Convert', text: 'Data is converted into the formats AI, EMR and research require.' },
         { no: '03', title: 'Verify', text: 'A clinician confirms and corrects values and clinical meaning on screen, without writing code.' },
         { no: '04', title: 'Build the asset', text: 'Records are joined per patient, kept inside the hospital and reused by the next AI.' },
@@ -443,59 +444,59 @@ export const content = {
       products: [
         {
           name: 'MediPipe',
-          status: 'Flagship · first revenue from paid engagements and PoCs',
-          tag: 'On-premise data infrastructure',
+          status: 'Flagship · paid engagements and PoCs underway',
+          tag: 'Hospital-deployed data infrastructure',
           desc: 'We productized data-cleansing technology from multi-institution research. Recent paid validation at Konyang University Hospital confirmed field value, and non-developers can extract and verify data themselves.',
           points: [
-            'Verifies cross-field clinical meaning, not just characters',
-            'RX-Pipeline full census: 94.1% conversion-path coverage',
-            'On-premise install · network-segregated · no data leaves the hospital',
+            'Checks cross-field clinical meaning, not just recognized characters',
+            'Runs inside the hospital on network-segregated infrastructure',
             'Paid data-cleansing engagement and PoC at Konyang University Hospital · IRB approved',
-            '80% stated intent to use among 5 specialists · in-house nurse using it daily',
+            '80% stated intent to use in a survey of 5 specialists · in-house nurse validation underway',
             'Patent pending (App. No. 10-2025-0166208)',
           ],
         },
         {
-          name: 'DeepBreath CDSS',
+          name: 'DeepBreath pulmonary prediction AI',
           status: 'Long-term pipeline · development and regulatory prep',
-          tag: 'MediPipe data-powered SaMD',
+          tag: 'Medical AI powered by MediPipe data',
           desc: 'The time-series data MediPipe accumulates powers prediction of pulmonary deterioration trajectories. Clinical and regulatory validation will proceed in stages.',
           points: [
             'Predicts deterioration trajectory from longitudinal test history',
-            'Independent external validation, AUROC 0.883 (n=1,106)',
-            'Trajectory model C-index 0.907 (3-year horizon)',
+            'Predictive performance validated on 1,106 records from an external hospital (AUROC 0.883)',
+            'Longitudinal model C-index 0.907 at a 3-year horizon',
           ],
         },
       ],
     },
     research: {
       eyebrow: 'Business and technical validation',
-      title: 'Proven in research,\nvalidated in revenue',
-      lead: 'Publications and independent external validation confirmed the technology. In hospitals, a paid contract confirmed willingness to pay.',
-      awardsLabel: 'External validation',
+      title: 'Validated through research\nand paid hospital work',
+      lead: 'Paid MediPipe engagements and PoCs demonstrated hospital willingness to pay. Separately, DeepBreath predictive performance was validated on external hospital data.',
+      awardsLabel: 'Awards',
       awards: [
         {
-          badge: 'Grand Prize',
+          badge: 'Excellence Award',
           title: 'IR pitch at the 2026 Lab Startup Competition',
-          host: 'Awarded Sep 18, 2026',
+          host: 'Sungkyunkwan University Start-up Support Foundation · Sep 18, 2026',
           talkLabel: 'Pitch topic',
           talk: 'MediPipe — on-premise medical-data infrastructure software that turns in-hospital test results and clinical records into AI-ready data',
         },
         {
-          badge: 'Grand Prize',
+          badge: 'Excellence Award',
           title: 'IR pitch at the 2026 Joint Lab-Startup Camp',
-          host: 'Hosted by Sungkyunkwan University’s Startup-Centered University program · 2026',
+          host: 'Sungkyunkwan University Startup-Centered University Program · Aug 26, 2026',
           talkLabel: 'Pitch topic',
           talk: 'The data infrastructure that lets hospitals actually use AI — MediPipe',
         },
       ],
       metrics: [
-        { value: '94.1%', label: 'Conversion-path coverage · full census at one university hospital (20,611 of 21,898)' },
-        { value: '27.6% better', label: 'Records unconvertible within the institution · 1,777 → 1,287' },
-        { value: 'AUROC 0.883', label: 'DeepBreath independent external validation · NHIS Ilsan Hospital, n=1,106' },
+        { value: 'First revenue', label: 'MediPipe · paid engagement and PoC at Konyang University Hospital' },
+        { value: '94.1%', label: 'MediPipe extension case · conversion paths for 20,611 of 21,898 medication records' },
+        { value: 'AUROC 0.883', label: 'DeepBreath · external validation at NHIS Ilsan Hospital, n=1,106' },
       ],
-      credLabel: 'Research × Business',
-      credText: 'Rigorous in research. Fast in execution.',
+      metricsNote: 'The 94.1% figure is conversion-path coverage in a medication-data use case, not document-recognition accuracy. MediPipe and DeepBreath metrics describe different products and use cases.',
+      credLabel: 'Research and business',
+      credText: 'We translate clinical research experience into software hospitals can use in practice.',
       credPoints: [
         'Multi-institution research across Samsung Medical Center, Incheon National University, Ewha Mokdong and Hallym Chuncheon',
         'Paid data-cleansing engagement and PoC at Konyang University Hospital · IRB approved',
@@ -527,7 +528,7 @@ export const content = {
     },
     advantage: {
       eyebrow: 'Why MediPipe',
-      title: 'The difference starts\nafter character recognition',
+      title: 'We go beyond\nreading characters',
       moats: [
         {
           no: '01',
@@ -537,7 +538,7 @@ export const content = {
         {
           no: '02',
           title: 'Clinicians verify it themselves',
-          text: 'They confirm and correct on screen without writing code — AI identifies, a person decides (HITL).',
+          text: 'They confirm and correct the result on screen without writing code. AI identifies each item; a clinician makes the final decision.',
         },
         {
           no: '03',
@@ -547,11 +548,12 @@ export const content = {
       ],
       table: {
         title: 'MediPipe differentiation',
+        hint: 'Swipe sideways to view the full comparison.',
         cols: ['MediPipe', 'Generic document AI', 'In-house hospital build'],
         rows: [
           { label: 'Purpose', values: ['Turning test results and records into AI data', 'Generic character recognition', 'A data platform per institution'] },
           { label: 'Clinical meaning', values: ['Verified down to cross-field meaning', 'Limited', 'Specialists redeployed per domain'] },
-          { label: 'Verification', values: ['Clinician verifies on screen, no code (HITL)', 'Automated output as-is', 'Manual review by specialists'] },
+          { label: 'Verification', values: ['Clinician reviews and corrects on screen, no code', 'Automated output as-is', 'Manual review by specialists'] },
           { label: 'Deployment', values: ['On-premise · network-segregated', 'Limited closed-network path', 'Not applicable (self-built)'] },
           { label: 'Accumulation', values: ['Per patient episode, inside the hospital', 'Document-level output', 'Rebuilt for each project'] },
         ],
@@ -559,8 +561,8 @@ export const content = {
     },
     market: {
       eyebrow: 'Growth strategy',
-      title: 'Enter with MediPipe,\nexpand with DeepBreath',
-      lead: 'MediPipe secures hospital workflows and early revenue. Hospital-built AI, purchased AI and approved AI devices all run on top of it.',
+      title: 'Organize the data first,\nthen expand into AI',
+      lead: 'MediPipe reduces repeated hospital data work and builds a reusable data asset. The same data can support hospital research, external AI tools and future DeepBreath development.',
       panelLabel: 'Business progress',
       panelTitle: 'From multi-institution research to revenue and medical AI',
       items: [
@@ -577,10 +579,10 @@ export const content = {
           desc: 'Our first revenue came from a paid data-cleansing engagement and a paid PoC. IRB approval is complete.',
         },
         {
-          tier: 'SCALE',
-          value: '394 hospitals',
-          label: 'Initial candidate pool',
-          desc: 'General hospitals, as an upper bound before removing overlap. The top 66 buy wider data coverage; the remaining 328 buy their first low-cost data infrastructure.',
+          tier: 'CUSTOMERS',
+          value: 'Up to 394*',
+          label: 'Two customer groups',
+          desc: '66 institutions seeking broader data coverage and 328 general hospitals that need their first data infrastructure. The count is an upper bound before removing overlap.',
         },
         {
           tier: 'PIPELINE',
@@ -592,15 +594,15 @@ export const content = {
     },
     roadmap: {
       eyebrow: 'Roadmap',
-      title: 'MediPipe → DeepBreath\nin three stages',
+      title: 'From MediPipe\nto DeepBreath',
       phases: [
         {
           period: '2026',
-          name: 'AX commercialization',
+          name: 'MediPipe commercialization',
           items: [
             'Incorporation (Aug 2026)',
             'Paid Konyang University Hospital engagement and PoC · IRB approved',
-            'Two Grand Prizes at the Lab-Startup Camp and Competition IR pitches',
+            'Two Excellence Awards at the Lab Startup Competition and Joint Camp',
             'MFDS Article 60 review request (Sep 2026)',
             'Free-text cleansing development complete · in validation',
             'Field-level accuracy benchmark published (Q4)',
@@ -619,9 +621,9 @@ export const content = {
         },
         {
           period: '2028',
-          name: 'AI expansion',
+          name: 'Predictive AI expansion',
           items: [
-            'Deploy a foundation model inside the hospital (roadmap stage 4)',
+            'Deploy BreathYou’s own AI model inside the hospital (roadmap stage 4)',
             'Advance DeepBreath approval',
             'Prepare global regulatory pathways',
           ],
@@ -642,8 +644,8 @@ export const content = {
           sub: '이경현',
           photo: '/team/kyunghyun-lee-480.jpg',
           role: 'Co-founder & CEO',
-          bio: 'He studies clinical problems. He turns the findings into products and business.',
-          highlights: ['8 years in Medical AI', '15 SCI(E) papers · 8 first-author', 'h-index 8', 'MFDS-approved SaMD experience'],
+          bio: 'An AI researcher at AITRICS and a PhD student in Digital Health at SAIHST, Sungkyunkwan University, he turns clinical research into products and business.',
+          highlights: ['AI Researcher at AITRICS', '8 years in Medical AI', '15 SCI(E) papers · 8 first-author', 'MFDS-approved SaMD experience'],
         },
         {
           name: 'Dayoon Lee',
@@ -668,15 +670,17 @@ export const content = {
     },
     contact: {
       eyebrow: 'Contact',
-      title: 'Start hospital AX\nwith MediPipe',
-      lead: 'We welcome MediPipe adoption and PoC inquiries. Research and investment materials are available upon request.',
+      title: 'Take the first step\ntoward usable hospital data',
+      lead: 'Talk to us about adopting or validating MediPipe at your hospital or institution. Research collaboration and investor materials are also available.',
       directLabel: 'Email us directly',
       directNote: 'We review product adoption and clinical or research collaboration.',
+      copyEmail: 'Copy email address',
+      copyDone: 'Email address copied',
       form: {
         name: 'Name',
         org: 'Organization (hospital, institution, investor)',
         type: 'Inquiry type',
-        types: ['MediPipe adoption / AX', 'Research collaboration', 'Investment / other'],
+        types: ['MediPipe adoption', 'Research collaboration', 'Investment / other'],
         message: 'Message',
         submit: 'Open email app',
         helper: 'The button opens your email app with the details you entered.',
@@ -686,7 +690,7 @@ export const content = {
       },
     },
     footer: {
-      tagline: 'On-premise medical data infrastructure · MediPipe',
+      tagline: 'Medical-data software deployed inside the hospital · MediPipe',
       legalLabels: {
         ceo: 'CEO',
         founded: 'Founded',

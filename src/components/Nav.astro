@@ -17,6 +17,7 @@ const home = altLang.href === '/' ? '/en/' : '/';
 
     <div class="nav__links" id="nav-links">
       {nav.links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a class="nav__cta-mobile" href="#contact">{nav.cta}</a>
     </div>
 
     <div class="nav__right">

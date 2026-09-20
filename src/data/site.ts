@@ -2,7 +2,7 @@
 // 카피는 content.ts, 법인·브랜드 데이터는 이 파일에서만 관리합니다.
 
 export const SITE_URL = 'https://breathyou.care';
-export const LOGO = '/logo.png';
+export const LOGO = '/logo.svg';
 export const FAVICON = '/favicon.png';
 export const OG_IMAGE = '/og-medipipe.png';
 export const EMAIL = 'lkh256@breathyou.care';
