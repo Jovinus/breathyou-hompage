@@ -723,7 +723,7 @@ textarea:focus-visible {
 .workflow {
   margin-top: 42px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
@@ -877,8 +877,19 @@ textarea:focus-visible {
 /* ============================================================
    RESEARCH
    ============================================================ */
-.award {
+.awards {
   margin-top: 34px;
+}
+.awards__label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.award {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) minmax(0, 0.95fr);
   align-items: center;
@@ -902,15 +913,10 @@ textarea:focus-visible {
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
-.award__label {
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
+.award + .award {
+  margin-top: 12px;
 }
 .award__title {
-  margin-top: 4px;
   font-size: clamp(16px, 1.5vw, 18.5px);
   font-weight: 800;
   line-height: 1.45;
@@ -1792,6 +1798,15 @@ textarea:focus-visible {
   }
   .proof-item:nth-child(n + 4) {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .workflow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .workflow__step:nth-child(odd) {
+    border-left: 0;
+  }
+  .workflow__step:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
   }
   .section {
     padding: 88px 0;

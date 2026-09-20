@@ -5,8 +5,13 @@ dist/
 # dependencies
 node_modules/
 
-# 사업계획서 — 민감 정보, 절대 배포/커밋 금지
+# 사업계획서·IR 자료 — 민감 정보, 절대 배포/커밋 금지
 *.pdf
+*.pptx
+*.docx
+*.hwp
+*.hwpx
+IR/
 
 # system
 .DS_Store
