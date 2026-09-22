@@ -495,14 +495,14 @@ export const content = {
       awardsLabel: 'Awards',
       awards: [
         {
-          badge: 'Grand Prize',
+          badge: 'Top Excellence Award',
           title: 'IR pitch at the 2026 Lab Startup Competition',
           host: 'Sungkyunkwan University Start-up Support Foundation · Sep 18, 2026',
           talkLabel: 'Pitch topic',
           talk: 'MediPipe — on-premise medical-data infrastructure software that turns in-hospital test results and clinical records into AI-ready data',
         },
         {
-          badge: 'Grand Prize',
+          badge: 'Top Excellence Award',
           title: 'IR pitch at the 2026 Joint Lab-Startup Camp',
           host: 'Sungkyunkwan University Startup-Centered University Program · Aug 26, 2026',
           talkLabel: 'Pitch topic',
@@ -622,7 +622,7 @@ export const content = {
           items: [
             'Incorporation (Aug 2026)',
             'Paid Konyang University Hospital engagement and PoC · IRB approved',
-            'Two Grand Prizes at the Lab Startup Competition and Joint Camp',
+            'Two Top Excellence Awards at the Lab Startup Competition and Joint Camp',
             'MFDS Article 60 review request (Sep 2026)',
             'Free-text cleansing development complete · in validation',
             'Field-level accuracy benchmark published (Q4)',
