@@ -305,8 +305,8 @@ export const content = {
           sub: 'Kyung Hyun Lee',
           photo: '/team/kyunghyun-lee-480.jpg',
           role: '공동창업자 · 대표 (CEO)',
-          bio: 'AITRICS에서 의료 AI를 연구하고 성균관대학교 SAIHST 디지털헬스 박사과정을 밟으며, 임상 연구를 제품과 사업으로 연결합니다.',
-          highlights: ['AITRICS AI 연구원', 'Medical AI 8년', 'SCI(E) 15편 · 1저자 8편', '식약처 승인 SaMD 개발 경험'],
+          bio: '성균관대학교 SAIHST 디지털헬스 박사과정에서 의료 AI를 연구하며, 임상 연구를 제품과 사업으로 연결합니다.',
+          highlights: ['Medical AI 8년', 'SCI(E) 15편 · 1저자 8편', '식약처 승인 SaMD 개발 경험'],
         },
         {
           name: '이다윤',
@@ -664,8 +664,8 @@ export const content = {
           sub: '이경현',
           photo: '/team/kyunghyun-lee-480.jpg',
           role: 'Co-founder & CEO',
-          bio: 'An AI researcher at AITRICS and a PhD student in Digital Health at SAIHST, Sungkyunkwan University, he turns clinical research into products and business.',
-          highlights: ['AI Researcher at AITRICS', '8 years in Medical AI', '15 SCI(E) papers · 8 first-author', 'MFDS-approved SaMD experience'],
+          bio: 'A medical AI researcher and PhD student in Digital Health at SAIHST, Sungkyunkwan University, he turns clinical research into products and business.',
+          highlights: ['8 years in Medical AI', '15 SCI(E) papers · 8 first-author', 'MFDS-approved SaMD experience'],
         },
         {
           name: 'Dayoon Lee',
