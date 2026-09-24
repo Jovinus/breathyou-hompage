@@ -13,7 +13,8 @@ const { team } = t;
       team.members.map((m) => (
         <article class="member reveal">
           <div class="member__head">
-            {m.photo ? (
+            {/* Boolean(): 모든 멤버에 사진이 있어도 fallback 분기가 never 로 좁혀지지 않게 */}
+            {Boolean(m.photo) ? (
               <img
                 class="member__photo"
                 src={m.photo}

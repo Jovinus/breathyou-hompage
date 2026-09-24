@@ -311,7 +311,7 @@ export const content = {
         {
           name: '이다윤',
           sub: 'Dayoon Lee',
-          photo: '',
+          photo: '/team/dayoon-lee-480.jpg',
           role: '공동창업자 · 최고품질책임자 (CQO)',
           bio: '임상 현장의 언어를 품질과 규제 체계로 연결합니다.',
           highlights: ['간호학 기반 임상 이해', '의료기기 QA', 'QMS 체계 구축', '인허가 프로세스'],
@@ -670,7 +670,7 @@ export const content = {
         {
           name: 'Dayoon Lee',
           sub: '이다윤',
-          photo: '',
+          photo: '/team/dayoon-lee-480.jpg',
           role: 'Co-founder & Chief Quality Officer',
           bio: 'She translates clinical practice into quality and regulatory systems.',
           highlights: ['Clinical insight from nursing', 'Medical-device QA', 'QMS development', 'Regulatory process'],
