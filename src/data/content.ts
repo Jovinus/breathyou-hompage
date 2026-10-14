@@ -136,6 +136,13 @@ export const content = {
       awardsLabel: '수상 이력',
       awards: [
         {
+          badge: '우수상',
+          title: '2026 SKKU 프리 텍스코어 사업계획서 발표',
+          host: '성균관대학교 실험실창업혁신단 · 창업지원단 주관 · 2026.10.14',
+          talkLabel: '발표 주제',
+          talk: '병원 결과지·진료기록을 의료진 검증(HITL) 기반으로 AI 활용 데이터로 자동 변환하는 원내 설치형 웹 기반 의료데이터 플랫폼 「MediPipe」',
+        },
+        {
           badge: '최우수상',
           title: '2026 실험실 창업경진대회 IR 발표',
           host: '성균관대학교 창업지원단 주관 · 2026.09.18',
@@ -263,7 +270,7 @@ export const content = {
           items: [
             '법인 설립 (2026.08)',
             '건양대학교병원 유상 위탁·PoC · IRB 완료',
-            '실험실창업 경진대회·연합 캠프 최우수상 2회',
+            '실험실창업 경진대회·연합 캠프 최우수상 2회 · 프리 텍스코어 우수상',
             '식약처 제60조 검토 신청 (2026.09)',
             '텍스트 데이터 정제 개발 완료 · 검증 단계',
             '필드 단위 정확도 벤치마크 공개 (4분기)',
@@ -495,6 +502,13 @@ export const content = {
       awardsLabel: 'Awards',
       awards: [
         {
+          badge: 'Excellence Award',
+          title: 'Business plan pitch at 2026 SKKU Pre TeX-Corps',
+          host: 'Sungkyunkwan University Lab Startup Innovation Group and Start-up Support Foundation · Oct 14, 2026',
+          talkLabel: 'Pitch topic',
+          talk: 'MediPipe — an on-premise, web-based platform that automatically converts hospital test reports and clinical notes into clinician-verified, AI-ready data',
+        },
+        {
           badge: 'Top Excellence Award',
           title: 'IR pitch at the 2026 Lab Startup Competition',
           host: 'Sungkyunkwan University Start-up Support Foundation · Sep 18, 2026',
@@ -622,7 +636,7 @@ export const content = {
           items: [
             'Incorporation (Aug 2026)',
             'Paid Konyang University Hospital engagement and PoC · IRB approved',
-            'Two Top Excellence Awards at the Lab Startup Competition and Joint Camp',
+            'Two Top Excellence Awards (Lab Startup Competition, Joint Camp) · Excellence Award (Pre TeX-Corps)',
             'MFDS Article 60 review request (Sep 2026)',
             'Free-text cleansing development complete · in validation',
             'Field-level accuracy benchmark published (Q4)',
