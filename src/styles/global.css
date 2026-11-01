@@ -63,6 +63,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* 줄바꿈 다듬기: 제목은 줄 길이를 고르게, 본문은 마지막 줄에 한 단어만 남지 않게.
+   미지원 브라우저에서는 무시되고 기존 줄바꿈 그대로입니다. */
+h1,
+h2,
+h3,
+.section-title,
+.checks__title,
+.award__title,
+.growth-panel__head > strong,
+/* 2~3줄짜리 짧은 설명은 줄 길이를 맞춰야 꼬리 줄이 생기지 않습니다 */
+.section-lead,
+.hero__lead,
+.card p,
+.moat p,
+.market-step p,
+.metric .l,
+.module__label,
+.member__bio,
+.research-story > p,
+.proof-item span {
+  text-wrap: balance;
+}
+p,
+li,
+figcaption,
+td,
+th {
+  text-wrap: pretty;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -1076,7 +1106,7 @@ textarea:focus-visible {
 .awards {
   margin-top: 34px;
   display: grid;
-  grid-template-columns: max-content minmax(0, 1fr) minmax(0, 0.95fr);
+  grid-template-columns: max-content minmax(0, 1fr);
   column-gap: 26px;
 }
 .awards__label {
@@ -1095,7 +1125,7 @@ textarea:focus-visible {
   grid-template-columns: subgrid;
   align-items: center;
   gap: 26px;
-  padding: 22px 26px;
+  padding: 16px 24px;
   border: 1px solid var(--line);
   border-left: 4px solid var(--accent);
   border-radius: var(--radius);
@@ -1128,24 +1158,6 @@ textarea:focus-visible {
   margin-top: 4px;
   font-size: 13.5px;
   color: var(--ink-soft);
-}
-.award__talk {
-  padding-left: 26px;
-  border-left: 1px solid var(--line);
-}
-.award__talk span {
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-.award__talk p {
-  margin-top: 5px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.55;
-  color: var(--ink);
 }
 .research-grid {
   margin-top: 22px;
@@ -1703,7 +1715,7 @@ textarea:focus-visible {
 .partners__grid {
   margin-top: 22px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 10px;
 }
 .partner-card {
@@ -1986,12 +1998,6 @@ textarea:focus-visible {
   }
   .award__badge {
     justify-self: start;
-  }
-  .award__talk {
-    padding-left: 0;
-    padding-top: 16px;
-    border-left: 0;
-    border-top: 1px solid var(--line);
   }
   .grid-3,
   .moat-grid,
