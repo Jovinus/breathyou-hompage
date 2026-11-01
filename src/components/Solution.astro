@@ -41,23 +41,21 @@ const { solution } = t;
     </figcaption>
   </figure>
 
-  <div class="solution-grid">
+  <div class="checks reveal">
+    <span class="checks__label">{solution.checks.label}</span>
+    <h3 class="checks__title">{solution.checks.title}</h3>
+    <p class="checks__lead">{solution.checks.lead}</p>
+  </div>
+  <div class="grid-3">
     {
-      solution.products.map((p, index) => (
-        <article class:list={['card', 'product', 'reveal', { 'product--featured': index === 0 }]}>
-          <div class="product__head">
-            <span class="product__tag">{p.tag}</span>
-            <span class="product__status">{p.status}</span>
-          </div>
-          <h3>{p.name}</h3>
-          <p class="product__desc">{p.desc}</p>
-          <ul class="product__points">
-            {p.points.map((pt) => (
-              <li>{pt}</li>
-            ))}
-          </ul>
+      solution.checks.items.map((it) => (
+        <article class="card problem-card reveal">
+          <div class="no">{it.no}</div>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
         </article>
       ))
     }
   </div>
+  <p class="checks__note reveal">{solution.checks.note}</p>
 </Section>

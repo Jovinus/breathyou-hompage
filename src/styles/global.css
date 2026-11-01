@@ -810,12 +810,74 @@ textarea:focus-visible {
 /* ============================================================
    SOLUTION
    ============================================================ */
-.solution-grid {
-  margin-top: 24px;
+.checks {
+  margin-top: 56px;
+  max-width: var(--measure);
+}
+.checks__label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--brand);
+}
+.checks__title {
+  margin-top: 10px;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.checks__lead {
+  margin-top: 10px;
+  font-size: 15.5px;
+  color: var(--ink-soft);
+}
+.checks__note {
+  margin-top: 18px;
+  max-width: var(--measure);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* 도입 사례 · 모듈 카드 (product 카드 스타일 재사용) */
+.module-grid {
+  margin-top: 40px;
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
-  gap: 22px;
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.module .product__status {
+  color: var(--signal-green);
+  background: #e8f6ee;
+  border-color: #cdebd8;
+}
+.module .product__status::before {
+  background: var(--signal-green);
+}
+.module h3 {
+  margin-top: 14px;
+  font-size: 22px;
+}
+.module__tag {
+  margin-top: 4px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+.module__value {
+  margin-top: 20px;
+  font-size: clamp(30px, 3.4vw, 40px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--brand);
+}
+.module__label {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.module .product__points li {
+  font-size: 14px;
 }
 .workflow {
   margin-top: 42px;
@@ -1309,7 +1371,7 @@ textarea:focus-visible {
 .compare table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 640px;
+  min-width: 760px;
 }
 .compare th,
 .compare td {
@@ -1641,7 +1703,7 @@ textarea:focus-visible {
 .partners__grid {
   margin-top: 22px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 10px;
 }
 .partner-card {
@@ -1933,7 +1995,7 @@ textarea:focus-visible {
   }
   .grid-3,
   .moat-grid,
-  .solution-grid,
+  .module-grid,
   .research-grid,
   .team-grid,
   .contact-grid {

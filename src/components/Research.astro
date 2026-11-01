@@ -8,6 +8,30 @@ const { research } = t;
 ---
 
 <Section id="research" eyebrow={research.eyebrow} title={research.title} lead={research.lead}>
+  <div class="module-grid">
+    {
+      research.modules.map((m) => (
+        <article class="card product module reveal">
+          <div class="product__head">
+            <span class="product__status">{m.status}</span>
+          </div>
+          <h3>{m.name}</h3>
+          <p class="module__tag">{m.tag}</p>
+          <p class="module__value">{m.value}</p>
+          <p class="module__label">{m.valueLabel}</p>
+          <ul class="product__points">
+            {m.points.map((pt) => <li>{pt}</li>)}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+
+  <div class="trigger reveal">
+    <span class="trigger__label">{research.scale.label}</span>
+    <p class="trigger__text">{research.scale.text}</p>
+  </div>
+
   <div class="metric-list reveal">
     {
       research.metrics.map((m, index) => (
