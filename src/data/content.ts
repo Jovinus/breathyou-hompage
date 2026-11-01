@@ -217,7 +217,7 @@ export const content = {
       title: '진료과에서 시작해\n병원 전체로',
       lead: '첫 고객은 연구 과제를 수행하는 진료과 교수입니다. 진료과 → 검사실 → 병원 AX 조직으로 넓힙니다.',
       panelLabel: '시장 규모 (2026)',
-      panelTitle: '1.5조 원 시장에서\n호흡기·알레르기내과부터',
+      panelTitle: '1.5조 원 시장에서 호흡기·알레르기내과부터',
       items: [
         { tier: 'TAM', value: '1조 4,838억 원', label: '국내 의료 데이터', desc: '2026년 추정', focus: false },
         { tier: 'SAM', value: '7,626억 원', label: '구축 · 처리 · 관리', desc: '2031년 3.76조 원 전망', focus: false },
@@ -517,7 +517,7 @@ export const content = {
       title: 'Start with one department,\ngrow to the hospital',
       lead: 'Our first customers are department faculty running research projects. We expand from department to lab to the hospital’s AX team.',
       panelLabel: 'Market size (2026)',
-      panelTitle: 'A KRW 1.5T market,\nstarting with pulmonology and allergy',
+      panelTitle: 'A KRW 1.5T market, starting with pulmonology and allergy',
       items: [
         { tier: 'TAM', value: 'KRW 1.48T', label: 'Korean medical data', desc: '2026 estimate', focus: false },
         { tier: 'SAM', value: 'KRW 762.6B', label: 'Build · process · manage', desc: 'KRW 3.76T projected by 2031', focus: false },
