@@ -869,6 +869,34 @@ textarea:focus-visible {
   font-size: 14px;
   color: var(--ink-soft);
 }
+.product-shot {
+  margin: 24px 0 0;
+}
+.product-shot__frame {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.product-shot__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.product-shot figcaption {
+  margin-top: 14px;
+  max-width: var(--measure);
+}
+.product-shot__caption {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.product-shot__note {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
 .product {
   display: flex;
   flex-direction: column;

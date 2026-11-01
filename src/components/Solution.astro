@@ -22,6 +22,24 @@ const { solution } = t;
     }
   </ol>
 
+  <figure class="product-shot reveal">
+    <div class="product-shot__frame">
+      <img
+        src={solution.screenshot.src}
+        srcset={`${solution.screenshot.src} 1x, ${solution.screenshot.src2x} 2x`}
+        width={solution.screenshot.width}
+        height={solution.screenshot.height}
+        alt={solution.screenshot.alt}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <figcaption>
+      <p class="product-shot__caption">{solution.screenshot.caption}</p>
+      <p class="product-shot__note">{solution.screenshot.note}</p>
+    </figcaption>
+  </figure>
+
   <div class="solution-grid">
     {
       solution.products.map((p, index) => (
