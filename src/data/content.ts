@@ -91,7 +91,7 @@ export const content = {
         { no: '01', title: '수집', text: '결과지·판독문·스프레드시트를 그대로' },
         { no: '02', title: '변환', text: '같은 임상 항목으로 정리' },
         { no: '03', title: '검증', text: '의심 값만 의료진 확인' },
-        { no: '04', title: '자산화', text: 'CSV · JSON 내보내기 (FHIR 예정)' },
+        { no: '04', title: '내보내기', text: 'CSV · JSON (FHIR 예정)' },
       ],
       screenshot: {
         src: '/product/medipipe-ocr.webp',
@@ -104,15 +104,15 @@ export const content = {
         zoomHint: '이미지를 누르면 크게 볼 수 있습니다.',
       },
       checks: {
-        label: '3겹 검증',
-        title: '세 번 거른 값만 확정합니다',
+        label: '3-Layer Validation',
+        title: '세 가지 검증을 모두 통과한 값만 확정합니다',
         lead: '의료에서는 그럴듯한 값을 지어내는 AI가 허용되지 않습니다.',
         items: [
-          { no: '01', title: '의미 검증', text: '수축기·이완기 혈압이 뒤바뀐 것 같은 칸 오류를 잡습니다.' },
-          { no: '02', title: '근거 연결', text: '모든 값을 원본 위치에 연결하고, 근거 없는 값은 만들지 않습니다.' },
-          { no: '03', title: '의료진 확인', text: '확인 전에는 확정되지 않고, 이력은 감사로그로 남습니다.' },
+          { no: '01', title: 'Semantic Check', text: '수축기·이완기 혈압이 뒤바뀐 칸 오류를 잡습니다.' },
+          { no: '02', title: 'Source Grounding', text: '모든 값을 원본 위치에 연결하고, 근거 없는 값은 만들지 않습니다.' },
+          { no: '03', title: 'Human-in-the-Loop', text: '확인 전에는 확정되지 않고, 이력은 감사로그로 남습니다.' },
         ],
-        note: '확인 기록은 병원 특화 지식 그래프에 쌓여 다음 과제의 검증 규칙이 됩니다.',
+        note: '의료진 확인 기록은 병원별 Knowledge Graph에 쌓여 다음 과제의 검증 규칙이 됩니다.',
       },
     },
     research: {
@@ -162,7 +162,7 @@ export const content = {
       ],
       metricsNote: '98.9%\u2060는 결과지 2,572장 기준, 94.1%\u2060는 변환 경로 확보율(인식 정확도 아님)입니다.',
       credLabel: '연구 기반',
-      credText: '다기관 임상 연구의 데이터 정제 경험을 제품으로.',
+      credText: '다기관 임상 연구에서 쌓은 데이터 정제 경험을 제품에 담았습니다.',
       credPoints: [
         '삼성서울병원 30년 폐기능 코호트 99만 건 정제',
         '5개 병원 교수진과 임상 검증',
@@ -207,7 +207,7 @@ export const content = {
         rows: [
           { label: '대상', values: ['병원 결과지 · 서술기록', '범용 문서', '정형 데이터', '텍스트 기록'] },
           { label: '임상 의미 검증', values: ['✓ 의료진 확인까지', '글자 인식까지', '—', '제한적'] },
-          { label: '환각 차단', values: ['✓ 근거 없는 값 생성 안 함', '—', '—', '별도 검증 필요'] },
+          { label: 'Hallucination 방지', values: ['✓ 근거 없는 값은 만들지 않음', '—', '—', '별도 검증 필요'] },
           { label: '설치', values: ['온프레미스 · 망분리', 'API · 클라우드', '온프레미스', '제품별 상이'] },
         ],
       },
@@ -229,14 +229,14 @@ export const content = {
       eyebrow: '로드맵',
       title: '구조화에서 플랫폼까지',
       phases: [
-        { period: "'26.4Q", name: '1차 · 구조화', items: ['결과지 인식 · 필드 추출', '필드 정확도 99.8% 목표'] },
-        { period: "'27", name: '2차 · 맥락화', items: ['서술기록 정제 · 시계열 해석'] },
-        { period: "'26.12 ~ '28", name: '3차 · 검증 · 연동', items: ['근거 연결형 HITL · 감사로그', 'FHIR KR Core 연동 API'] },
-        { period: "'29 ~", name: '4차 · 플랫폼화', items: ['장비 연동 · 원내 데이터로 AI 학습·배포'] },
+        { period: "'26.4Q", name: '1단계 · 구조화', items: ['결과지 인식 · 필드 추출', '필드 정확도 99.8% 목표'] },
+        { period: "'27", name: '2단계 · 맥락 해석', items: ['서술기록 정제 · 시계열 해석'] },
+        { period: "'26.12 ~ '28", name: '3단계 · 검증 · 연동', items: ['근거 연결형 HITL · 감사로그', 'FHIR KR Core 연동 API'] },
+        { period: "'29 ~", name: '4단계 · 플랫폼', items: ['장비 연동 · 원내 데이터로 AI 학습·배포'] },
       ],
       global: {
         label: '장기 비전',
-        text: '의료진의 판단을 데이터로 남겨, 어느 병원에서든 같은 수준의 진료와 연구를.',
+        text: '의료진의 판단을 데이터로 남겨, 어느 병원에서든 같은 수준의 진료와 연구가 가능하게 합니다.',
       },
     },
     team: {
@@ -263,7 +263,7 @@ export const content = {
       ],
       partners: {
         label: '협력 네트워크',
-        text: '자문에서 현장 적용과 구매 의향으로.',
+        text: '자문으로 시작해 현장 적용과 구매 의향으로 이어졌습니다.',
         items: [
           { name: '건양대학교병원', note: 'PFTPipe 공동 연구 · 유상 PoC', featured: true },
           { name: '이대목동병원', note: 'RxPipe PoC 완료', featured: true },
@@ -391,7 +391,7 @@ export const content = {
         { no: '01', title: 'Collect', text: 'Reports, readings, spreadsheets — as-is' },
         { no: '02', title: 'Convert', text: 'Into the same clinical fields' },
         { no: '03', title: 'Verify', text: 'Clinicians check only suspect values' },
-        { no: '04', title: 'Build the asset', text: 'Export to CSV · JSON (FHIR planned)' },
+        { no: '04', title: 'Export', text: 'CSV · JSON (FHIR planned)' },
       ],
       screenshot: {
         src: '/product/medipipe-ocr.webp',
@@ -404,13 +404,13 @@ export const content = {
         zoomHint: 'Tap the image to view it full size.',
       },
       checks: {
-        label: 'Three-layer verification',
-        title: 'Only values that pass three checks are confirmed',
+        label: '3-Layer Validation',
+        title: 'Only values that pass all three checks are confirmed',
         lead: 'In medicine, AI that invents plausible values is not acceptable.',
         items: [
-          { no: '01', title: 'Semantic check', text: 'Catches values in the wrong field, like swapped systolic and diastolic.' },
-          { no: '02', title: 'Source linking', text: 'Every value links to its source; nothing is invented.' },
-          { no: '03', title: 'Clinician confirmation', text: 'Nothing is final until reviewed, with a full audit log.' },
+          { no: '01', title: 'Semantic Check', text: 'Catches values in the wrong field, like swapped systolic and diastolic.' },
+          { no: '02', title: 'Source Grounding', text: 'Every value links to its source; nothing is invented.' },
+          { no: '03', title: 'Human-in-the-Loop', text: 'Nothing is final until reviewed, with a full audit log.' },
         ],
         note: 'Confirmations build a hospital-specific knowledge graph that becomes the next project’s rules.',
       },
@@ -563,7 +563,7 @@ export const content = {
       ],
       partners: {
         label: 'Collaboration network',
-        text: 'From advisory to deployments and purchase intent.',
+        text: 'Advisory work has grown into deployments and purchase intent.',
         items: [
           { name: 'Konyang University Hospital', note: 'PFTPipe joint research · paid PoC', featured: true },
           { name: 'Ewha Womans University Mokdong Hospital', note: 'RxPipe PoC complete', featured: true },
