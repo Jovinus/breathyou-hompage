@@ -29,7 +29,7 @@ The rendering flow:
 - `src/pages/index.astro` (`/`) and `src/pages/en/index.astro` (`/en/`) each pick `content.ko` / `content.en` and pass it to `src/components/Site.astro`.
 - `Site.astro` composes `Base.astro` (layout) + `Nav` + the nine section components + `Footer`, passing the whole content object down as the `t` prop.
 - Every section component takes `t: Content` (via `SectionProps` from `src/types.ts`) and reads its own slice (e.g. `t.hero`).
-- The eight `.section` components render through **`src/components/Section.astro`**, which owns the shared scaffold (`section` / `container` / `reveal` eyebrow + title + optional lead) and a `<slot />` for the body. `soft` toggles the `section--soft` background alternation. Its markup is 1:1 with class names in `global.css` — changing the DOM there breaks styling silently.
+- The seven `.section` components (Problem → Contact; Hero and Trust are standalone) render through **`src/components/Section.astro`**, which owns the shared scaffold (`section` / `container` / `reveal` eyebrow + title + optional lead) and a `<slot />` for the body. `soft` toggles the `section--soft` background — keep it strictly alternating down the page (two soft sections in a row read as one oversized gap). Its markup is 1:1 with class names in `global.css` — changing the DOM there breaks styling silently.
 
 **Adding a section** = add a key to both `ko` and `en` in `content.ts`, create a component in `src/components/` that wraps its body in `<Section>`, and wire it into `Site.astro`.
 

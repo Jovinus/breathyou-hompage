@@ -7,7 +7,7 @@ const { t } = Astro.props;
 const { team } = t;
 ---
 
-<Section id="team" eyebrow={team.eyebrow} title={team.title} lead={team.lead}>
+<Section id="team" eyebrow={team.eyebrow} title={team.title} lead={team.lead} soft>
   <div class="team-grid">
     {
       team.members.map((m) => (

@@ -23,7 +23,7 @@ const { solution } = t;
   </ol>
 
   <figure class="product-shot reveal">
-    <div class="product-shot__frame">
+    <a class="product-shot__frame" href={solution.screenshot.src2x} target="_blank" rel="noopener">
       <img
         src={solution.screenshot.src}
         srcset={`${solution.screenshot.src} 1x, ${solution.screenshot.src2x} 2x`}
@@ -33,9 +33,10 @@ const { solution } = t;
         loading="lazy"
         decoding="async"
       />
-    </div>
+    </a>
     <figcaption>
       <p class="product-shot__caption">{solution.screenshot.caption}</p>
+      <p class="product-shot__zoom">{solution.screenshot.zoomHint}</p>
       <p class="product-shot__note">{solution.screenshot.note}</p>
     </figcaption>
   </figure>

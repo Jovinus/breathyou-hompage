@@ -106,10 +106,11 @@ export const content = {
         src: '/product/medipipe-ocr.webp',
         src2x: '/product/medipipe-ocr@2x.webp',
         width: 1600,
-        height: 1024,
+        height: 904,
         alt: 'MediPipe 검증 화면. 왼쪽에는 폐기능검사 결과지 원본에 인식한 값이 박스로 표시되고, 오른쪽에는 항목별 인식값과 신뢰도가 표로 정리되어 신뢰도가 낮은 값 5개가 빨간색으로 강조되어 있습니다.',
         caption: 'MediPipe 검증 화면 — 결과지에서 읽은 값을 원본 위치와 함께 보여주고, 신뢰도가 낮은 값을 의료인이 먼저 확인하도록 표시합니다.',
         note: '화면 속 폐기능검사 결과지와 환자 정보는 시연용 가상 데이터입니다.',
+        zoomHint: '이미지를 누르면 크게 볼 수 있습니다.',
       },
       products: [
         {
@@ -481,10 +482,11 @@ export const content = {
         src: '/product/medipipe-ocr.webp',
         src2x: '/product/medipipe-ocr@2x.webp',
         width: 1600,
-        height: 1024,
+        height: 904,
         alt: 'The MediPipe review screen. On the left, the original pulmonary function test report with each recognized value boxed in place; on the right, a table of extracted values and confidence scores, with five low-confidence values highlighted in red.',
         caption: 'MediPipe review screen — every extracted value is shown in place on the source report, and low-confidence values are flagged for a clinician to check first.',
         note: 'The spirometry report and patient details shown are synthetic demo data.',
+        zoomHint: 'Tap the image to view it full size.',
       },
       products: [
         {

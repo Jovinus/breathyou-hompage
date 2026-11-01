@@ -873,6 +873,8 @@ textarea:focus-visible {
   margin: 24px 0 0;
 }
 .product-shot__frame {
+  display: block;
+  cursor: zoom-in;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
@@ -891,6 +893,13 @@ textarea:focus-visible {
 .product-shot__caption {
   font-size: 14px;
   color: var(--ink-soft);
+}
+.product-shot__zoom {
+  display: none;
+  margin-top: 6px;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: var(--brand);
 }
 .product-shot__note {
   margin-top: 6px;
@@ -1004,8 +1013,12 @@ textarea:focus-visible {
    ============================================================ */
 .awards {
   margin-top: 34px;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) minmax(0, 0.95fr);
+  column-gap: 26px;
 }
 .awards__label {
+  grid-column: 1 / -1;
   display: block;
   margin-bottom: 12px;
   font-size: 11.5px;
@@ -1015,8 +1028,9 @@ textarea:focus-visible {
   color: var(--ink-faint);
 }
 .award {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) minmax(0, 0.95fr);
+  grid-template-columns: subgrid;
   align-items: center;
   gap: 26px;
   padding: 22px 26px;
@@ -1026,6 +1040,7 @@ textarea:focus-visible {
   background: linear-gradient(100deg, var(--accent-tint), #fff 58%);
 }
 .award__badge {
+  justify-self: start;
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -1083,7 +1098,6 @@ textarea:focus-visible {
   gap: 16px;
 }
 .metric {
-  min-height: 176px;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -1098,7 +1112,7 @@ textarea:focus-visible {
   color: var(--ink-faint);
 }
 .metric .v {
-  margin-top: auto;
+  margin-top: 26px;
   font-size: clamp(20px, 2.2vw, 27px);
   font-weight: 800;
   color: var(--brand);
@@ -1186,10 +1200,6 @@ textarea:focus-visible {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 28px;
-}
-.papers__cred {
-  font-size: 15px;
-  color: var(--ink-soft);
 }
 .papers__title {
   margin-top: 0;
@@ -1350,6 +1360,10 @@ textarea:focus-visible {
   border-radius: var(--radius);
   background: #fff;
 }
+.market-panel {
+  display: flex;
+  flex-direction: column;
+}
 .growth-panel__head {
   display: flex;
   flex-direction: column;
@@ -1370,9 +1384,11 @@ textarea:focus-visible {
   white-space: pre-line;
 }
 .market-steps {
+  flex: 1;
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
   gap: 12px;
 }
 .market-step {
@@ -1468,126 +1484,29 @@ textarea:focus-visible {
   color: var(--ink-soft);
 }
 .timeline__content ul {
-  margin-top: 7px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px 8px;
+  margin-top: 8px;
+  display: grid;
+  gap: 5px;
 }
 .timeline__content ul li {
-  font-size: 12.5px;
-  color: var(--ink-soft);
-}
-.timeline__content ul li:not(:last-child)::after {
-  content: '·';
-  margin-left: 8px;
-  color: var(--line);
-}
-
-/* Legacy market component styles */
-.market-grid {
-  margin-top: 38px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-.market-card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 26px;
   position: relative;
-}
-.market-card:last-child {
-  background: linear-gradient(165deg, var(--brand), var(--brand-dark));
-  border-color: transparent;
-  color: #fff;
-}
-.market-card__tier {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--ink-faint);
-}
-.market-card:last-child .market-card__tier {
-  color: rgba(255, 255, 255, 0.7);
-}
-.market-card__value {
-  margin-top: 8px;
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-.market-card__label {
-  margin-top: 2px;
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--brand);
-}
-.market-card:last-child .market-card__label {
-  color: #b9c8ff;
-}
-.market-card__desc {
-  margin-top: 12px;
-  font-size: 13.5px;
+  padding-left: 12px;
+  font-size: 13px;
+  line-height: 1.5;
   color: var(--ink-soft);
 }
-.market-card:last-child .market-card__desc {
-  color: rgba(255, 255, 255, 0.85);
+.timeline__content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  opacity: 0.5;
 }
 
-/* ============================================================
-   ROADMAP
-   ============================================================ */
-.roadmap-grid {
-  margin-top: 38px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.phase {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 28px;
-}
-.phase__head {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line-soft);
-}
-.phase__period {
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--brand);
-  letter-spacing: -0.02em;
-}
-.phase__name {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--ink-soft);
-}
-.phase ul {
-  margin-top: 16px;
-  display: grid;
-  gap: 10px;
-}
-.phase li {
-  display: flex;
-  gap: 9px;
-  font-size: 14.5px;
-  color: var(--ink-soft);
-}
-.phase li::before {
-  content: '';
-  flex-shrink: 0;
-  width: 6px;
-  height: 6px;
-  margin-top: 8px;
-  border-radius: 50%;
-  background: var(--brand);
-}
 .roadmap-global {
   margin-top: 20px;
   display: flex;
@@ -1745,6 +1664,12 @@ textarea:focus-visible {
   font-size: 12.5px;
   line-height: 1.5;
   color: var(--ink-soft);
+}
+.section--soft .partners {
+  background: #fff;
+}
+.section--soft .partner-card:not(.partner-card--featured) {
+  background: var(--bg-soft);
 }
 .partner-card--featured {
   border-color: rgba(47, 91, 245, 0.24);
@@ -1989,6 +1914,9 @@ textarea:focus-visible {
 }
 
 @media (max-width: 820px) {
+  .awards {
+    display: block;
+  }
   .award {
     grid-template-columns: 1fr;
     align-items: start;
@@ -2005,7 +1933,6 @@ textarea:focus-visible {
   }
   .grid-3,
   .moat-grid,
-  .roadmap-grid,
   .solution-grid,
   .research-grid,
   .team-grid,
@@ -2082,6 +2009,7 @@ textarea:focus-visible {
   .partners {
     flex-direction: column;
     gap: 12px;
+    align-items: flex-start;
   }
 }
 
@@ -2186,9 +2114,6 @@ textarea:focus-visible {
   .papers {
     padding: 24px;
   }
-  .market-grid {
-    grid-template-columns: 1fr;
-  }
   .field-row {
     grid-template-columns: 1fr;
   }
@@ -2210,8 +2135,18 @@ textarea:focus-visible {
     flex-direction: column;
     gap: 8px;
   }
+  .product-shot__zoom {
+    display: block;
+  }
   .partners__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .partner-card {
+    min-height: 0;
+    padding: 14px;
+  }
+  .partner-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
   .compare {
     margin-right: -18px;
