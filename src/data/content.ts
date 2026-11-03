@@ -167,6 +167,7 @@ export const content = {
         '삼성서울병원 30년 폐기능 코호트 99만 건 정제',
         '5개 병원 교수진과 임상 검증',
         '국제학술지 18편 · 1저자 8편 · h-index 9',
+        'RCMLR 워크숍(NeurIPS 2026) 논문 · 1저자',
         'DeepBreath 외부검증 AUROC 0.883 (연구 단계)',
       ],
       papersTitle: '대표 논문',
@@ -188,6 +189,12 @@ export const content = {
             'Novel artificial intelligence-based technology to diagnose asthma using methacholine challenge tests',
           venue: 'Allergy, Asthma & Immunology Research (IF 4.7)',
           year: '2024',
+        },
+        {
+          title:
+            'Median alert lead time tracks how long patients were observed, and runs opposite to specificity',
+          venue: 'RCMLR Workshop @ NeurIPS 2026',
+          year: '2026',
         },
       ],
       papersLink: { label: '전체 논문 목록 보기', href: PUBLICATIONS_URL },
@@ -250,7 +257,7 @@ export const content = {
           photo: '/team/kyunghyun-lee-480.jpg',
           role: '공동창업자 · 대표 (CEO)',
           bio: '성균관대 SAIHST 디지털헬스 박사과정 · 연구개발 총괄',
-          highlights: ['의료 AI 8년차', '식약처 SaMD 인허가 2건 주도', '국제학술지 18편 · 1저자 8편', 'NeurIPS 2026 워크숍 1저자'],
+          highlights: ['의료 AI 8년차', '식약처 SaMD 인허가 2건 주도', '국제학술지 18편 · 1저자 8편', 'NeurIPS 2026 워크숍 논문 1저자'],
         },
         {
           name: '이다윤',
@@ -467,6 +474,7 @@ export const content = {
         'Cleansed a 30-year, 990K-record pulmonary cohort',
         'Clinical validation with faculty at five hospitals',
         '18 international journal papers · 8 first-author · h-index 9',
+        'RCMLR workshop paper (NeurIPS 2026) · first author',
         'DeepBreath external AUROC 0.883 (research stage)',
       ],
       papersTitle: 'Selected publications',
@@ -488,6 +496,12 @@ export const content = {
             'Novel artificial intelligence-based technology to diagnose asthma using methacholine challenge tests',
           venue: 'Allergy, Asthma & Immunology Research (IF 4.7)',
           year: '2024',
+        },
+        {
+          title:
+            'Median alert lead time tracks how long patients were observed, and runs opposite to specificity',
+          venue: 'RCMLR Workshop @ NeurIPS 2026',
+          year: '2026',
         },
       ],
       papersLink: { label: 'View full publication list', href: PUBLICATIONS_URL },
@@ -550,7 +564,7 @@ export const content = {
           photo: '/team/kyunghyun-lee-480.jpg',
           role: 'Co-founder & CEO',
           bio: 'PhD student in Digital Health, SAIHST, SKKU · leads R&D',
-          highlights: ['8 years in medical AI', 'Led 2 MFDS SaMD approvals', '18 international journal papers · 8 first-author', 'NeurIPS 2026 workshop first author'],
+          highlights: ['8 years in medical AI', 'Led 2 MFDS SaMD approvals', '18 international journal papers · 8 first-author', 'NeurIPS 2026 workshop paper, first author'],
         },
         {
           name: 'Dayoon Lee',
