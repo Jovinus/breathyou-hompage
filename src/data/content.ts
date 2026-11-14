@@ -151,6 +151,7 @@ export const content = {
       },
       awardsLabel: '수상 이력',
       awards: [
+        { badge: '장려상', title: "2026 SPRINT 창업동아리 Next Unicorn's Day", host: '한국청년기업가정신재단 이사장상 · 2026.11' },
         { badge: '우수상', title: '2026 SKKU 프리 텍스코어 사업계획서 발표', host: '성균관대학교 · 2026.10' },
         { badge: '최우수상', title: '2026 실험실 창업경진대회 IR 발표', host: '성균관대학교 · 2026.09' },
         { badge: '최우수상', title: '2026 연합 실험실창업 캠프 IR 발표', host: '성균관대학교 · 2026.08' },
@@ -458,6 +459,7 @@ export const content = {
       },
       awardsLabel: 'Awards',
       awards: [
+        { badge: 'Encouragement Award', title: "2026 SPRINT Startup Club Next Unicorn's Day", host: "Korea Entrepreneurship Foundation Chairman's Award · Nov 2026" },
         { badge: 'Excellence Award', title: '2026 SKKU Pre TeX-Corps business plan pitch', host: 'Sungkyunkwan University · Oct 2026' },
         { badge: 'Top Excellence Award', title: '2026 Lab Startup Competition IR pitch', host: 'Sungkyunkwan University · Sep 2026' },
         { badge: 'Top Excellence Award', title: '2026 Joint Lab-Startup Camp IR pitch', host: 'Sungkyunkwan University · Aug 2026' },
