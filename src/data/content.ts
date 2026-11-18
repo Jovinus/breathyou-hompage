@@ -149,9 +149,10 @@ export const content = {
         label: '확장 구조',
         text: '완성한 모듈은 다음 병원에 그대로 설치합니다 — 구축 공수 30 인·일 → 2~3 인·일.',
       },
-      awardsLabel: '수상 이력',
+      awardsLabel: '수상 · 인증',
       awards: [
         { badge: '장려상', title: "2026 SPRINT Next Unicorn's Day MediPipe 발표", host: '한국청년기업가정신재단 이사장상 · 2026.11' },
+        { badge: '수료', title: '2026 학생 창업유망팀 300+ 육성과정 (도약)', host: '교육부장관 인증 · 2026.10' },
         { badge: '우수상', title: '2026 SKKU 프리 텍스코어 사업계획서 발표', host: '성균관대학교 · 2026.10' },
         { badge: '최우수상', title: '2026 실험실 창업경진대회 IR 발표', host: '성균관대학교 · 2026.09' },
         { badge: '최우수상', title: '2026 연합 실험실창업 캠프 IR 발표', host: '성균관대학교 · 2026.08' },
@@ -457,9 +458,10 @@ export const content = {
         label: 'How it scales',
         text: 'Finished modules install as-is at the next hospital — 30 person-days down to 2–3.',
       },
-      awardsLabel: 'Awards',
+      awardsLabel: 'Awards & recognition',
       awards: [
         { badge: 'Encouragement Award', title: "2026 SPRINT Next Unicorn's Day MediPipe pitch", host: "Korea Entrepreneurship Foundation Chairman's Award · Nov 2026" },
+        { badge: 'Completed', title: '2026 Student Startup Teams 300+ Program (Leap track)', host: 'Certified by the Minister of Education · Oct 2026' },
         { badge: 'Excellence Award', title: '2026 SKKU Pre TeX-Corps business plan pitch', host: 'Sungkyunkwan University · Oct 2026' },
         { badge: 'Top Excellence Award', title: '2026 Lab Startup Competition IR pitch', host: 'Sungkyunkwan University · Sep 2026' },
         { badge: 'Top Excellence Award', title: '2026 Joint Lab-Startup Camp IR pitch', host: 'Sungkyunkwan University · Aug 2026' },
