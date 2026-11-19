@@ -156,7 +156,7 @@ export const content = {
         { badge: '우수상', title: '2026 SKKU 프리 텍스코어 사업계획서 발표', host: '성균관대학교 · 2026.10' },
         { badge: '최우수상', title: '2026 실험실 창업경진대회 IR 발표', host: '성균관대학교 · 2026.09' },
         { badge: '최우수상', title: '2026 연합 실험실창업 캠프 IR 발표', host: '성균관대학교 · 2026.08' },
-        { badge: '우수 졸업', title: '2025 예비창업패키지', host: '중소벤처기업부 · 창업진흥원 · 2025' },
+        { badge: '우수 졸업', title: '2025 예비창업패키지', host: '중소벤처기업부 · 인천대학교 · 2025' },
       ],
       metrics: [
         { value: '유상 용역', label: '진흥원 지원 건양대 과제 · 1차 완료' },
@@ -466,7 +466,7 @@ export const content = {
         { badge: 'Excellence Award', title: '2026 SKKU Pre TeX-Corps business plan pitch', host: 'Sungkyunkwan University · Oct 2026' },
         { badge: 'Top Excellence Award', title: '2026 Lab Startup Competition IR pitch', host: 'Sungkyunkwan University · Sep 2026' },
         { badge: 'Top Excellence Award', title: '2026 Joint Lab-Startup Camp IR pitch', host: 'Sungkyunkwan University · Aug 2026' },
-        { badge: 'Graduated with distinction', title: '2025 Pre-Startup Package', host: 'Ministry of SMEs and Startups · KISED · 2025' },
+        { badge: 'Graduated with distinction', title: '2025 Pre-Startup Package', host: 'Ministry of SMEs and Startups · Incheon National University · 2025' },
       ],
       metrics: [
         { value: 'Paid contract', label: 'K-DATA-funded Konyang project · phase 1 done' },
